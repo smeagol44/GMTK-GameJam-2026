@@ -1,0 +1,418 @@
+{
+	"name": "Enemies",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "OnCreate",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Enemies",
+							"sid": 977629094722274
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemies",
+							"sid": 468431355407532,
+							"parameters": {
+								"instance-variable": "blood",
+								"value": "floor(random(3,12))"
+							}
+						},
+						{
+							"callFunction": "create_enemy_floating_number",
+							"sid": 280145167829729,
+							"parameters": [
+								"Enemies.IID"
+							]
+						}
+					],
+					"sid": 777534917881732
+				}
+			],
+			"sid": 904840466494769
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Listeners",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Difuminado para borrar numeros"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 979061774027853
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "display_enemy_sangre",
+							"sid": 857915537463310,
+							"parameters": {
+								"opacity": "Self.Opacity-1"
+							}
+						}
+					],
+					"sid": 266704164572911,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "display_enemy_sangre",
+									"sid": 600006500798422,
+									"parameters": {
+										"comparison": 2,
+										"opacity": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "display_enemy_sangre",
+									"sid": 989524719128927
+								}
+							],
+							"sid": 579175781167460
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Al recibir la señal de Dios todos se inclinan ante él"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 947157237362822,
+							"parameters": {
+								"tag": "\"count_down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Enemies",
+							"sid": 518237007653129,
+							"parameters": {
+								"instance-variable": "blood",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 611596103104554,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 372996939541629,
+									"parameters": {
+										"object": "Enemies"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 302513858289988,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "[To-Do]: Los matamos los convertimos en Zombies al final?"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemies",
+											"sid": 544741000160028,
+											"parameters": {
+												"instance-variable": "blood",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Enemies",
+											"sid": 140405078342356
+										}
+									],
+									"sid": 863311128553585
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 773865832943829
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "create_enemy_floating_number",
+											"sid": 611373698727301,
+											"parameters": [
+												"Enemies.IID"
+											]
+										}
+									],
+									"sid": 482242992463599
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 100045317536102
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "create_enemy_floating_number",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "enemy_iid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 171633616939940
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 496716326828258,
+							"parameters": {
+								"object-to-create": "display_enemy_sangre",
+								"layer": "0",
+								"x": "Enemies(enemy_iid).X - Enemies(enemy_iid).Width/3",
+								"y": "Enemies(enemy_iid).Y - Enemies(enemy_iid).Height - 5",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "display_enemy_sangre",
+							"sid": 511465210872799,
+							"parameters": {
+								"text": "Enemies(enemy_IID).blood"
+							}
+						}
+					],
+					"sid": 288045580295783,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Todos los numeros mayores a 6 se pintan de light orange"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 428533109546397,
+									"parameters": {
+										"first-value": "int(display_enemy_sangre.Text)",
+										"comparison": 4,
+										"second-value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "display_enemy_sangre",
+									"sid": 604077162748098,
+									"parameters": {
+										"color": "rgbEx(255, 120, 0)"
+									}
+								}
+							],
+							"sid": 371305688503483
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 466352067450209
+								}
+							],
+							"actions": [],
+							"sid": 557846443345445
+						},
+						{
+							"eventType": "comment",
+							"text": "Los 3 numeros entre 6 y 4 se pintan de orange"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 174491497783098,
+									"parameters": {
+										"first-value": "int(display_enemy_sangre.Text)",
+										"comparison": 3,
+										"second-value": "6"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 516302585434712,
+									"parameters": {
+										"first-value": "int(display_enemy_sangre.Text)",
+										"comparison": 4,
+										"second-value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "display_enemy_sangre",
+									"sid": 388678003870526,
+									"parameters": {
+										"color": "rgbEx(255, 80, 0)"
+									}
+								}
+							],
+							"sid": 487837081518674
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 911260773934203
+								}
+							],
+							"actions": [],
+							"sid": 458623431561989
+						},
+						{
+							"eventType": "comment",
+							"text": "Los 2 numeros entre 3 y 2 se pintan de dark orange"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 435041680913415,
+									"parameters": {
+										"first-value": "int(display_enemy_sangre.Text)",
+										"comparison": 3,
+										"second-value": "3"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 352495154727218,
+									"parameters": {
+										"first-value": "int(display_enemy_sangre.Text)",
+										"comparison": 4,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "display_enemy_sangre",
+									"sid": 899470434971242,
+									"parameters": {
+										"color": "rgbEx(255, 40, 0)"
+									}
+								}
+							],
+							"sid": 300909487205317
+						},
+						{
+							"eventType": "comment",
+							"text": "El 1 se pinta de rojo"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 564832417845294,
+									"parameters": {
+										"first-value": "int(display_enemy_sangre.Text)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "display_enemy_sangre",
+									"sid": 783905429277425,
+									"parameters": {
+										"color": "rgbEx(255, 0, 0)"
+									}
+								}
+							],
+							"sid": 180065687580598
+						}
+					]
+				}
+			],
+			"sid": 179979983493108
+		}
+	],
+	"sid": 743935495865795
+}

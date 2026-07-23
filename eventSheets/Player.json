@@ -1,0 +1,824 @@
+{
+	"name": "Player",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Count",
+							"sid": 209079740106205,
+							"behaviorType": "8Direction"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 213420428402747,
+							"parameters": {
+								"instance-variable": "facing_angle",
+								"value": "Self.8Direction.MovingAngle"
+							}
+						}
+					],
+					"sid": 870066290731287,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 852586412663620,
+									"parameters": {
+										"first-value": " Count.8Direction.MovingAngle%90",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 643793410126809,
+									"parameters": {
+										"instance-variable": "attacking_angle",
+										"value": "Self.8Direction.MovingAngle"
+									}
+								}
+							],
+							"sid": 563638506580653
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 104480145256016,
+							"parameters": {
+								"instance-variable": "input_left",
+								"comparison": 5,
+								"value": "HELD"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Count",
+							"sid": 625608328904310,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 394285496968426
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 991129180451131,
+							"parameters": {
+								"instance-variable": "input_right",
+								"comparison": 5,
+								"value": "HELD"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Count",
+							"sid": 665213991665552,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 187661482356292
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 847754015780347,
+							"parameters": {
+								"instance-variable": "input_down",
+								"comparison": 5,
+								"value": "HELD"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Count",
+							"sid": 395431285459464,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "down"
+							}
+						}
+					],
+					"sid": 658047612212870
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 605019583246912,
+							"parameters": {
+								"instance-variable": "input_up",
+								"comparison": 5,
+								"value": "HELD"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Count",
+							"sid": 868773589370800,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "up"
+							}
+						}
+					],
+					"sid": 749668857920617
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "Count",
+							"sid": 392010691744433,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"timer_dash\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-at-angle",
+							"objectClass": "Count",
+							"sid": 710823135699641,
+							"parameters": {
+								"angle": "Self.dash_angle",
+								"distance": "Self.dash_speed"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Count",
+							"sid": 272997980024149,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"max-speed": "100"
+							}
+						}
+					],
+					"sid": 169202968876796
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 265357591116204
+						}
+					],
+					"actions": [
+						{
+							"id": "set-max-speed",
+							"objectClass": "Count",
+							"sid": 794428570753038,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"max-speed": "200"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 840521843636561,
+							"parameters": {
+								"instance-variable": "dash_speed",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 361000030405840
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Count",
+							"sid": 210412111503791,
+							"parameters": {
+								"object": "Collider"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-timer",
+							"objectClass": "Count",
+							"sid": 568601354055953,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"timer_dash\""
+							}
+						}
+					],
+					"sid": 397931431482654
+				}
+			],
+			"sid": 534690006846982
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Actions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 951678174875528,
+							"parameters": {
+								"instance-variable": "input_slash",
+								"comparison": 0,
+								"value": "PRESSED"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 255499540816191,
+							"parameters": {
+								"instance-variable": "dash_speed",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "command_slash",
+							"sid": 766071857411850
+						}
+					],
+					"sid": 188101672657340
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 467841091547421,
+							"parameters": {
+								"instance-variable": "input_dash",
+								"comparison": 0,
+								"value": "PRESSED"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Count",
+							"sid": 188084564968540,
+							"parameters": {
+								"animation": "\"slash\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "command_dash",
+							"sid": 924222710869745
+						}
+					],
+					"sid": 353055244822043
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 506519737338031,
+							"parameters": {
+								"instance-variable": "input_bite",
+								"comparison": 0,
+								"value": "PRESSED"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "command_bite",
+							"sid": 565492646740070
+						}
+					],
+					"sid": 536398976590433
+				},
+				{
+					"functionName": "command_slash",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 801838908974410,
+							"parameters": {
+								"animation": "\"slash\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 503734273157951,
+							"parameters": {
+								"object-to-create": "SlashHitbox",
+								"layer": "0",
+								"x": "Count.X",
+								"y": "Count.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Count",
+							"sid": 427642446291642,
+							"parameters": {
+								"child": "SlashHitbox",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-z-elevation": true,
+								"transform-w": false,
+								"transform-h": true,
+								"transform-d": true,
+								"transform-a": false,
+								"transform-o": false,
+								"transform-visibility": false,
+								"destroy-with-parent": false
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "SlashHitbox",
+							"sid": 746128656081747,
+							"parameters": {
+								"angle": "Count.attacking_angle"
+							}
+						}
+					],
+					"sid": 190109242631363
+				},
+				{
+					"functionName": "command_dash",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "Count",
+							"sid": 686942997883986,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.2",
+								"type": "once",
+								"tag": "\"timer_dash\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 744945510648541,
+							"parameters": {
+								"instance-variable": "dash_angle",
+								"value": "Self.facing_angle"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 652575010072660,
+							"parameters": {
+								"instance-variable": "dash_speed",
+								"value": "7"
+							}
+						}
+					],
+					"sid": 824281684148635
+				},
+				{
+					"functionName": "command_bite",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 785409849683120
+				}
+			],
+			"sid": 873679016158788
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 314193669457018,
+							"parameters": {
+								"instance-variable": "facing_angle",
+								"comparison": 0,
+								"value": "-90"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Count",
+							"sid": 478388506088587,
+							"parameters": {
+								"animation": "\"slash\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 326034548896556,
+							"parameters": {
+								"animation": "\"up\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 208824684009009
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 979044540263496,
+							"parameters": {
+								"instance-variable": "facing_angle",
+								"comparison": 0,
+								"value": "90"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Count",
+							"sid": 721977121053397,
+							"parameters": {
+								"animation": "\"slash\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 611460931451968,
+							"parameters": {
+								"animation": "\"down\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 770999026868693
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 382464554160122,
+							"parameters": {
+								"instance-variable": "facing_angle",
+								"comparison": 0,
+								"value": "180"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Count",
+							"sid": 624258988560739,
+							"parameters": {
+								"animation": "\"slash\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 290248324148329,
+							"parameters": {
+								"animation": "\"side\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 473174727474470
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Count",
+							"sid": 137034327872348,
+							"parameters": {
+								"instance-variable": "facing_angle",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Count",
+							"sid": 332890718904134,
+							"parameters": {
+								"animation": "\"slash\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 889545873325448,
+							"parameters": {
+								"animation": "\"side\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 653122486688506
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 235401196278224,
+							"parameters": {
+								"first-value": "Count.8Direction.VectorX",
+								"comparison": 4,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Count",
+							"sid": 691466201766167,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 301625022268883
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 766811961236493,
+							"parameters": {
+								"first-value": "Count.8Direction.VectorX",
+								"comparison": 2,
+								"second-value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Count",
+							"sid": 356454414936315,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 417030466514854
+				}
+			],
+			"sid": 264067388341637
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collisions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Escalera",
+							"sid": 323922932073288,
+							"parameters": {
+								"object": "Count"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 300283967785678,
+							"parameters": {
+								"layout": "\"Gameplay Test\""
+							}
+						}
+					],
+					"sid": 689147964610961
+				}
+			],
+			"sid": 929210528926132
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Sangre",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 621194832570582,
+							"parameters": {
+								"tag": "\"count_down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Count",
+							"sid": 228871957765605,
+							"parameters": {
+								"instance-variable": "blood",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "display_sangre",
+							"sid": 163113212625363,
+							"parameters": {
+								"text": "\"Sangre: \"&Count.blood"
+							}
+						},
+						{
+							"callFunction": "check_blood",
+							"sid": 897343406061451
+						}
+					],
+					"sid": 888442951648391
+				}
+			],
+			"sid": 670278027664587
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 621838768310803
+		},
+		{
+			"functionName": "check_blood",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Count",
+					"sid": 976300041557793,
+					"parameters": {
+						"instance-variable": "blood",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "game_over",
+					"sid": 185391979093255
+				}
+			],
+			"sid": 813564861352608
+		},
+		{
+			"functionName": "game_over",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 970380546455440,
+					"parameters": {
+						"layout": "Game Over"
+					}
+				}
+			],
+			"sid": 577957724951303
+		}
+	],
+	"sid": 746909589108384
+}

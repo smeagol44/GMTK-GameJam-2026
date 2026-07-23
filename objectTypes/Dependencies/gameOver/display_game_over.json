@@ -1,0 +1,10 @@
+{
+	"name": "display_game_over",
+	"plugin-id": "Text",
+	"sid": 774831450684941,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

@@ -1,0 +1,36 @@
+{
+	"name": "CollisionBoxes",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "SlashHitbox",
+					"sid": 588666540625581,
+					"parameters": {
+						"animation": "\"duration\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "SlashHitbox",
+					"sid": 747662054190758
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Count",
+					"sid": 758317490811935,
+					"parameters": {
+						"animation": "\"side\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 623387630443350
+		}
+	],
+	"sid": 324289410314394
+}

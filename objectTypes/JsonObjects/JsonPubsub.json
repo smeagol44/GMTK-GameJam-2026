@@ -1,0 +1,8 @@
+{
+	"name": "JsonPubsub",
+	"plugin-id": "Json",
+	"sid": 333619112889826,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": []
+}

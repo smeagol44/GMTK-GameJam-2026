@@ -1,0 +1,108 @@
+{
+	"name": "World",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 125342584598987
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 238707794542015,
+					"parameters": {
+						"object-to-create": "Dummy",
+						"layer": "0",
+						"x": "random(10,350)",
+						"y": "random(10,260)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 605023407741888,
+					"parameters": {
+						"object-to-create": "Dummy",
+						"layer": "0",
+						"x": "random(10,350)",
+						"y": "random(10,260)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 793825261135001,
+					"parameters": {
+						"object-to-create": "Dummy",
+						"layer": "0",
+						"x": "random(10,350)",
+						"y": "random(10,260)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 302976291814609,
+					"parameters": {
+						"object-to-create": "Dummy",
+						"layer": "0",
+						"x": "random(10,350)",
+						"y": "random(10,260)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 548299463500939,
+					"parameters": {
+						"object-to-create": "Dummy",
+						"layer": "0",
+						"x": "random(10,350)",
+						"y": "random(10,260)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 145989937733072
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 349340197970148,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "pubsub_publish",
+					"sid": 715178390291592,
+					"parameters": [
+						"\"count_down\"",
+						"\"\""
+					]
+				}
+			],
+			"sid": 583366652914489
+		}
+	],
+	"sid": 804304100084860
+}

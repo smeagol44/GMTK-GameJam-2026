@@ -1,0 +1,200 @@
+{
+	"name": "CountGoesDown",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 548915258234723,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				},
+				{
+					"id": "compare-y",
+					"objectClass": "Coffin",
+					"sid": 295075594468279,
+					"parameters": {
+						"comparison": 2,
+						"y-co-ordinate": "400"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 786913896219676,
+					"parameters": {
+						"object-to-create": "SmallRock",
+						"layer": "0",
+						"x": "floor(random(175,195))",
+						"y": "220",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "SmallRock",
+					"sid": 268265347278536,
+					"parameters": {
+						"angle": "45+floor(random(0,8))*5"
+					}
+				},
+				{
+					"id": "set-vector-y",
+					"objectClass": "SmallRock",
+					"sid": 618934016469208,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-y": "-500"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "SmallRock",
+					"sid": 958792657018582,
+					"parameters": {
+						"instance-variable": "xSpeed",
+						"value": "floor(random(-75,75))"
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "Coffin",
+					"sid": 679073585638736,
+					"parameters": {
+						"speed": "Self.AnimationSpeed+1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Coffin",
+					"sid": 357098099080538,
+					"parameters": {
+						"instance-variable": "ySpeed",
+						"value": "Self.ySpeed+0.1"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Coffin",
+					"sid": 942925352149275,
+					"parameters": {
+						"y": "Self.Y+Self.ySpeed"
+					}
+				}
+			],
+			"sid": 401893856849559,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Coffin",
+							"sid": 734902578289600,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "350"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Coffin",
+							"sid": 769284100917630
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 953517169157911,
+							"parameters": {
+								"layout": "Gameplay Test"
+							}
+						}
+					],
+					"sid": 514166967570234
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "SmallRock",
+					"sid": 442639077376873,
+					"parameters": {
+						"comparison": 4,
+						"y-co-ordinate": "720"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "SmallRock",
+					"sid": 571188627222675
+				}
+			],
+			"sid": 871284146295265
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 174664041411578
+				}
+			],
+			"actions": [
+				{
+					"id": "set-vector-x",
+					"objectClass": "SmallRock",
+					"sid": 774005139561344,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-x": "Self.xSpeed"
+					}
+				}
+			],
+			"sid": 836024649778505,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-frame-changed",
+							"objectClass": "Coffin",
+							"sid": 339150682134713
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 753635457432998,
+							"parameters": {
+								"audio-file": {
+									"path": "dig"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 486068132939843
+				}
+			]
+		}
+	],
+	"sid": 980235807885183
+}

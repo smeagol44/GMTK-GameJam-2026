@@ -1,0 +1,790 @@
+{
+	"name": "Inputs",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "inputEnabled",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 655268505143189
+		},
+		{
+			"eventType": "variable",
+			"name": "RELEASED",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 954568102733440
+		},
+		{
+			"eventType": "variable",
+			"name": "UNHELD",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 750764417169596
+		},
+		{
+			"eventType": "variable",
+			"name": "HELD",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 741217327683711
+		},
+		{
+			"eventType": "variable",
+			"name": "PRESSED",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 613263545990049
+		},
+		{
+			"eventType": "variable",
+			"name": "P1_KEYCODE_RIGHT",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 565264342892405
+		},
+		{
+			"eventType": "variable",
+			"name": "P1_KEYCODE_LEFT",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 209740619616412
+		},
+		{
+			"eventType": "variable",
+			"name": "P1_KEYCODE_UP",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 542781145720543
+		},
+		{
+			"eventType": "variable",
+			"name": "P1_KEYCODE_DOWN",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 971860547918114
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movement Input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 207505558806039,
+							"parameters": {
+								"key": 37
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 181535077514809,
+							"parameters": {
+								"key": 65
+							}
+						},
+						{
+							"id": "is-button-down",
+							"objectClass": "Gamepad",
+							"sid": 852060991673578,
+							"parameters": {
+								"gamepad": "0",
+								"button": "d-pad-left"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 286379493665296,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 199267496134189,
+									"parameters": {
+										"instance-variable": "input_left",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 493331960799199,
+									"parameters": {
+										"instance-variable": "input_left",
+										"value": "HELD"
+									}
+								}
+							],
+							"sid": 176596278916556
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 749590313381871
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 988826541627608,
+									"parameters": {
+										"instance-variable": "input_left",
+										"value": "PRESSED"
+									}
+								}
+							],
+							"sid": 173144759885914
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 115865992557111
+						}
+					],
+					"actions": [],
+					"sid": 744903387446764,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 313733427394339,
+									"parameters": {
+										"instance-variable": "input_left",
+										"comparison": 3,
+										"value": "UNHELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 969162257634211,
+									"parameters": {
+										"instance-variable": "input_left",
+										"value": "UNHELD"
+									}
+								}
+							],
+							"sid": 771237133028853
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 649799378491886
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 301811349039034,
+									"parameters": {
+										"instance-variable": "input_left",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 987037438781273
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 236309328903790,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 284658813120041,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "is-button-down",
+							"objectClass": "Gamepad",
+							"sid": 370515585199656,
+							"parameters": {
+								"gamepad": "0",
+								"button": "d-pad-right"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 863585349337660,
+							"parameters": {
+								"instance-variable": "input_right",
+								"value": "PRESSED"
+							}
+						}
+					],
+					"sid": 868849704669386,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 600882519712421
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 110758825296081,
+							"parameters": {
+								"instance-variable": "input_right",
+								"value": "RELEASED"
+							}
+						}
+					],
+					"sid": 476038964351738
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 227384829673695,
+							"parameters": {
+								"key": 38
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 519115318611469,
+							"parameters": {
+								"key": 87
+							}
+						},
+						{
+							"id": "is-button-down",
+							"objectClass": "Gamepad",
+							"sid": 144520126559313,
+							"parameters": {
+								"gamepad": "0",
+								"button": "d-pad-left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 642256294847724,
+							"parameters": {
+								"instance-variable": "input_up",
+								"value": "PRESSED"
+							}
+						}
+					],
+					"sid": 240667222816024,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 483821244584345
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 561714345515029,
+							"parameters": {
+								"instance-variable": "input_up",
+								"value": "RELEASED"
+							}
+						}
+					],
+					"sid": 740998122715952
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 293154534589809,
+							"parameters": {
+								"key": 40
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 950925254179969,
+							"parameters": {
+								"key": 83
+							}
+						},
+						{
+							"id": "is-button-down",
+							"objectClass": "Gamepad",
+							"sid": 682882754441359,
+							"parameters": {
+								"gamepad": "0",
+								"button": "d-pad-left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 960013146819134,
+							"parameters": {
+								"instance-variable": "input_down",
+								"value": "PRESSED"
+							}
+						}
+					],
+					"sid": 732083989015641,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 366225611581722
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 759343623261386,
+							"parameters": {
+								"instance-variable": "input_down",
+								"value": "RELEASED"
+							}
+						}
+					],
+					"sid": 714052103543174
+				}
+			],
+			"sid": 213140751311800
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Actions Input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 185290309970758,
+							"parameters": {
+								"key": 90
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 528189654615617,
+							"parameters": {
+								"key": 74
+							}
+						}
+					],
+					"actions": [],
+					"sid": 207769337809760,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 924817683123933,
+									"parameters": {
+										"instance-variable": "input_slash",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 370997818536768,
+									"parameters": {
+										"instance-variable": "input_slash",
+										"value": "HELD"
+									}
+								}
+							],
+							"sid": 997937926132790
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 258292028917732
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 315252614005035,
+									"parameters": {
+										"instance-variable": "input_slash",
+										"value": "PRESSED"
+									}
+								}
+							],
+							"sid": 742189831316617
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 769336582538700
+						}
+					],
+					"actions": [],
+					"sid": 677071684891675,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 162940191896382,
+									"parameters": {
+										"instance-variable": "input_slash",
+										"comparison": 3,
+										"value": "UNHELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 779984294869287,
+									"parameters": {
+										"instance-variable": "input_slash",
+										"value": "UNHELD"
+									}
+								}
+							],
+							"sid": 209982414746042
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 499364143063670
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 716398107426804,
+									"parameters": {
+										"instance-variable": "input_slash",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 756235830776682
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 360147078604494,
+							"parameters": {
+								"key": 88
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 385863099529777,
+							"parameters": {
+								"key": 75
+							}
+						}
+					],
+					"actions": [],
+					"sid": 135954144545770,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 744242363839741,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 261052701484663,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"value": "HELD"
+									}
+								}
+							],
+							"sid": 438802450971369
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 995955532712260
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 229481191808636,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"value": "PRESSED"
+									}
+								}
+							],
+							"sid": 240815107332046
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 399836575301489
+						}
+					],
+					"actions": [],
+					"sid": 156497389873584,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 358772846101787,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"comparison": 3,
+										"value": "UNHELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 140106817724561,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 158928557319897
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 155733158953195
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 159759160118097,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 388139856457441
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 129656001549535,
+							"parameters": {
+								"key": 67
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 660363543073909,
+							"parameters": {
+								"key": 76
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 863810457225916,
+							"parameters": {
+								"instance-variable": "input_bite",
+								"value": "PRESSED"
+							}
+						}
+					],
+					"sid": 545506917941100,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 140215156218511
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 149165906695561,
+							"parameters": {
+								"instance-variable": "input_bite",
+								"value": "RELEASED"
+							}
+						}
+					],
+					"sid": 283454298400404
+				}
+			],
+			"sid": 416370447679335
+		}
+	],
+	"sid": 490951336203300
+}

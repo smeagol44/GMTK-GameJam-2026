@@ -1,0 +1,25 @@
+{
+	"name": "Enemies",
+	"plugin-id": "Sprite",
+	"sid": 420025589252028,
+	"instanceVariables": [
+		{
+			"name": "blood",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 944580095657228
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "timer_enemy_blood",
+			"sid": 767067232178930
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Dummy"
+	]
+}

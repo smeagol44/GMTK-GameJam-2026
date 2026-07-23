@@ -1,0 +1,166 @@
+{
+	"name": "Pubsub",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "JsonPubsub",
+					"sid": 875239969557026
+				}
+			],
+			"actions": [
+				{
+					"id": "set-object",
+					"objectClass": "JsonPubsub",
+					"sid": 687999756371284,
+					"parameters": {
+						"path": "\"posts\""
+					}
+				}
+			],
+			"sid": 171207410173838
+		},
+		{
+			"functionName": "pubsub_publish",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "eventID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 613298050988039
+				},
+				{
+					"name": "data",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 256972869528584
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 391678055992028,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-value",
+							"objectClass": "JsonPubsub",
+							"sid": 558481342901608,
+							"parameters": {
+								"path": "\"posts.\"&eventID",
+								"value": "data"
+							}
+						},
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 144638533962197,
+							"parameters": {
+								"tag": "eventID"
+							}
+						}
+					],
+					"sid": 111678291016565
+				}
+			]
+		},
+		{
+			"functionName": "pubsub_getData",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "eventID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 256719482489482
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 692351899523590,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 292089077226705,
+							"parameters": {
+								"value": "JsonPubsub.Get(\"posts.\"&eventID)"
+							}
+						}
+					],
+					"sid": 853676367463361
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "debug_pressCount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 509515515378370
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 104273779936107,
+					"parameters": {
+						"key": 80
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 987915608186666,
+					"parameters": {
+						"variable": "debug_pressCount",
+						"value": "debug_pressCount+1"
+					}
+				},
+				{
+					"callFunction": "pubsub_publish",
+					"sid": 915136272071206,
+					"parameters": [
+						"\"keyPress\"",
+						"\"pressCount \"&debug_pressCount"
+					]
+				}
+			],
+			"sid": 875693239424791
+		},
+		{
+			"eventType": "comment",
+			"text": "Unused"
+		}
+	],
+	"sid": 259503841036554
+}

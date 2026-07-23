@@ -1,0 +1,30 @@
+{
+	"name": "Gameplay",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Inputs"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Player"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "CollisionBoxes"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Enemies"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Pubsub"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "World"
+		}
+	],
+	"sid": 989755045004875
+}

@@ -1,0 +1,15 @@
+{
+	"name": "display_enemy_sangre",
+	"plugin-id": "Text",
+	"sid": 650093964321792,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "alphaclamp2",
+			"name": "AlphaClamp"
+		}
+	]
+}

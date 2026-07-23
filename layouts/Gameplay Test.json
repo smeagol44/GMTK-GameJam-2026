@@ -214,10 +214,10 @@
 				{
 					"type": "Escalera",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
-						"enable-collisions": true,
+						"enable-collisions": false,
 						"live-preview": false
 					},
 					"uid": 12,
@@ -228,8 +228,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 247,
-						"y": 93,
+						"x": 192,
+						"y": 262,
 						"width": 39,
 						"height": 39,
 						"originX": 0.5,

@@ -21,10 +21,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Enemies",
-							"sid": 468431355407532,
+							"sid": 874410115743353,
 							"parameters": {
 								"instance-variable": "blood",
-								"value": "floor(random(3,12))"
+								"value": "floor(random(3,10))"
 							}
 						},
 						{

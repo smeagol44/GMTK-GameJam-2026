@@ -702,11 +702,11 @@
 					],
 					"actions": [
 						{
-							"id": "go-to-layout-by-name",
+							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 300283967785678,
+							"sid": 125115435533539,
 							"parameters": {
-								"layout": "\"Gameplay Test\""
+								"layout": "Count Goes Down"
 							}
 						}
 					],

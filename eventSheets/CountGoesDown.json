@@ -179,6 +179,20 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
+							"sid": 146978865925519,
+							"parameters": {
+								"audio-file": {
+									"path": "dig"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
 							"sid": 753635457432998,
 							"parameters": {
 								"audio-file": {

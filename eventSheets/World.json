@@ -102,6 +102,40 @@
 				}
 			],
 			"sid": 583366652914489
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 135640674838768,
+					"parameters": {
+						"first-value": "Enemies.Count",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Escalera",
+					"sid": 458825394570587,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-collisions-enabled",
+					"objectClass": "Escalera",
+					"sid": 871184516516552,
+					"parameters": {
+						"collisions": "enabled"
+					}
+				}
+			],
+			"sid": 288255058915825
 		}
 	],
 	"sid": 804304100084860

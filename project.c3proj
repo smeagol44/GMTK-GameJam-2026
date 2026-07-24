@@ -151,8 +151,8 @@
 	"objectTypes": {
 		"items": [
 			"display_sangre",
-			"display_enemy_sangre",
-			"display_room_clear"
+			"display_room_clear",
+			"placeholder"
 		],
 		"subfolders": [
 			{
@@ -221,7 +221,8 @@
 		"items": [
 			"Gameplay Test",
 			"Game Over",
-			"Count Goes Down"
+			"Count Goes Down",
+			"Intro"
 		],
 		"subfolders": []
 	},
@@ -235,7 +236,8 @@
 			"Enemies",
 			"Pubsub",
 			"World",
-			"CountGoesDown"
+			"CountGoesDown",
+			"Intro"
 		],
 		"subfolders": []
 	},

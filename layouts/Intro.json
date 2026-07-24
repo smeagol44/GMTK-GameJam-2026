@@ -1,0 +1,101 @@
+{
+	"name": "Intro",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "placeholder",
+					"properties": {
+						"text": "(The Count: Vampire Master)\n(Mort DeCay: Miner Zombie Lord)\n\n## INTRO ##\n\n[Mort arrives at castle]\n\n[The Count is unamused]\nCount: You again?\n\n[Mort smirks]\nMort DeCay: This time is different, Count... \n\n[Mort casts a terrible curse]\n\n[The Count is surprised/angry/worried]\nCount: What have you done?!\n\n[Mort laughs]\nMort DeCay: All your monsters will be turned into zombies now!\nMort DeCay: Your entire army will be mine in a matter of seconds!\n\n[The Count smirks]\nCount: Not if I eat it first...\n\n## GO TO TITLE SCREEN ##",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 7,
+						"line-height": -4,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 11,
+					"sid": 687858354781183,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 11.39410400390625,
+						"y": 15.999691009521484,
+						"width": 342.8326881214857,
+						"height": 252.9998182227639,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				}
+			],
+			"sid": 381472083052690,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		}
+	],
+	"sid": 309797280760317,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 720,
+	"height": 540,
+	"unboundedScrolling": false,
+	"sampling": "auto",
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": "Intro"
+}

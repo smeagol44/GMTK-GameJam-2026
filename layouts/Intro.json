@@ -10,10 +10,10 @@
 					"type": "placeholder",
 					"properties": {
 						"text": "(The Count: Vampire Master)\n(Mort DeCay: Miner Zombie Lord)\n\n## INTRO ##\n\n[Mort arrives at castle]\n\n[The Count is unamused]\nCount: You again?\n\n[Mort smirks]\nMort DeCay: This time is different, Count... \n\n[Mort casts a terrible curse]\n\n[The Count is surprised/angry/worried]\nCount: What have you done?!\n\n[Mort laughs]\nMort DeCay: All your monsters will be turned into zombies now!\nMort DeCay: Your entire army will be mine in a matter of seconds!\n\n[The Count smirks]\nCount: Not if I eat it first...\n\n## GO TO TITLE SCREEN ##",
-						"enable-bbcode": true,
+						"enable-bbcode": false,
 						"font": "Arial",
-						"size": 7,
-						"line-height": -4,
+						"size": 6,
+						"line-height": -3,
 						"bold": false,
 						"italic": false,
 						"color": [
@@ -42,7 +42,7 @@
 						"x": 11.39410400390625,
 						"y": 15.999691009521484,
 						"width": 342.8326881214857,
-						"height": 252.9998182227639,
+						"height": 335.5932371864262,
 						"originX": 0,
 						"originY": 0,
 						"color": [

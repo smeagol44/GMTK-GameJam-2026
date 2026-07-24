@@ -1,0 +1,26 @@
+{
+	"name": "Hitboxes",
+	"plugin-id": "Sprite",
+	"sid": 937924609349804,
+	"instanceVariables": [
+		{
+			"name": "damage",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 419692279388343
+		},
+		{
+			"name": "type",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 357197115753688
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"SlashHitbox"
+	]
+}

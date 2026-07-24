@@ -9,6 +9,10 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "[To-Do]: Hay que hacer una funcion de creación de enemigos para el nivel"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -21,10 +25,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Enemies",
-							"sid": 874410115743353,
+							"sid": 753314018379280,
 							"parameters": {
 								"instance-variable": "blood",
-								"value": "floor(random(3,10))"
+								"value": "floor(random(8,16))"
 							}
 						},
 						{
@@ -190,9 +194,59 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 301793458355442,
+							"parameters": {
+								"tag": "\"room_clear\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 429027329280452,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 597511010495063,
+									"parameters": {
+										"object": "bloodSplat"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "bloodSplat",
+									"sid": 200337395938911,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.05",
+										"off-time": "0.05",
+										"duration": "30"
+									}
+								}
+							],
+							"sid": 432187543580421
+						}
+					]
 				}
 			],
-			"sid": 100045317536102
+			"sid": 100045317536102,
+			"background-color": [
+				0.6823529411764706,
+				0.3803921568627451,
+				0.3803921568627451,
+				1
+			]
 		},
 		{
 			"eventType": "group",
@@ -409,9 +463,312 @@
 							"sid": 180065687580598
 						}
 					]
+				},
+				{
+					"functionName": "drop_blood_floor",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "blood",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 698506044613572
+						},
+						{
+							"name": "enemy_iid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 537953791073648
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 153500141961638,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-nth-instance",
+									"objectClass": "System",
+									"sid": 558776698565273,
+									"parameters": {
+										"object": "Enemies",
+										"instance": "enemy_iid"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 155036562061387,
+									"parameters": {
+										"object-to-create": "bloodSplat",
+										"layer": "0",
+										"x": "Enemies.X",
+										"y": "Enemies.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "bloodSplat",
+									"sid": 965020321300824,
+									"parameters": {
+										"instance-variable": "blood",
+										"value": "Enemies.blood"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Enemies",
+									"sid": 114242150652120
+								}
+							],
+							"sid": 339188315276750
+						}
+					]
+				},
+				{
+					"functionName": "killEnemy",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "blood",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 734976983166840
+						},
+						{
+							"name": "enemy_iid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 716967215964494
+						},
+						{
+							"name": "type",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 913243148584760
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 120068190174000,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 550803506102274,
+									"parameters": {
+										"first-value": "type",
+										"comparison": 0,
+										"second-value": "\"bite\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 427714384690832,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nth-instance",
+											"objectClass": "System",
+											"sid": 760889609022607,
+											"parameters": {
+												"object": "Enemies",
+												"instance": "enemy_iid"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Count",
+											"sid": 180003803539448,
+											"parameters": {
+												"instance-variable": "blood",
+												"value": "blood"
+											}
+										},
+										{
+											"callFunction": "pubsub_publish",
+											"sid": 220711577014823,
+											"parameters": [
+												"\"blood_up\"",
+												"\"\""
+											]
+										}
+									],
+									"sid": 443616300445418
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 678700436455614
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "drop_blood_floor",
+									"sid": 148672154897917,
+									"parameters": [
+										"blood",
+										"enemy_iid"
+									]
+								}
+							],
+							"sid": 371753786255187
+						}
+					]
 				}
 			],
-			"sid": 179979983493108
+			"sid": 179979983493108,
+			"background-color": [
+				0.047058823529411764,
+				0.4196078431372549,
+				0,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Combat",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Al colisionar con cualquier tipo de hitbox los enemigos reciben daño"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Enemies",
+							"sid": 214357095874151,
+							"parameters": {
+								"object": "Hitboxes"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Enemies",
+							"sid": 185714229236236,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						}
+					],
+					"sid": 912569514207381,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemies",
+									"sid": 868451875634447,
+									"parameters": {
+										"instance-variable": "blood",
+										"comparison": 3,
+										"value": "Hitboxes.damage"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "killEnemy",
+									"sid": 583740183892743,
+									"parameters": [
+										"Enemies.blood",
+										"Enemies.IID",
+										"\"\""
+									]
+								},
+								{
+									"callFunction": "drop_blood_floor",
+									"sid": 493918228882607,
+									"parameters": [
+										"Enemies.blood",
+										"0"
+									]
+								}
+							],
+							"sid": 901367596355539
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 880138208354243
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Enemies",
+									"sid": 298038506193628,
+									"parameters": {
+										"instance-variable": "blood",
+										"value": "Hitboxes.damage"
+									}
+								}
+							],
+							"sid": 405146399159576
+						}
+					]
+				}
+			],
+			"sid": 348261972721799,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.6745098039215687,
+				0.00784313725490196,
+				0.00784313725490196,
+				1
+			]
 		}
 	],
 	"sid": 743935495865795

@@ -14,8 +14,13 @@
 	"behaviorTypes": [
 		{
 			"behaviorId": "Timer",
-			"name": "timer_enemy_blood",
+			"name": "damaged",
 			"sid": 767067232178930
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 333557061735668
 		}
 	],
 	"effectTypes": [],

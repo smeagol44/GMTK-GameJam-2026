@@ -1,7 +1,7 @@
 {
-	"name": "Text",
+	"name": "display_room_clear",
 	"plugin-id": "Text",
-	"sid": 565499390103866,
+	"sid": 487007252760161,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],

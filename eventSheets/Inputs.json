@@ -274,18 +274,59 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 868849704669386,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 863585349337660,
-							"parameters": {
-								"instance-variable": "input_right",
-								"value": "PRESSED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 281811143288453,
+									"parameters": {
+										"instance-variable": "input_right",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 685502052923851,
+									"parameters": {
+										"instance-variable": "input_right",
+										"value": "HELD"
+									}
+								}
+							],
+							"sid": 257291711583187
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 628035407566880
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 138139133623973,
+									"parameters": {
+										"instance-variable": "input_right",
+										"value": "PRESSED"
+									}
+								}
+							],
+							"sid": 998158742170749
 						}
 					],
-					"sid": 868849704669386,
 					"isOrBlock": true
 				},
 				{
@@ -297,18 +338,59 @@
 							"sid": 600882519712421
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 476038964351738,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 110758825296081,
-							"parameters": {
-								"instance-variable": "input_right",
-								"value": "RELEASED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 439613988409219,
+									"parameters": {
+										"instance-variable": "input_right",
+										"comparison": 3,
+										"value": "UNHELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 248181528946956,
+									"parameters": {
+										"instance-variable": "input_right",
+										"value": "UNHELD"
+									}
+								}
+							],
+							"sid": 517090077728686
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 686248492061753
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 442848661780417,
+									"parameters": {
+										"instance-variable": "input_right",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 218348750445927
 						}
-					],
-					"sid": 476038964351738
+					]
 				},
 				{
 					"eventType": "block",
@@ -332,25 +414,66 @@
 						{
 							"id": "is-button-down",
 							"objectClass": "Gamepad",
-							"sid": 144520126559313,
+							"sid": 326532017418341,
 							"parameters": {
 								"gamepad": "0",
-								"button": "d-pad-left"
+								"button": "d-pad-up"
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 642256294847724,
-							"parameters": {
-								"instance-variable": "input_up",
-								"value": "PRESSED"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 240667222816024,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 895226258418685,
+									"parameters": {
+										"instance-variable": "input_up",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 117755665978330,
+									"parameters": {
+										"instance-variable": "input_up",
+										"value": "HELD"
+									}
+								}
+							],
+							"sid": 792842312775229
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 867876917970762
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 820762852572069,
+									"parameters": {
+										"instance-variable": "input_up",
+										"value": "PRESSED"
+									}
+								}
+							],
+							"sid": 749030530140048
+						}
+					],
 					"isOrBlock": true
 				},
 				{
@@ -362,18 +485,59 @@
 							"sid": 483821244584345
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 740998122715952,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 561714345515029,
-							"parameters": {
-								"instance-variable": "input_up",
-								"value": "RELEASED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 222811583368396,
+									"parameters": {
+										"instance-variable": "input_up",
+										"comparison": 3,
+										"value": "UNHELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 150888949137759,
+									"parameters": {
+										"instance-variable": "input_up",
+										"value": "UNHELD"
+									}
+								}
+							],
+							"sid": 930128463359216
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 260357493893974
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 331315984936700,
+									"parameters": {
+										"instance-variable": "input_up",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 751632774911089
 						}
-					],
-					"sid": 740998122715952
+					]
 				},
 				{
 					"eventType": "block",
@@ -397,25 +561,66 @@
 						{
 							"id": "is-button-down",
 							"objectClass": "Gamepad",
-							"sid": 682882754441359,
+							"sid": 198913866251809,
 							"parameters": {
 								"gamepad": "0",
-								"button": "d-pad-left"
+								"button": "d-pad-down"
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 960013146819134,
-							"parameters": {
-								"instance-variable": "input_down",
-								"value": "PRESSED"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 732083989015641,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 868734255352091,
+									"parameters": {
+										"instance-variable": "input_down",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 223412111040700,
+									"parameters": {
+										"instance-variable": "input_down",
+										"value": "HELD"
+									}
+								}
+							],
+							"sid": 754341452689310
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 932572167675730
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 629424104065766,
+									"parameters": {
+										"instance-variable": "input_down",
+										"value": "PRESSED"
+									}
+								}
+							],
+							"sid": 278143325236490
+						}
+					],
 					"isOrBlock": true
 				},
 				{
@@ -427,18 +632,59 @@
 							"sid": 366225611581722
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 714052103543174,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 759343623261386,
-							"parameters": {
-								"instance-variable": "input_down",
-								"value": "RELEASED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 427210086076581,
+									"parameters": {
+										"instance-variable": "input_down",
+										"comparison": 3,
+										"value": "UNHELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 697873293164594,
+									"parameters": {
+										"instance-variable": "input_down",
+										"value": "UNHELD"
+									}
+								}
+							],
+							"sid": 882746165022593
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 135948510085672
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 126473386700131,
+									"parameters": {
+										"instance-variable": "input_down",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 539099455169339
 						}
-					],
-					"sid": 714052103543174
+					]
 				}
 			],
 			"sid": 213140751311800

@@ -1,0 +1,62 @@
+{
+	"name": "goesDown",
+	"plugin-id": "Sprite",
+	"sid": 586296634205931,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 244,
+						"height": 144,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7255555,
+						"collisionPoly": {
+							"points": [
+								0.7909836065573771,
+								0.1111111111111111,
+								0.9057377049180327,
+								0.1597222222222222,
+								0.9508196721311475,
+								0.5138888888888888,
+								0.8811475409836066,
+								0.8194444444444444,
+								0.06557377049180328,
+								0.9513888888888888,
+								0.040983606557377046,
+								0.9097222222222222,
+								0.04918032786885246,
+								0.5,
+								0.11475409836065574,
+								0.18055555555555555,
+								0.1721311475409836,
+								0.13194444444444445
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 406088315572433,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

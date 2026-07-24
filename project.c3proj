@@ -71,6 +71,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
 			"author": "Scirra",
@@ -103,7 +110,7 @@
 		"items": [
 			"display_sangre",
 			"display_enemy_sangre",
-			"Text"
+			"display_room_clear"
 		],
 		"subfolders": [
 			{
@@ -116,7 +123,9 @@
 					"Dummy",
 					"Coffin",
 					"SmallRock",
-					"Sprite"
+					"floorRock",
+					"bloodSplat",
+					"goesDown"
 				],
 				"subfolders": [],
 				"name": "Sprites"
@@ -155,7 +164,8 @@
 	"containers": [],
 	"families": {
 		"items": [
-			"Enemies"
+			"Enemies",
+			"Hitboxes"
 		],
 		"subfolders": []
 	},

@@ -2,6 +2,42 @@
 	"name": "World",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "roomCleared",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 841427243387753
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 343840277117645
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 403434903312017,
+					"parameters": {
+						"variable": "roomCleared",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 110538635478268
+		},
+		{
+			"eventType": "comment",
+			"text": "Creación de dummies para testear. Esto debería borrarse"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -80,6 +116,10 @@
 			"sid": 145989937733072
 		},
 		{
+			"eventType": "comment",
+			"text": "Global timer"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -115,6 +155,15 @@
 						"comparison": 0,
 						"second-value": "0"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 201862847689971,
+					"parameters": {
+						"variable": "roomCleared"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -133,6 +182,31 @@
 					"parameters": {
 						"collisions": "enabled"
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "display_room_clear",
+					"sid": 638047583900628,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 538774028242944,
+					"parameters": {
+						"variable": "roomCleared",
+						"value": "true"
+					}
+				},
+				{
+					"callFunction": "pubsub_publish",
+					"sid": 885120684534420,
+					"parameters": [
+						"\"room_clear\"",
+						"\"\""
+					]
 				}
 			],
 			"sid": 288255058915825

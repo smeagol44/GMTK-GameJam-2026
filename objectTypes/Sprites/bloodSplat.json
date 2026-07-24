@@ -1,44 +1,46 @@
 {
-	"name": "Sprite",
+	"name": "bloodSplat",
 	"plugin-id": "Sprite",
-	"sid": 477745249312199,
+	"sid": 814359337607213,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "blood",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 144119952795100
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 459108873398218
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 252,
-						"height": 74,
+						"width": 50,
+						"height": 50,
 						"originX": 0.5,
-						"originY": -0.7027027027027027,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 9872817,
-						"collisionPoly": {
-							"points": [
-								0.003968253968253968,
-								0,
-								0.996031746031746,
-								0,
-								0.996031746031746,
-								0.9864864864864865,
-								0.003968253968253968,
-								0.9864864864864865
-							]
-						},
+						"imageSpriteId": 3098253,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 961122752622533,
+				"sid": 230220772947025,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

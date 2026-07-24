@@ -27,6 +27,24 @@
 						"animation": "\"side\"",
 						"from": "beginning"
 					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 858811253227958,
+					"parameters": {
+						"variable": "is_movement_locked",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "SlashHitbox",
+					"sid": 110500458611518,
+					"parameters": {
+						"instance-variable": "damage",
+						"value": "0"
+					}
 				}
 			],
 			"sid": 623387630443350

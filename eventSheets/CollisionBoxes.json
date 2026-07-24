@@ -2,52 +2,183 @@
 	"name": "CollisionBoxes",
 	"events": [
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "CountBite",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-animation-finished",
-					"objectClass": "SlashHitbox",
-					"sid": 588666540625581,
-					"parameters": {
-						"animation": "\"duration\""
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "BiteHitbox",
+							"sid": 712825722363097
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "BiteHitbox",
+							"sid": 379404183955103,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						}
+					],
+					"sid": 776981922554437
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-frame-changed",
+							"objectClass": "BiteHitbox",
+							"sid": 747813409351691
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "BiteHitbox",
+							"sid": 952732489594416,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "BiteHitbox",
+							"sid": 737123642719774,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						}
+					],
+					"sid": 249566531905962
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-frame-changed",
+							"objectClass": "BiteHitbox",
+							"sid": 232428581004293
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "BiteHitbox",
+							"sid": 663988989526032,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "BiteHitbox",
+							"sid": 218821250969844
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 653383225635341,
+							"parameters": {
+								"animation": "\"side\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 862203335547318,
+							"parameters": {
+								"variable": "is_movement_locked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "BiteHitbox",
+							"sid": 271782294526920,
+							"parameters": {
+								"instance-variable": "damage",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 411712969556997
 				}
 			],
-			"actions": [
+			"sid": 823530585237878
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CountSlash",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "destroy",
-					"objectClass": "SlashHitbox",
-					"sid": 747662054190758
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Count",
-					"sid": 758317490811935,
-					"parameters": {
-						"animation": "\"side\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 858811253227958,
-					"parameters": {
-						"variable": "is_movement_locked",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "SlashHitbox",
-					"sid": 110500458611518,
-					"parameters": {
-						"instance-variable": "damage",
-						"value": "0"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-frame-changed",
+							"objectClass": "SlashHitbox",
+							"sid": 509034101193424
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "SlashHitbox",
+							"sid": 494203042500709,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "SlashHitbox",
+							"sid": 580882810944230
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 972563108384800,
+							"parameters": {
+								"animation": "\"side\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 129925546476469,
+							"parameters": {
+								"variable": "is_movement_locked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "SlashHitbox",
+							"sid": 572337951675288,
+							"parameters": {
+								"instance-variable": "damage",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 403121456494609
 				}
 			],
-			"sid": 623387630443350
+			"sid": 935562764885115
 		}
 	],
 	"sid": 324289410314394

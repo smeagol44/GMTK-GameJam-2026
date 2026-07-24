@@ -12,7 +12,7 @@
 		},
 		{
 			"name": "type",
-			"type": "number",
+			"type": "string",
 			"desc": "",
 			"show": true,
 			"sid": 357197115753688
@@ -21,6 +21,7 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"SlashHitbox"
+		"SlashHitbox",
+		"BiteHitbox"
 	]
 }

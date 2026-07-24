@@ -21,10 +21,22 @@
 			"behaviorId": "Flash",
 			"name": "Flash",
 			"sid": 333557061735668
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 388413605777896
 		}
 	],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
+		}
+	],
 	"members": [
-		"Dummy"
+		"Skelly",
+		"Guts",
+		"Zombie"
 	]
 }

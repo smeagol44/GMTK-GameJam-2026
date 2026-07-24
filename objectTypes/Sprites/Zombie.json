@@ -1,0 +1,52 @@
+{
+	"name": "Zombie",
+	"plugin-id": "Sprite",
+	"sid": 464079253766993,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 29,
+						"height": 28,
+						"originX": 0.4827586206896552,
+						"originY": 0.5535714285714286,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2730102,
+						"collisionPoly": {
+							"points": [
+								0.004925657375692462,
+								0.09948987376933179,
+								0.9655169407135162,
+								0.09438767725107608,
+								0.9655169407135162,
+								1,
+								0.004926108374384097,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 391872279156162,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

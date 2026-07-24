@@ -21,25 +21,94 @@
 							"sid": 977629094722274
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 777534917881732,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemies",
-							"sid": 753314018379280,
-							"parameters": {
-								"instance-variable": "blood",
-								"value": "floor(random(8,16))"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "Enemies",
+									"sid": 449433788454699,
+									"parameters": {
+										"tags": "\"zombie\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemies",
+									"sid": 956448922748794,
+									"parameters": {
+										"instance-variable": "blood",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "create_enemy_floating_number",
+									"sid": 871138041037197,
+									"parameters": [
+										"Enemies.UID"
+									]
+								}
+							],
+							"sid": 363491562943243
 						},
 						{
-							"callFunction": "create_enemy_floating_number",
-							"sid": 280145167829729,
-							"parameters": [
-								"Enemies.IID"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 390238826222712
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemies",
+									"sid": 652966558594295,
+									"parameters": {
+										"instance-variable": "blood",
+										"value": "floor(random(8,16))"
+									}
+								},
+								{
+									"callFunction": "create_enemy_floating_number",
+									"sid": 953249139771818,
+									"parameters": [
+										"Enemies.UID"
+									]
+								}
+							],
+							"sid": 448109253996976
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 717232482542020
 						}
 					],
-					"sid": 777534917881732
+					"actions": [
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Enemies",
+							"sid": 938297180399899,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "100+Enemies.Sine.Value"
+							}
+						}
+					],
+					"sid": 408687240296252
 				}
 			],
 			"sid": 904840466494769
@@ -51,55 +120,6 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "comment",
-					"text": "Difuminado para borrar numeros"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 979061774027853
-						}
-					],
-					"actions": [
-						{
-							"id": "set-opacity",
-							"objectClass": "display_enemy_sangre",
-							"sid": 857915537463310,
-							"parameters": {
-								"opacity": "Self.Opacity-1"
-							}
-						}
-					],
-					"sid": 266704164572911,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-opacity",
-									"objectClass": "display_enemy_sangre",
-									"sid": 600006500798422,
-									"parameters": {
-										"comparison": 2,
-										"opacity": "10"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "display_enemy_sangre",
-									"sid": 989524719128927
-								}
-							],
-							"sid": 579175781167460
-						}
-					]
-				},
 				{
 					"eventType": "comment",
 					"text": "Al recibir la señal de Dios todos se inclinan ante él"
@@ -116,17 +136,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Enemies",
-							"sid": 518237007653129,
-							"parameters": {
-								"instance-variable": "blood",
-								"value": "-1"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 611596103104554,
 					"children": [
 						{
@@ -145,6 +155,43 @@
 							"sid": 302513858289988,
 							"children": [
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-tags",
+											"objectClass": "Enemies",
+											"sid": 648180273990080,
+											"parameters": {
+												"tags": "\"zombie\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 524769534678512
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 164369944284500
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Enemies",
+											"sid": 965968306754920,
+											"parameters": {
+												"instance-variable": "blood",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 171808293600272
+								},
+								{
 									"eventType": "comment",
 									"text": "[To-Do]: Los matamos los convertimos en Zombies al final?"
 								},
@@ -162,14 +209,62 @@
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 863311128553585,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Enemies",
-											"sid": 140405078342356
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-tags",
+													"objectClass": "Enemies",
+													"sid": 428098544274437,
+													"parameters": {
+														"tags": "\"zombie\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Enemies",
+													"sid": 894867852602483
+												}
+											],
+											"sid": 113157556932632
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 660871364295838
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 584556528708289,
+													"parameters": {
+														"object-to-create": "Zap",
+														"layer": "2",
+														"x": "Enemies.X",
+														"y": "Enemies.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Enemies",
+													"sid": 985579402388631
+												}
+											],
+											"sid": 380608159877327
 										}
-									],
-									"sid": 863311128553585
+									]
 								},
 								{
 									"eventType": "block",
@@ -183,9 +278,9 @@
 									"actions": [
 										{
 											"callFunction": "create_enemy_floating_number",
-											"sid": 611373698727301,
+											"sid": 439870273261687,
 											"parameters": [
-												"Enemies.IID"
+												"Enemies.UID"
 											]
 										}
 									],
@@ -251,6 +346,241 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Combat",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Al colisionar con cualquier tipo de hitbox los enemigos reciben daño"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Enemies",
+							"sid": 247552476136635,
+							"parameters": {
+								"object": "Hitboxes"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Enemies",
+							"sid": 936673259215165,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Enemies",
+							"sid": 643639537814850,
+							"behaviorType": "damaged",
+							"parameters": {
+								"duration": "0.2",
+								"type": "once",
+								"tag": "\"timer_brightness\""
+							}
+						}
+					],
+					"sid": 923701816790493,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hitboxes",
+									"sid": 521716134232360,
+									"parameters": {
+										"instance-variable": "type",
+										"comparison": 0,
+										"value": "\"bite\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 148718692079170,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemies",
+											"sid": 774000139581103,
+											"parameters": {
+												"instance-variable": "blood",
+												"comparison": 3,
+												"value": "Hitboxes.damage"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "killEnemy",
+											"sid": 999891850582061,
+											"parameters": [
+												"Enemies.blood",
+												"Enemies.UID",
+												"\"bite\""
+											]
+										}
+									],
+									"sid": 870688789360452
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 993931893829520
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemies",
+											"sid": 768059225777977,
+											"parameters": {
+												"instance-variable": "blood",
+												"value": "Hitboxes.damage"
+											}
+										},
+										{
+											"callFunction": "update_enemy_number",
+											"sid": 869434725214609,
+											"parameters": [
+												"Enemies.UID"
+											]
+										}
+									],
+									"sid": 752617788156633
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 774242833238920
+								}
+							],
+							"actions": [],
+							"sid": 572062977002319,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemies",
+											"sid": 688381829124084,
+											"parameters": {
+												"instance-variable": "blood",
+												"comparison": 3,
+												"value": "Hitboxes.damage"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "killEnemy",
+											"sid": 377168195703981,
+											"parameters": [
+												"Enemies.blood",
+												"Enemies.UID",
+												"\"\""
+											]
+										}
+									],
+									"sid": 548606375388217
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 198514261760483
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemies",
+											"sid": 509673195506833,
+											"parameters": {
+												"instance-variable": "blood",
+												"value": "Hitboxes.damage"
+											}
+										},
+										{
+											"callFunction": "update_enemy_number",
+											"sid": 239499078016382,
+											"parameters": [
+												"Enemies.UID"
+											]
+										}
+									],
+									"sid": 731038286261440
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Enemies",
+							"sid": 395997379050484,
+							"behaviorType": "damaged",
+							"parameters": {
+								"tag": "\"timer_brightness\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Enemies",
+							"sid": 967455717574982,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Brightness\""
+							}
+						}
+					],
+					"sid": 662694677158902
+				}
+			],
+			"sid": 567120270303107,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.6745098039215687,
+				0.00784313725490196,
+				0.00784313725490196,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Functions",
 			"description": "",
 			"isActiveOnStart": true,
@@ -264,7 +594,7 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "enemy_iid",
+							"name": "enemy_uid",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -273,194 +603,268 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 496716326828258,
-							"parameters": {
-								"object-to-create": "display_enemy_sangre",
-								"layer": "0",
-								"x": "Enemies(enemy_iid).X - Enemies(enemy_iid).Width/3",
-								"y": "Enemies(enemy_iid).Y - Enemies(enemy_iid).Height - 5",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "display_enemy_sangre",
-							"sid": 511465210872799,
-							"parameters": {
-								"text": "Enemies(enemy_IID).blood"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 288045580295783,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "Todos los numeros mayores a 6 se pintan de light orange"
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 428533109546397,
+									"id": "pick-by-unique-id",
+									"objectClass": "Enemies",
+									"sid": 755721971594612,
 									"parameters": {
-										"first-value": "int(display_enemy_sangre.Text)",
-										"comparison": 4,
-										"second-value": "6"
+										"unique-id": "enemy_uid"
 									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-font-color",
-									"objectClass": "display_enemy_sangre",
-									"sid": 604077162748098,
-									"parameters": {
-										"color": "rgbEx(255, 120, 0)"
-									}
-								}
-							],
-							"sid": 371305688503483
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 466352067450209
 								}
 							],
 							"actions": [],
-							"sid": 557846443345445
-						},
-						{
-							"eventType": "comment",
-							"text": "Los 3 numeros entre 6 y 4 se pintan de orange"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"sid": 311951419125030,
+							"children": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 174491497783098,
-									"parameters": {
-										"first-value": "int(display_enemy_sangre.Text)",
-										"comparison": 3,
-										"second-value": "6"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 516302585434712,
-									"parameters": {
-										"first-value": "int(display_enemy_sangre.Text)",
-										"comparison": 4,
-										"second-value": "3"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-child-count",
+											"objectClass": "Enemies",
+											"sid": 725704722849032,
+											"parameters": {
+												"which": "own",
+												"comparison": 0,
+												"count": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 461172844431318,
+											"parameters": {
+												"object-to-create": "Numbers",
+												"layer": "3",
+												"x": "Enemies.X",
+												"y": "Enemies.Y -floor(Enemies.Height)",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "Enemies",
+											"sid": 244997486622981,
+											"parameters": {
+												"child": "Numbers",
+												"transform-x": false,
+												"transform-y": false,
+												"transform-z-elevation": false,
+												"transform-w": false,
+												"transform-h": false,
+												"transform-d": false,
+												"transform-a": false,
+												"transform-o": false,
+												"transform-visibility": false,
+												"destroy-with-parent": false
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Numbers",
+											"sid": 550268079525102,
+											"parameters": {
+												"text": "Enemies.blood"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Numbers",
+											"sid": 862448215495634,
+											"parameters": {
+												"instance-variable": "enemy_uid",
+												"value": "Enemies.UID"
+											}
+										},
+										{
+											"id": "set-x",
+											"objectClass": "Numbers",
+											"sid": 892612308739489,
+											"parameters": {
+												"x": "Enemies.X -floor(Enemies.Width/2) +floor(Numbers.Width/3)"
+											}
+										}
+									],
+									"sid": 595266581516889,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Todos los numeros mayores a 6 se pintan de light orange"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 936326051224489,
+													"parameters": {
+														"first-value": "int(Numbers.Text)",
+														"comparison": 4,
+														"second-value": "6"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Numbers",
+													"sid": 484472597287613,
+													"parameters": {
+														"color": "rgbEx(255, 120, 0)"
+													}
+												}
+											],
+											"sid": 611061764611605
+										},
+										{
+											"eventType": "comment",
+											"text": "Los 3 numeros entre 6 y 4 se pintan de orange"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 777459064737363,
+													"parameters": {
+														"first-value": "int(Numbers.Text)",
+														"comparison": 3,
+														"second-value": "6"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 926370856708982,
+													"parameters": {
+														"first-value": "int(Numbers.Text)",
+														"comparison": 4,
+														"second-value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Numbers",
+													"sid": 857994836829222,
+													"parameters": {
+														"color": "rgbEx(255, 80, 0)"
+													}
+												}
+											],
+											"sid": 456636009309729
+										},
+										{
+											"eventType": "comment",
+											"text": "Los 2 numeros entre 3 y 2 se pintan de dark orange"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 869803092918443,
+													"parameters": {
+														"first-value": "int(Numbers.Text)",
+														"comparison": 3,
+														"second-value": "3"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 594879797570425,
+													"parameters": {
+														"first-value": "int(Numbers.Text)",
+														"comparison": 4,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Numbers",
+													"sid": 887166668518401,
+													"parameters": {
+														"color": "rgbEx(255, 40, 0)"
+													}
+												}
+											],
+											"sid": 943417581103682
+										},
+										{
+											"eventType": "comment",
+											"text": "El 1 se pinta de rojo"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 556137365359285,
+													"parameters": {
+														"first-value": "int(Numbers.Text)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Numbers",
+													"sid": 664661498455791,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												}
+											],
+											"sid": 732775157503541
+										},
+										{
+											"eventType": "comment",
+											"text": "El 0 se autodestruye"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 800562616756454,
+													"parameters": {
+														"first-value": "int(Numbers.Text)",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Numbers",
+													"sid": 342651962734000
+												}
+											],
+											"sid": 299683906109151
+										}
+									]
 								}
-							],
-							"actions": [
-								{
-									"id": "set-font-color",
-									"objectClass": "display_enemy_sangre",
-									"sid": 388678003870526,
-									"parameters": {
-										"color": "rgbEx(255, 80, 0)"
-									}
-								}
-							],
-							"sid": 487837081518674
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 911260773934203
-								}
-							],
-							"actions": [],
-							"sid": 458623431561989
-						},
-						{
-							"eventType": "comment",
-							"text": "Los 2 numeros entre 3 y 2 se pintan de dark orange"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 435041680913415,
-									"parameters": {
-										"first-value": "int(display_enemy_sangre.Text)",
-										"comparison": 3,
-										"second-value": "3"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 352495154727218,
-									"parameters": {
-										"first-value": "int(display_enemy_sangre.Text)",
-										"comparison": 4,
-										"second-value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-font-color",
-									"objectClass": "display_enemy_sangre",
-									"sid": 899470434971242,
-									"parameters": {
-										"color": "rgbEx(255, 40, 0)"
-									}
-								}
-							],
-							"sid": 300909487205317
-						},
-						{
-							"eventType": "comment",
-							"text": "El 1 se pinta de rojo"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 564832417845294,
-									"parameters": {
-										"first-value": "int(display_enemy_sangre.Text)",
-										"comparison": 0,
-										"second-value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-font-color",
-									"objectClass": "display_enemy_sangre",
-									"sid": 783905429277425,
-									"parameters": {
-										"color": "rgbEx(255, 0, 0)"
-									}
-								}
-							],
-							"sid": 180065687580598
+							]
 						}
 					]
 				},
@@ -480,7 +884,7 @@
 							"sid": 698506044613572
 						},
 						{
-							"name": "enemy_iid",
+							"name": "enemy_uid",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -496,12 +900,11 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-nth-instance",
-									"objectClass": "System",
-									"sid": 558776698565273,
+									"id": "pick-by-unique-id",
+									"objectClass": "Enemies",
+									"sid": 806966026813886,
 									"parameters": {
-										"object": "Enemies",
-										"instance": "enemy_iid"
+										"unique-id": "enemy_uid"
 									}
 								}
 							],
@@ -509,10 +912,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 155036562061387,
+									"sid": 396610555770563,
 									"parameters": {
 										"object-to-create": "bloodSplat",
-										"layer": "0",
+										"layer": "2",
 										"x": "Enemies.X",
 										"y": "Enemies.Y",
 										"create-hierarchy": false,
@@ -554,7 +957,7 @@
 							"sid": 734976983166840
 						},
 						{
-							"name": "enemy_iid",
+							"name": "enemy_uid",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -594,12 +997,11 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "pick-nth-instance",
-											"objectClass": "System",
-											"sid": 760889609022607,
+											"id": "pick-by-unique-id",
+											"objectClass": "Enemies",
+											"sid": 168162884559592,
 											"parameters": {
-												"object": "Enemies",
-												"instance": "enemy_iid"
+												"unique-id": "enemy_uid"
 											}
 										}
 									],
@@ -620,6 +1022,11 @@
 												"\"blood_up\"",
 												"\"\""
 											]
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Enemies",
+											"sid": 702815784191149
 										}
 									],
 									"sid": 443616300445418
@@ -641,11 +1048,84 @@
 									"sid": 148672154897917,
 									"parameters": [
 										"blood",
-										"enemy_iid"
+										"enemy_uid"
 									]
 								}
 							],
 							"sid": 371753786255187
+						}
+					]
+				},
+				{
+					"functionName": "update_enemy_number",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "enemy_uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 974521950528570
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 534352026254217,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Enemies",
+									"sid": 446379885163687,
+									"parameters": {
+										"unique-id": "enemy_uid"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 781373679521106,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 345633273509891,
+											"parameters": {
+												"object": "Numbers",
+												"expression": "Numbers.enemy_uid",
+												"comparison": 0,
+												"value": "Enemies.UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Numbers",
+											"sid": 905775000369393,
+											"parameters": {
+												"text": "Enemies.blood"
+											}
+										},
+										{
+											"id": "restart-fade",
+											"objectClass": "Numbers",
+											"sid": 226756438836449,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 273938509850700
+								}
+							]
 						}
 					]
 				}
@@ -659,116 +1139,14 @@
 			]
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Combat",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Al colisionar con cualquier tipo de hitbox los enemigos reciben daño"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Enemies",
-							"sid": 214357095874151,
-							"parameters": {
-								"object": "Hitboxes"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "flash",
-							"objectClass": "Enemies",
-							"sid": 185714229236236,
-							"behaviorType": "Flash",
-							"parameters": {
-								"on-time": "0.1",
-								"off-time": "0.1",
-								"duration": "1.0"
-							}
-						}
-					],
-					"sid": 912569514207381,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Enemies",
-									"sid": 868451875634447,
-									"parameters": {
-										"instance-variable": "blood",
-										"comparison": 3,
-										"value": "Hitboxes.damage"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "killEnemy",
-									"sid": 583740183892743,
-									"parameters": [
-										"Enemies.blood",
-										"Enemies.IID",
-										"\"\""
-									]
-								},
-								{
-									"callFunction": "drop_blood_floor",
-									"sid": 493918228882607,
-									"parameters": [
-										"Enemies.blood",
-										"0"
-									]
-								}
-							],
-							"sid": 901367596355539
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 880138208354243
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Enemies",
-									"sid": 298038506193628,
-									"parameters": {
-										"instance-variable": "blood",
-										"value": "Hitboxes.damage"
-									}
-								}
-							],
-							"sid": 405146399159576
-						}
-					]
-				}
-			],
-			"sid": 348261972721799,
-			"text-color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"background-color": [
-				0.6745098039215687,
-				0.00784313725490196,
-				0.00784313725490196,
-				1
-			]
+			"eventType": "variable",
+			"name": "DEBUG",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 990982446138197
 		}
 	],
 	"sid": 743935495865795

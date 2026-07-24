@@ -1,0 +1,66 @@
+{
+	"name": "Guts",
+	"plugin-id": "Sprite",
+	"sid": 259992282894415,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 23,
+						"height": 32,
+						"originX": 0.5217391304347826,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5654702,
+						"collisionPoly": {
+							"points": [
+								0.5652173913043478,
+								0.0625,
+								0.9130434782608695,
+								0.40625,
+								0.9565217391304348,
+								0.46875,
+								0.9565217391304348,
+								0.78125,
+								0.782608695652174,
+								0.96875,
+								0.30434782608695654,
+								0.96875,
+								0.21739130434782608,
+								0.90625,
+								0.08695652173913043,
+								0.78125,
+								0.04347826086956529,
+								0.6875,
+								0.04347826086956529,
+								0.5,
+								0.08695652173913043,
+								0.4375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 289066976868004,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

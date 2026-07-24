@@ -50,6 +50,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -66,6 +73,13 @@
 			"type": "behavior",
 			"id": "EightDir",
 			"name": "8 Direction",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -120,12 +134,17 @@
 					"Escalera",
 					"SlashHitbox",
 					"BiteHitbox",
-					"Dummy",
+					"Skelly",
 					"Coffin",
 					"SmallRock",
 					"floorRock",
 					"bloodSplat",
-					"goesDown"
+					"goesDown",
+					"Numbers",
+					"Sprite",
+					"Zap",
+					"Guts",
+					"Zombie"
 				],
 				"subfolders": [],
 				"name": "Sprites"

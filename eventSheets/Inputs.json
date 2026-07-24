@@ -992,18 +992,59 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 545506917941100,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 863810457225916,
-							"parameters": {
-								"instance-variable": "input_bite",
-								"value": "PRESSED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 655466958125847,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 507002905177512,
+									"parameters": {
+										"instance-variable": "input_bite",
+										"value": "HELD"
+									}
+								}
+							],
+							"sid": 244135548582920
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 258649460766836
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 379311661335187,
+									"parameters": {
+										"instance-variable": "input_bite",
+										"value": "PRESSED"
+									}
+								}
+							],
+							"sid": 648420592368422
 						}
 					],
-					"sid": 545506917941100,
 					"isOrBlock": true
 				},
 				{
@@ -1012,21 +1053,62 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 140215156218511
+							"sid": 255465928151838
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 677036946619122,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 149165906695561,
-							"parameters": {
-								"instance-variable": "input_bite",
-								"value": "RELEASED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 743190337391061,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"comparison": 3,
+										"value": "UNHELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 568572164753320,
+									"parameters": {
+										"instance-variable": "input_bite",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 317292651777742
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 142499281825895
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 158935794538761,
+									"parameters": {
+										"instance-variable": "input_bite",
+										"value": "RELEASED"
+									}
+								}
+							],
+							"sid": 626827625491560
 						}
-					],
-					"sid": 283454298400404
+					]
 				}
 			],
 			"sid": 416370447679335

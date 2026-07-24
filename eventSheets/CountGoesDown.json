@@ -65,18 +65,18 @@
 				{
 					"id": "set-animation-speed",
 					"objectClass": "Coffin",
-					"sid": 679073585638736,
+					"sid": 772279878216387,
 					"parameters": {
-						"speed": "Self.AnimationSpeed+1"
+						"speed": "Self.AnimationSpeed+2"
 					}
 				},
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Coffin",
-					"sid": 357098099080538,
+					"sid": 159994257481757,
 					"parameters": {
 						"instance-variable": "ySpeed",
-						"value": "Self.ySpeed+0.1"
+						"value": "Self.ySpeed+0.2"
 					}
 				},
 				{

@@ -12,28 +12,6 @@
 			"sid": 841427243387753
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 343840277117645
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 403434903312017,
-					"parameters": {
-						"variable": "roomCleared",
-						"value": "false"
-					}
-				}
-			],
-			"sid": 110538635478268
-		},
-		{
 			"eventType": "comment",
 			"text": "Creación de dummies para testear. Esto debería borrarse"
 		},
@@ -48,12 +26,26 @@
 			],
 			"actions": [
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 738586781668027,
+					"parameters": {
+						"variable": "roomCleared",
+						"value": "false"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Enemies",
+					"sid": 256931938377350
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 238707794542015,
+					"sid": 988640897087793,
 					"parameters": {
-						"object-to-create": "Dummy",
-						"layer": "0",
+						"object-to-create": "Skelly",
+						"layer": "2",
 						"x": "random(10,350)",
 						"y": "random(10,260)",
 						"create-hierarchy": false,
@@ -63,10 +55,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 605023407741888,
+					"sid": 148945579292034,
 					"parameters": {
-						"object-to-create": "Dummy",
-						"layer": "0",
+						"object-to-create": "Skelly",
+						"layer": "2",
 						"x": "random(10,350)",
 						"y": "random(10,260)",
 						"create-hierarchy": false,
@@ -76,10 +68,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 793825261135001,
+					"sid": 162826846527500,
 					"parameters": {
-						"object-to-create": "Dummy",
-						"layer": "0",
+						"object-to-create": "Skelly",
+						"layer": "2",
 						"x": "random(10,350)",
 						"y": "random(10,260)",
 						"create-hierarchy": false,
@@ -89,10 +81,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 302976291814609,
+					"sid": 662072832749365,
 					"parameters": {
-						"object-to-create": "Dummy",
-						"layer": "0",
+						"object-to-create": "Skelly",
+						"layer": "2",
 						"x": "random(10,350)",
 						"y": "random(10,260)",
 						"create-hierarchy": false,
@@ -102,10 +94,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 548299463500939,
+					"sid": 766464798810579,
 					"parameters": {
-						"object-to-create": "Dummy",
-						"layer": "0",
+						"object-to-create": "Skelly",
+						"layer": "2",
 						"x": "random(10,350)",
 						"y": "random(10,260)",
 						"create-hierarchy": false,
@@ -210,6 +202,82 @@
 				}
 			],
 			"sid": 288255058915825
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-frame-changed",
+					"objectClass": "Zap",
+					"sid": 883815650453674
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Zap",
+					"sid": 844166844232117,
+					"parameters": {
+						"comparison": 0,
+						"number": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 236481921890828,
+					"parameters": {
+						"object-to-create": "Zombie",
+						"layer": "2",
+						"x": "Zap.X",
+						"y": "Zap.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "Zombie",
+					"sid": 620144499390801,
+					"behaviorType": "damaged",
+					"parameters": {
+						"duration": "0.3",
+						"type": "once",
+						"tag": "\"timer_brightness\""
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Zombie",
+					"sid": 360492639064717,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Brightness\""
+					}
+				}
+			],
+			"sid": 274041532903840
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "Zap",
+					"sid": 362042088515464,
+					"parameters": {
+						"animation": "\"default\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Zap",
+					"sid": 294473898385583
+				}
+			],
+			"sid": 154020796692582
 		}
 	],
 	"sid": 804304100084860

@@ -421,6 +421,15 @@
 								"comparison": 0,
 								"value": "PRESSED"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 722347376557616,
+							"parameters": {
+								"variable": "is_movement_locked"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -463,10 +472,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 503734273157951,
+							"sid": 936878673613404,
 							"parameters": {
 								"object-to-create": "SlashHitbox",
-								"layer": "0",
+								"layer": "2",
 								"x": "Count.X",
 								"y": "Count.Y",
 								"create-hierarchy": false,
@@ -564,8 +573,99 @@
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
-					"sid": 785409849683120
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 885703455525402,
+							"parameters": {
+								"variable": "is_movement_locked",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 929358160941207,
+							"parameters": {
+								"animation": "\"bite\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 636731102398727,
+							"parameters": {
+								"object-to-create": "BiteHitbox",
+								"layer": "2",
+								"x": "Count.X",
+								"y": "Count.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Count",
+							"sid": 724552025923596,
+							"parameters": {
+								"child": "BiteHitbox",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-z-elevation": true,
+								"transform-w": false,
+								"transform-h": true,
+								"transform-d": false,
+								"transform-a": false,
+								"transform-o": false,
+								"transform-visibility": false,
+								"destroy-with-parent": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "BiteHitbox",
+							"sid": 463927850003072,
+							"parameters": {
+								"instance-variable": "damage",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "BiteHitbox",
+							"sid": 258600262715202,
+							"parameters": {
+								"instance-variable": "type",
+								"value": "\"bite\""
+							}
+						}
+					],
+					"sid": 785409849683120,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-mirrored",
+									"objectClass": "Count",
+									"sid": 593914185817783
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "BiteHitbox",
+									"sid": 541607236226341,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 808815712434403
+						}
+					]
 				}
 			],
 			"sid": 873679016158788

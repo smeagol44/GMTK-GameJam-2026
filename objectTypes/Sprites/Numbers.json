@@ -1,0 +1,37 @@
+{
+	"name": "Numbers",
+	"plugin-id": "Spritefont2",
+	"sid": 494669257232380,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "enemy_uid",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 362467205463835
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 959143037429553
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 24,
+		"height": 49,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 5197834,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

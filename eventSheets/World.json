@@ -53,6 +53,11 @@
 					}
 				},
 				{
+					"id": "move-to-bottom",
+					"objectClass": "Skelly",
+					"sid": 526206283687236
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
 					"sid": 148945579292034,
@@ -64,6 +69,11 @@
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
+				},
+				{
+					"id": "move-to-bottom",
+					"objectClass": "Skelly",
+					"sid": 811888117129915
 				},
 				{
 					"id": "create-object",
@@ -79,6 +89,11 @@
 					}
 				},
 				{
+					"id": "move-to-bottom",
+					"objectClass": "Skelly",
+					"sid": 886773959678057
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
 					"sid": 662072832749365,
@@ -92,6 +107,11 @@
 					}
 				},
 				{
+					"id": "move-to-bottom",
+					"objectClass": "Skelly",
+					"sid": 587434966177851
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
 					"sid": 766464798810579,
@@ -103,6 +123,11 @@
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
+				},
+				{
+					"id": "move-to-bottom",
+					"objectClass": "Skelly",
+					"sid": 945959908246315
 				}
 			],
 			"sid": 145989937733072
@@ -121,6 +146,15 @@
 					"parameters": {
 						"interval-seconds": "1.0"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 897643525999408,
+					"parameters": {
+						"variable": "roomCleared"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -156,6 +190,16 @@
 						"variable": "roomCleared"
 					},
 					"isInverted": true
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 209960467869584,
+					"parameters": {
+						"first-value": "Zap.Count",
+						"comparison": 0,
+						"second-value": "0"
+					}
 				}
 			],
 			"actions": [
@@ -236,6 +280,11 @@
 					}
 				},
 				{
+					"id": "move-to-bottom",
+					"objectClass": "Zombie",
+					"sid": 582138866994707
+				},
+				{
 					"id": "start-timer",
 					"objectClass": "Zombie",
 					"sid": 620144499390801,
@@ -278,6 +327,296 @@
 				}
 			],
 			"sid": 154020796692582
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Blood Absorb",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 500965001001967,
+							"parameters": {
+								"variable": "roomCleared"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 313431248936889,
+							"parameters": {
+								"variable": "is_movement_locked",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 306075724308980,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Count",
+							"sid": 732445658891650,
+							"parameters": {
+								"color": "rgbEx(255, 0, 20)"
+							}
+						}
+					],
+					"sid": 584516256844458,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 845063695599164,
+									"parameters": {
+										"interval-seconds": "0.2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 547483732044897,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 633318693750610,
+											"parameters": {
+												"first-value": "bloodSplat.Count",
+												"comparison": 0,
+												"second-value": "0"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 465137391941892,
+											"parameters": {
+												"first-value": "bloodDrop.Count",
+												"comparison": 0,
+												"second-value": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 617245720972740,
+											"parameters": {
+												"audio-file": {
+													"path": "absorb"
+												},
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"absorb\""
+											}
+										}
+									],
+									"sid": 234588801116187,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 994295063908204
+										}
+									],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 849456845099509,
+											"parameters": {
+												"layout": "Count Goes Down"
+											}
+										}
+									],
+									"sid": 958429205027118
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 456413036258582,
+											"parameters": {
+												"object": "bloodSplat"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 384256645113371,
+											"parameters": {
+												"object-to-create": "bloodDrop",
+												"layer": "0",
+												"x": "bloodSplat.X",
+												"y": "bloodSplat.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "bloodSplat",
+											"sid": 211250289972259,
+											"parameters": {
+												"instance-variable": "blood",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "bloodSplat",
+											"sid": 806501975790317,
+											"parameters": {
+												"width": "Self.Width*0.75",
+												"height": "Self.Height*0.75"
+											}
+										}
+									],
+									"sid": 259879115088415,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "bloodSplat",
+													"sid": 365125236592032,
+													"parameters": {
+														"instance-variable": "blood",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "bloodSplat",
+													"sid": 617005293388500
+												}
+											],
+											"sid": 847911802886870
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-moving",
+													"objectClass": "bloodDrop",
+													"sid": 955517051627220,
+													"behaviorType": "MoveTo"
+												}
+											],
+											"actions": [],
+											"sid": 395678541701289
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 423950327976418
+												}
+											],
+											"actions": [
+												{
+													"id": "move-to-object",
+													"objectClass": "bloodDrop",
+													"sid": 324335027603350,
+													"behaviorType": "MoveTo",
+													"parameters": {
+														"object": "Count",
+														"image-point": "0",
+														"mode": "direct"
+													}
+												}
+											],
+											"sid": 497481933431178
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "bloodDrop",
+							"sid": 795556829872548,
+							"parameters": {
+								"object": "Count"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bloodDrop",
+							"sid": 541026623457479
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Count",
+							"sid": 117245185074317,
+							"parameters": {
+								"instance-variable": "blood",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "pubsub_publish",
+							"sid": 379491871338891,
+							"parameters": [
+								"\"blood_up\"",
+								"\"\""
+							]
+						}
+					],
+					"sid": 180553186050587
+				}
+			],
+			"sid": 956141944899011,
+			"background-color": [
+				1,
+				0,
+				0,
+				1
+			]
 		}
 	],
 	"sid": 804304100084860

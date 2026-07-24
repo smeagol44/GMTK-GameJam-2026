@@ -260,6 +260,20 @@
 													"id": "destroy",
 													"objectClass": "Enemies",
 													"sid": 985579402388631
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 388059580130756,
+													"parameters": {
+														"audio-file": {
+															"path": "zap"
+														},
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 380608159877327
@@ -287,50 +301,6 @@
 									"sid": 482242992463599
 								}
 							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-signal",
-							"objectClass": "System",
-							"sid": 301793458355442,
-							"parameters": {
-								"tag": "\"room_clear\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 429027329280452,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 597511010495063,
-									"parameters": {
-										"object": "bloodSplat"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "flash",
-									"objectClass": "bloodSplat",
-									"sid": 200337395938911,
-									"behaviorType": "Flash",
-									"parameters": {
-										"on-time": "0.05",
-										"off-time": "0.05",
-										"duration": "30"
-									}
-								}
-							],
-							"sid": 432187543580421
 						}
 					]
 				}
@@ -390,6 +360,48 @@
 					],
 					"sid": 923701816790493,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 549406991574351,
+									"parameters": {
+										"tag": "\"hit\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 752406978231498
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 101126566269951
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 729478083630322,
+									"parameters": {
+										"audio-file": {
+											"path": "hit"
+										},
+										"loop": "not-looping",
+										"volume": "1",
+										"stereo-pan": "0",
+										"tag-optional": "\"hit\""
+									}
+								}
+							],
+							"sid": 846497493418993
+						},
 						{
 							"eventType": "block",
 							"conditions": [

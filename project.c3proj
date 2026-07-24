@@ -92,8 +92,29 @@
 		},
 		{
 			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Move To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Persist",
+			"name": "Persist",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -115,6 +136,13 @@
 			"type": "effect",
 			"id": "alphaclamp2",
 			"name": "Alpha clamp",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "brightness",
+			"name": "Brightness",
 			"author": "Scirra",
 			"bundled": false
 		}
@@ -144,7 +172,8 @@
 					"Sprite",
 					"Zap",
 					"Guts",
-					"Zombie"
+					"Zombie",
+					"bloodDrop"
 				],
 				"subfolders": [],
 				"name": "Sprites"
@@ -221,6 +250,54 @@
 					"name": "dig.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 993044960918942,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "absorb.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 127156875047491,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "hurt.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 480925626968174,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "hit.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 795274529038852,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "slash.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 145054435275174,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "zap.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 136140190867500,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "dash.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 842409126179844,
 					"file-info": {
 						"purpose": "none"
 					}

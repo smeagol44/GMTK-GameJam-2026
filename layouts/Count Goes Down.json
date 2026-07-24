@@ -7,6 +7,39 @@
 			"subLayers": [],
 			"instances": [
 				{
+					"type": "Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29,
+					"sid": 267007159470112,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 211.28353767966274,
+						"y": 105.00088395643948,
+						"width": 576.1842216377448,
+						"height": 432.13816622830865,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "goesDown",
 					"properties": {
 						"initially-visible": true,
@@ -203,9 +236,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.011764705882352941,
+				0.011764705882352941,
+				0.011764705882352941,
 				1
 			],
 			"isTransparent": false,

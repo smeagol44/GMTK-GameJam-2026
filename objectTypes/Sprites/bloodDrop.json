@@ -1,7 +1,7 @@
 {
-	"name": "bloodSplat",
+	"name": "bloodDrop",
 	"plugin-id": "Sprite",
-	"sid": 814359337607213,
+	"sid": 410658694836007,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
@@ -10,31 +10,65 @@
 			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 144119952795100
+			"sid": 996646124206136
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 326743753257777
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 50,
-						"height": 50,
+						"width": 10,
+						"height": 10,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3098253,
+						"imageSpriteId": 6254656,
+						"collisionPoly": {
+							"points": [
+								0.4,
+								0.1,
+								0.7,
+								0.1,
+								0.9,
+								0.2,
+								1,
+								0.4,
+								1,
+								0.7,
+								0.9,
+								0.9,
+								0.7,
+								1,
+								0.4,
+								1,
+								0.2,
+								0.9,
+								0.1,
+								0.7,
+								0.1,
+								0.4,
+								0.2,
+								0.2
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 230220772947025,
+				"sid": 301367339597441,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

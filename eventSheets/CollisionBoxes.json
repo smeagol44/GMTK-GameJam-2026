@@ -179,6 +179,77 @@
 				}
 			],
 			"sid": 935562764885115
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "SlashHitbox",
+					"sid": 459836033563472
+				}
+			],
+			"actions": [],
+			"sid": 553943712978914,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "SlashHitbox",
+							"sid": 664489362571092,
+							"parameters": {
+								"object": "Enemies"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 897856484076430,
+							"parameters": {
+								"audio-file": {
+									"path": "slash"
+								},
+								"loop": "not-looping",
+								"volume": "-8",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 692210499858105
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 544299917621695
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 839251612426488,
+							"parameters": {
+								"audio-file": {
+									"path": "slash"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 656988569121798
+				}
+			]
 		}
 	],
 	"sid": 324289410314394

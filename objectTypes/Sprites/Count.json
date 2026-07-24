@@ -100,9 +100,24 @@
 			"behaviorId": "Timer",
 			"name": "Timer",
 			"sid": 517439493851830
+		},
+		{
+			"behaviorId": "Persist",
+			"name": "Persist",
+			"sid": 847565669427216
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 170430890941830
 		}
 	],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
+		}
+	],
 	"animations": {
 		"items": [
 			{

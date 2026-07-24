@@ -12,6 +12,16 @@
 			"sid": 799919383958583
 		},
 		{
+			"eventType": "variable",
+			"name": "dash_full_speed",
+			"type": "number",
+			"initialValue": "7",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 732449858607550
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -28,6 +38,23 @@
 					"parameters": {
 						"variable": "is_movement_locked",
 						"value": "false"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Count",
+					"sid": 437698601091181,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Brightness\""
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Count",
+					"sid": 594807038065766,
+					"parameters": {
+						"color": "rgbEx(255, 255, 255)"
 					}
 				}
 			],
@@ -554,10 +581,24 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Count",
-							"sid": 652575010072660,
+							"sid": 213352163673711,
 							"parameters": {
 								"instance-variable": "dash_speed",
-								"value": "7"
+								"value": "dash_full_speed"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 794735956705666,
+							"parameters": {
+								"audio-file": {
+									"path": "dash"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"dash\""
 							}
 						}
 					],
@@ -879,86 +920,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Collisions",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Escalera",
-							"sid": 323922932073288,
-							"parameters": {
-								"object": "Count"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 125115435533539,
-							"parameters": {
-								"layout": "Count Goes Down"
-							}
-						}
-					],
-					"sid": 689147964610961
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "bloodSplat",
-							"sid": 507757575893035,
-							"parameters": {
-								"object": "Count"
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 559678587878636,
-							"parameters": {
-								"variable": "roomCleared"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Count",
-							"sid": 277805396140900,
-							"parameters": {
-								"instance-variable": "blood",
-								"value": "bloodSplat.blood"
-							}
-						},
-						{
-							"callFunction": "pubsub_publish",
-							"sid": 258862272526209,
-							"parameters": [
-								"\"blood_up\"",
-								"\"\""
-							]
-						},
-						{
-							"id": "destroy",
-							"objectClass": "bloodSplat",
-							"sid": 763801360614221
-						}
-					],
-					"sid": 850404184476063
-				}
-			],
-			"sid": 929210528926132
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Sangre",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1087,6 +1048,29 @@
 				}
 			],
 			"sid": 234749647796408
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 437757687611321
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-parameter",
+					"objectClass": "Count",
+					"sid": 635066609537186,
+					"parameters": {
+						"effect": "\"Brightness\"",
+						"parameter-index": "0",
+						"value": "110 + Self.Sine.Value"
+					}
+				}
+			],
+			"sid": 403059342046075
 		}
 	],
 	"sid": 746909589108384

@@ -1,5 +1,279 @@
 {
 	"name": "Intro",
-	"events": [],
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "intro_brightness",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 972645014421898
+		},
+		{
+			"eventType": "variable",
+			"name": "intro",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 484080094798815
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 184167298881549
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-effect-enabled",
+					"objectClass": "System",
+					"sid": 811543083844468,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Brightness\""
+					}
+				}
+			],
+			"sid": 406499870951388
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 435598424491582,
+					"parameters": {
+						"interval-seconds": "0.5"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 166881490536629,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 253541121803981,
+							"parameters": {
+								"variable": "intro"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 984760846324114,
+							"parameters": {
+								"variable": "intro_brightness",
+								"value": "intro_brightness + 25"
+							}
+						}
+					],
+					"sid": 667857146591175,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 200046185249448,
+									"parameters": {
+										"first-value": "intro_brightness",
+										"comparison": 5,
+										"second-value": "100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layout-effect-parameter",
+									"objectClass": "System",
+									"sid": 167442403354023,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 926382319146887
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 385946216722311
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layout-effect-parameter",
+									"objectClass": "System",
+									"sid": 618474162971670,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "intro_brightness"
+									}
+								}
+							],
+							"sid": 182176424313870
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 686985494185433,
+									"parameters": {
+										"first-value": "intro_brightness",
+										"comparison": 5,
+										"second-value": "250"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 311443422383530,
+									"parameters": {
+										"variable": "intro",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 370919346280379,
+									"parameters": {
+										"variable": "intro_brightness",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 849294751573061
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 698296830711919
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 397618304867342,
+							"parameters": {
+								"variable": "intro_brightness",
+								"value": "intro_brightness - 25"
+							}
+						}
+					],
+					"sid": 167036114928377,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 720701023437822,
+									"parameters": {
+										"first-value": "intro_brightness",
+										"comparison": 2,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 384275785746179,
+									"parameters": {
+										"layout": "Count Goes Down"
+									}
+								}
+							],
+							"sid": 918574128618862
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 666293620868392
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layout-effect-parameter",
+									"objectClass": "System",
+									"sid": 300199756709070,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "intro_brightness"
+									}
+								}
+							],
+							"sid": 703854875687990
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 828157321582485,
+									"parameters": {
+										"first-value": "intro_brightness",
+										"comparison": 5,
+										"second-value": "250"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 956067900597357,
+									"parameters": {
+										"variable": "intro",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 851981308839081
+						}
+					]
+				}
+			]
+		}
+	],
 	"sid": 873807298050679
 }

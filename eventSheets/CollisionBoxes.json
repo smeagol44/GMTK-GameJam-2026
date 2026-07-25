@@ -55,6 +55,20 @@
 							"parameters": {
 								"collisions": "enabled"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 121823547744353,
+							"parameters": {
+								"audio-file": {
+									"path": "bite"
+								},
+								"loop": "not-looping",
+								"volume": "5",
+								"stereo-pan": "0",
+								"tag-optional": "\"bite\""
+							}
 						}
 					],
 					"sid": 249566531905962
@@ -208,7 +222,7 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 897856484076430,
+							"sid": 204180597441385,
 							"parameters": {
 								"audio-file": {
 									"path": "slash"
@@ -216,7 +230,7 @@
 								"loop": "not-looping",
 								"volume": "-8",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"slash\""
 							}
 						}
 					],
@@ -235,7 +249,7 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 839251612426488,
+							"sid": 506508947540714,
 							"parameters": {
 								"audio-file": {
 									"path": "slash"
@@ -243,7 +257,7 @@
 								"loop": "not-looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"slash\""
 							}
 						}
 					],

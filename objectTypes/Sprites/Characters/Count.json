@@ -88,6 +88,27 @@
 			"desc": "",
 			"show": true,
 			"sid": 847650126415909
+		},
+		{
+			"name": "knockback",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 340340432122763
+		},
+		{
+			"name": "max_speed",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 683014743590246
+		},
+		{
+			"name": "invulnerable",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 400721464999204
 		}
 	],
 	"behaviorTypes": [
@@ -110,6 +131,11 @@
 			"behaviorId": "Sin",
 			"name": "Sine",
 			"sid": 170430890941830
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Hurtsine",
+			"sid": 627592327079017
 		}
 	],
 	"effectTypes": [

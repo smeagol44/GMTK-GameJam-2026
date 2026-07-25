@@ -1,0 +1,52 @@
+{
+	"name": "boxTest",
+	"plugin-id": "Sprite",
+	"sid": 884552323327262,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 360,
+						"height": 69,
+						"originX": 0.9,
+						"originY": 1.0289855072463767,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9146803,
+						"collisionPoly": {
+							"points": [
+								0.002777777777777778,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.002777777777777778,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 532884729814867,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

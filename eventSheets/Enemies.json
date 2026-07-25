@@ -45,13 +45,6 @@
 										"instance-variable": "blood",
 										"value": "1"
 									}
-								},
-								{
-									"callFunction": "create_enemy_floating_number",
-									"sid": 871138041037197,
-									"parameters": [
-										"Enemies.UID"
-									]
 								}
 							],
 							"sid": 363491562943243
@@ -163,37 +156,22 @@
 											"sid": 648180273990080,
 											"parameters": {
 												"tags": "\"zombie\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 524769534678512
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 164369944284500
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
 											"id": "add-to-instvar",
 											"objectClass": "Enemies",
-											"sid": 965968306754920,
+											"sid": 110830365292271,
 											"parameters": {
 												"instance-variable": "blood",
 												"value": "-1"
 											}
 										}
 									],
-									"sid": 171808293600272
-								},
-								{
-									"eventType": "comment",
-									"text": "[To-Do]: Los matamos los convertimos en Zombies al final?"
+									"sid": 524769534678512
 								},
 								{
 									"eventType": "block",
@@ -257,11 +235,6 @@
 													}
 												},
 												{
-													"id": "destroy",
-													"objectClass": "Enemies",
-													"sid": 985579402388631
-												},
-												{
 													"id": "play",
 													"objectClass": "Audio",
 													"sid": 388059580130756,
@@ -276,7 +249,43 @@
 													}
 												}
 											],
-											"sid": 380608159877327
+											"sid": 380608159877327,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-children",
+															"objectClass": "Enemies",
+															"sid": 777692160138165,
+															"parameters": {
+																"child": "Numbers",
+																"which": "own"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Numbers",
+															"sid": 979426196693421
+														}
+													],
+													"sid": 211824233985211
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Enemies",
+															"sid": 248457931964015
+														}
+													],
+													"sid": 867954484492828
+												}
+											]
 										}
 									]
 								},
@@ -287,6 +296,15 @@
 											"id": "else",
 											"objectClass": "System",
 											"sid": 773865832943829
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "Enemies",
+											"sid": 752219711742716,
+											"parameters": {
+												"tags": "\"zombie\""
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
@@ -325,6 +343,26 @@
 					"text": "Al colisionar con cualquier tipo de hitbox los enemigos reciben daño"
 				},
 				{
+					"eventType": "variable",
+					"name": "auxangle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 484778024898567
+				},
+				{
+					"eventType": "variable",
+					"name": "auxangle2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 405140623325747
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -356,10 +394,64 @@
 								"type": "once",
 								"tag": "\"timer_brightness\""
 							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Enemies",
+							"sid": 616458040042346,
+							"behaviorType": "damaged",
+							"parameters": {
+								"duration": "0.2",
+								"type": "once",
+								"tag": "\"knockback\""
+							}
 						}
 					],
 					"sid": 923701816790493,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "Enemies",
+									"sid": 463316781062678,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"input": "start-ignoring"
+									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Enemies",
+									"sid": 195443388672050,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"max-speed": "Enemies.knockback"
+									}
+								},
+								{
+									"id": "set-vector-x",
+									"objectClass": "Enemies",
+									"sid": 780447483647581,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-x": "cos(angle(Count.X, Count.Y, Enemies.X, Enemies.Y))*Enemies.knockback"
+									}
+								},
+								{
+									"id": "set-vector-y",
+									"objectClass": "Enemies",
+									"sid": 184414737825938,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-y": "sin(angle(Count.X, Count.Y, Enemies.X, Enemies.Y))*Enemies.knockback"
+									}
+								}
+							],
+							"sid": 426135281333276
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -457,6 +549,14 @@
 									],
 									"actions": [
 										{
+											"callFunction": "drop_blood_floor",
+											"sid": 956670926751193,
+											"parameters": [
+												"Hitboxes.damage",
+												"Enemies.UID"
+											]
+										},
+										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Enemies",
 											"sid": 768059225777977,
@@ -527,6 +627,14 @@
 									],
 									"actions": [
 										{
+											"callFunction": "drop_blood_floor",
+											"sid": 151622231165885,
+											"parameters": [
+												"Hitboxes.damage",
+												"Enemies.UID"
+											]
+										},
+										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Enemies",
 											"sid": 509673195506833,
@@ -574,6 +682,41 @@
 						}
 					],
 					"sid": 662694677158902
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Enemies",
+							"sid": 488052400444891,
+							"behaviorType": "damaged",
+							"parameters": {
+								"tag": "\"knockback\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Enemies",
+							"sid": 804031050083426,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Enemies",
+							"sid": 804007686289379,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"max-speed": "Self.max_speed"
+							}
+						}
+					],
+					"sid": 262385002403066
 				}
 			],
 			"sid": 567120270303107,
@@ -597,6 +740,87 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"functionName": "spawn_enemy_ranPos",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name_id",
+							"type": "string",
+							"initialValue": "Skelly",
+							"comment": "",
+							"sid": 771957586463444
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 970607034121196,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "spawn_y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 374381628761473
+						},
+						{
+							"eventType": "variable",
+							"name": "spawn_x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 484019463358918
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 212806168663736,
+									"parameters": {
+										"variable": "spawn_x",
+										"value": "random(SpawnArea.X,SpawnArea.X+SpawnArea.Width)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 338627942687458,
+									"parameters": {
+										"variable": "spawn_y",
+										"value": "random(SpawnArea.Y,SpawnArea.Y+SpawnArea.Height)"
+									}
+								},
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 405158670462453,
+									"parameters": {
+										"object-name": "name_id",
+										"layer": "\"characters\"",
+										"x": "spawn_x",
+										"y": "spawn_y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 298687675675362
+						}
+					]
+				},
 				{
 					"functionName": "create_enemy_floating_number",
 					"functionDescription": "",
@@ -637,16 +861,27 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-child-count",
+											"id": "pick-children",
 											"objectClass": "Enemies",
-											"sid": 725704722849032,
+											"sid": 373659633978998,
 											"parameters": {
-												"which": "own",
-												"comparison": 0,
-												"count": "0"
+												"child": "Numbers",
+												"which": "own"
 											}
 										}
 									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Numbers",
+											"sid": 997029306438097
+										}
+									],
+									"sid": 702014782465696
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
 									"actions": [
 										{
 											"id": "create-object",
@@ -664,11 +899,11 @@
 										{
 											"id": "add-child",
 											"objectClass": "Enemies",
-											"sid": 244997486622981,
+											"sid": 444123046573578,
 											"parameters": {
 												"child": "Numbers",
-												"transform-x": false,
-												"transform-y": false,
+												"transform-x": true,
+												"transform-y": true,
 												"transform-z-elevation": false,
 												"transform-w": false,
 												"transform-h": false,
@@ -677,14 +912,6 @@
 												"transform-o": false,
 												"transform-visibility": false,
 												"destroy-with-parent": false
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Numbers",
-											"sid": 550268079525102,
-											"parameters": {
-												"text": "Enemies.blood"
 											}
 										},
 										{
@@ -697,11 +924,27 @@
 											}
 										},
 										{
+											"id": "set-text",
+											"objectClass": "Numbers",
+											"sid": 446284004419086,
+											"parameters": {
+												"text": "Enemies.blood"
+											}
+										},
+										{
+											"id": "set-horizontal-alignment",
+											"objectClass": "Numbers",
+											"sid": 976049809960774,
+											"parameters": {
+												"horizontal-alignment": "center"
+											}
+										},
+										{
 											"id": "set-x",
 											"objectClass": "Numbers",
-											"sid": 892612308739489,
+											"sid": 877617878306758,
 											"parameters": {
-												"x": "Enemies.X -floor(Enemies.Width/2) +floor(Numbers.Width/3)"
+												"x": "Enemies.X -Numbers.Width/2"
 											}
 										}
 									],
@@ -914,7 +1157,7 @@
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Enemies",
-									"sid": 806966026813886,
+									"sid": 162309278134399,
 									"parameters": {
 										"unique-id": "enemy_uid"
 									}
@@ -924,10 +1167,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 396610555770563,
+									"sid": 283678590067421,
 									"parameters": {
 										"object-to-create": "bloodSplat",
-										"layer": "2",
+										"layer": "\"decals\"",
 										"x": "Enemies.X",
 										"y": "Enemies.Y",
 										"create-hierarchy": false,
@@ -937,19 +1180,30 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "bloodSplat",
-									"sid": 965020321300824,
+									"sid": 560350729748091,
 									"parameters": {
 										"instance-variable": "blood",
-										"value": "Enemies.blood"
+										"value": "blood"
 									}
 								},
 								{
-									"id": "destroy",
-									"objectClass": "Enemies",
-									"sid": 114242150652120
+									"id": "set-scale",
+									"objectClass": "bloodSplat",
+									"sid": 422981498598991,
+									"parameters": {
+										"scale": "min(50+blood*5,100)*0.01"
+									}
+								},
+								{
+									"id": "rotate-clockwise",
+									"objectClass": "bloodSplat",
+									"sid": 216969255657083,
+									"parameters": {
+										"degrees": "floor(random(1,4))*90"
+									}
 								}
 							],
-							"sid": 339188315276750
+							"sid": 408772819854544
 						}
 					]
 				},
@@ -992,79 +1246,133 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 550803506102274,
+									"id": "pick-by-unique-id",
+									"objectClass": "Enemies",
+									"sid": 226788935471343,
 									"parameters": {
-										"first-value": "type",
-										"comparison": 0,
-										"second-value": "\"bite\""
+										"unique-id": "enemy_uid"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 427714384690832,
+							"sid": 727476358989783,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "pick-by-unique-id",
+											"id": "pick-children",
 											"objectClass": "Enemies",
-											"sid": 168162884559592,
+											"sid": 742857656564111,
 											"parameters": {
-												"unique-id": "enemy_uid"
+												"child": "Numbers",
+												"which": "own"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "Count",
-											"sid": 180003803539448,
-											"parameters": {
-												"instance-variable": "blood",
-												"value": "blood"
-											}
-										},
+											"id": "destroy",
+											"objectClass": "Numbers",
+											"sid": 867348403816657
+										}
+									],
+									"sid": 370159581383070
+								},
+								{
+									"eventType": "block",
+									"conditions": [
 										{
-											"callFunction": "pubsub_publish",
-											"sid": 220711577014823,
-											"parameters": [
-												"\"blood_up\"",
-												"\"\""
-											]
-										},
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 725643420262982,
+											"parameters": {
+												"first-value": "type",
+												"comparison": 0,
+												"second-value": "\"bite\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 855431374911141,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Count",
+													"sid": 925229765343380,
+													"parameters": {
+														"instance-variable": "blood",
+														"value": "blood"
+													}
+												},
+												{
+													"callFunction": "pubsub_publish",
+													"sid": 903907497970973,
+													"parameters": [
+														"\"blood_up\"",
+														"\"\""
+													]
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Enemies",
+													"sid": 349970060274856
+												}
+											],
+											"sid": 764236018275558
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 370887590196844
+										}
+									],
+									"actions": [
 										{
 											"id": "destroy",
 											"objectClass": "Enemies",
-											"sid": 702815784191149
+											"sid": 800659523336492
 										}
 									],
-									"sid": 443616300445418
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 678700436455614
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "drop_blood_floor",
-									"sid": 148672154897917,
-									"parameters": [
-										"blood",
-										"enemy_uid"
+									"sid": 568955723140079,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-tags",
+													"objectClass": "Enemies",
+													"sid": 964466399269071,
+													"parameters": {
+														"tags": "\"zombie\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "drop_blood_floor",
+													"sid": 820723361119731,
+													"parameters": [
+														"blood+killbonus",
+														"enemy_uid"
+													]
+												}
+											],
+											"sid": 248778036437390
+										}
 									]
 								}
-							],
-							"sid": 371753786255187
+							]
 						}
 					]
 				},
@@ -1159,6 +1467,1062 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 990982446138197
+		},
+		{
+			"eventType": "variable",
+			"name": "killbonus",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 591051611501454
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Specific Behaviours",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Follow Player Behaviour"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-evaluate",
+							"objectClass": "System",
+							"sid": 902312887880966,
+							"parameters": {
+								"object": "Enemies",
+								"expression": "Enemies.ObjectTypeName = \"Skelly\" | Enemies.ObjectTypeName = \"Zombie\" "
+							}
+						}
+					],
+					"actions": [],
+					"sid": 618493096870395,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Enemies",
+									"sid": 547610073099343,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Count.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Enemies",
+									"sid": 539707485240247,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "right"
+									}
+								}
+							],
+							"sid": 283530408154028
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Enemies",
+									"sid": 136345319625117,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "Count.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Enemies",
+									"sid": 803296993507368,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "left"
+									}
+								}
+							],
+							"sid": 727118640661600
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "Enemies",
+									"sid": 449010373324911,
+									"parameters": {
+										"comparison": 2,
+										"y-co-ordinate": "Count.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Enemies",
+									"sid": 499126122241609,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "down"
+									}
+								}
+							],
+							"sid": 724823230585296
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "Enemies",
+									"sid": 356057569176293,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "Count.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Enemies",
+									"sid": 306553806434099,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "up"
+									}
+								}
+							],
+							"sid": 703079203620097
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Ram Player Behaviour"
+				},
+				{
+					"eventType": "variable",
+					"name": "state_idle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 151631378817310
+				},
+				{
+					"eventType": "variable",
+					"name": "state_positioning",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 755267188049783
+				},
+				{
+					"eventType": "variable",
+					"name": "state_pausing",
+					"type": "number",
+					"initialValue": "2",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 698478770104044
+				},
+				{
+					"eventType": "variable",
+					"name": "state_ramming",
+					"type": "number",
+					"initialValue": "3",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 904414726134035
+				},
+				{
+					"eventType": "variable",
+					"name": "state_recovering",
+					"type": "number",
+					"initialValue": "4",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 107584546716263
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 150480472226202,
+							"parameters": {
+								"object": "Enemies"
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 382747121673119,
+							"parameters": {
+								"object": "Rammers",
+								"expression": "Rammers.UID",
+								"comparison": 0,
+								"value": "Enemies.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 181674149244102,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Rammers",
+									"sid": 839904985056649,
+									"parameters": {
+										"instance-variable": "state",
+										"comparison": 0,
+										"value": "state_ramming"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "Enemies",
+									"sid": 578201340002465,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"max-speed": "2000"
+									}
+								}
+							],
+							"sid": 458442764825492,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 178843650557316,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 754564119103934,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "right"
+											}
+										}
+									],
+									"sid": 871333164386724
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 268328121631816,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 801048464478629,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "left"
+											}
+										}
+									],
+									"sid": 345213110567162
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 495897060402783,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 902898634475632,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "down"
+											}
+										}
+									],
+									"sid": 118861604241338
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 223924627161042,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 139636643130245,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "up"
+											}
+										}
+									],
+									"sid": 455290026131732
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Rammers",
+									"sid": 543459375944941,
+									"parameters": {
+										"instance-variable": "state",
+										"comparison": 0,
+										"value": "state_pausing"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 218799266962942,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 918599434450248,
+											"parameters": {
+												"value": "Rammers.Y",
+												"lower-bound": "Count.Y-5",
+												"upper-bound": "Count.Y+5"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 111074346006714,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Rammers",
+													"sid": 951449013122212,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "Count.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 229488637374626,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 846534563013569
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 827271797729968
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 725737720715298,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 149617610880582
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 911214124272018
+										},
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 267559564825730,
+											"parameters": {
+												"value": "Rammers.X",
+												"lower-bound": "Count.X-5",
+												"upper-bound": "Count.X+5"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 153403936891728,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-y",
+													"objectClass": "Rammers",
+													"sid": 433007007591952,
+													"parameters": {
+														"comparison": 2,
+														"y-co-ordinate": "Count.Y"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 870398197791884,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 783220516780790
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 616686052625536
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 847660590516575,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "4"
+													}
+												}
+											],
+											"sid": 943344499057223
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Rammers",
+									"sid": 663647494129327,
+									"parameters": {
+										"instance-variable": "state",
+										"comparison": 0,
+										"value": "state_positioning"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 341813296099965,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 285740935281773,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 667801765717891,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "right"
+											}
+										}
+									],
+									"sid": 763936948442627
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 739059498683674,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 101369237725891,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "left"
+											}
+										}
+									],
+									"sid": 229246290311317
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 865282262806840,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 898840621572394,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "down"
+											}
+										}
+									],
+									"sid": 579229346548316
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Rammers",
+											"sid": 309536746272243,
+											"parameters": {
+												"instance-variable": "positioningDirection",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Enemies",
+											"sid": 667772483375733,
+											"behaviorType": "8Direction",
+											"parameters": {
+												"control": "up"
+											}
+										}
+									],
+									"sid": 612361083080239
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 634776460388536,
+											"parameters": {
+												"value": "Rammers.X",
+												"lower-bound": "Count.X-5",
+												"upper-bound": "Count.X+5"
+											}
+										},
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 519275094942144,
+											"parameters": {
+												"value": "Rammers.Y",
+												"lower-bound": "Count.Y-5",
+												"upper-bound": "Count.Y+5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Rammers",
+											"sid": 775833582541963,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "state_pausing"
+											}
+										},
+										{
+											"id": "start-timer",
+											"objectClass": "Enemies",
+											"sid": 244699060411590,
+											"behaviorType": "damaged",
+											"parameters": {
+												"duration": "0.2",
+												"type": "once",
+												"tag": "\"pausing\""
+											}
+										}
+									],
+									"sid": 831044586856845,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Rammers",
+									"sid": 767850692393203,
+									"parameters": {
+										"instance-variable": "state",
+										"comparison": 0,
+										"value": "state_idle"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 114001642190536,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 167650231687658,
+											"parameters": {
+												"first-value": "abs(Enemies.X-Count.X)",
+												"comparison": 3,
+												"second-value": "abs(Enemies.Y-Count.Y)"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 542784723921790,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Enemies",
+													"sid": 308459646902397,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "Count.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 875907842230478,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 202054190453495
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 781360654767387
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 467213062233491,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 475817110075728
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 291331009286772
+										}
+									],
+									"actions": [],
+									"sid": 352526424292460,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-y",
+													"objectClass": "Enemies",
+													"sid": 394451157826500,
+													"parameters": {
+														"comparison": 2,
+														"y-co-ordinate": "Count.Y"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 918906087600820,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 644273267914129
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 633105109233202
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Rammers",
+													"sid": 807723611999788,
+													"parameters": {
+														"instance-variable": "positioningDirection",
+														"value": "4"
+													}
+												}
+											],
+											"sid": 786797279000055
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Rammers",
+											"sid": 346143561026410,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "state_positioning"
+											}
+										}
+									],
+									"sid": 467717512836555
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Ramming Behaviour Triggers"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Rammers",
+							"sid": 364266884180208,
+							"parameters": {
+								"object": "Collider"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Rammers",
+							"sid": 809091680769079,
+							"parameters": {
+								"instance-variable": "state",
+								"comparison": 1,
+								"value": "state_idle"
+							}
+						},
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 661753722016282,
+							"parameters": {
+								"object": "Enemies"
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 849660568267305,
+							"parameters": {
+								"object": "Enemies",
+								"expression": "Rammers.UID",
+								"comparison": 0,
+								"value": "Enemies.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Rammers",
+							"sid": 313705197573043,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "state_idle"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Enemies",
+							"sid": 577100694351834,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"max-speed": "50"
+							}
+						}
+					],
+					"sid": 506096829772020
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Enemies",
+							"sid": 508800499842449,
+							"behaviorType": "damaged",
+							"parameters": {
+								"tag": "\"pausing\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 683949233101066,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 752302651897006,
+									"parameters": {
+										"object": "Rammers"
+									}
+								},
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 774464815583988,
+									"parameters": {
+										"object": "Rammers",
+										"expression": "Enemies.UID",
+										"comparison": 0,
+										"value": "Rammers.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Rammers",
+									"sid": 632739351050226,
+									"parameters": {
+										"instance-variable": "state",
+										"value": "state_ramming"
+									}
+								}
+							],
+							"sid": 813423124335025
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Wall and Enemy Collision Exclusions"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Enemies",
+							"sid": 347982156999855
+						}
+					],
+					"actions": [
+						{
+							"id": "set-tags",
+							"objectClass": "Enemies",
+							"sid": 974436270057442,
+							"behaviorType": "Solid",
+							"parameters": {
+								"tags": "\"SolidEnemy\""
+							}
+						},
+						{
+							"id": "set-solid-collision-filter",
+							"objectClass": "Enemies",
+							"sid": 999456980675508,
+							"parameters": {
+								"mode": "exclusive",
+								"tags": "\"IntangibleEnemy\""
+							}
+						}
+					],
+					"sid": 101909779443672,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 533854560788100,
+									"parameters": {
+										"object": "Enemies",
+										"expression": "Enemies.ObjectTypeName = \"Guts\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tags",
+									"objectClass": "Enemies",
+									"sid": 823799074936003,
+									"behaviorType": "Solid",
+									"parameters": {
+										"tags": "\"IntangibleEnemy\""
+									}
+								},
+								{
+									"id": "set-solid-collision-filter",
+									"objectClass": "Enemies",
+									"sid": 194962735509907,
+									"parameters": {
+										"mode": "inclusive",
+										"tags": "\"wall\""
+									}
+								}
+							],
+							"sid": 678181098027792
+						}
+					]
+				}
+			],
+			"sid": 687583966132909
 		}
 	],
 	"sid": 743935495865795

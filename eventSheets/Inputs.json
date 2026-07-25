@@ -99,6 +99,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "analog_deadzone",
+					"type": "number",
+					"initialValue": "30",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 123978804944963
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -124,6 +134,17 @@
 							"parameters": {
 								"gamepad": "0",
 								"button": "d-pad-left"
+							}
+						},
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 698494274005134,
+							"parameters": {
+								"gamepad": "0",
+								"axis": "left-analog-x-axis",
+								"comparison": 2,
+								"value": "-analog_deadzone"
 							}
 						}
 					],
@@ -272,6 +293,17 @@
 								"gamepad": "0",
 								"button": "d-pad-right"
 							}
+						},
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 990425161665769,
+							"parameters": {
+								"gamepad": "0",
+								"axis": "left-analog-x-axis",
+								"comparison": 4,
+								"value": "analog_deadzone"
+							}
 						}
 					],
 					"actions": [],
@@ -419,6 +451,17 @@
 								"gamepad": "0",
 								"button": "d-pad-up"
 							}
+						},
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 467848434041205,
+							"parameters": {
+								"gamepad": "0",
+								"axis": "left-analog-y-axis",
+								"comparison": 2,
+								"value": "-analog_deadzone"
+							}
 						}
 					],
 					"actions": [],
@@ -565,6 +608,17 @@
 							"parameters": {
 								"gamepad": "0",
 								"button": "d-pad-down"
+							}
+						},
+						{
+							"id": "compare-axis",
+							"objectClass": "Gamepad",
+							"sid": 699026832293200,
+							"parameters": {
+								"gamepad": "0",
+								"axis": "left-analog-y-axis",
+								"comparison": 4,
+								"value": "analog_deadzone"
 							}
 						}
 					],
@@ -714,6 +768,15 @@
 							"parameters": {
 								"key": 74
 							}
+						},
+						{
+							"id": "is-button-down",
+							"objectClass": "Gamepad",
+							"sid": 530994097240274,
+							"parameters": {
+								"gamepad": "0",
+								"button": "button-a"
+							}
 						}
 					],
 					"actions": [],
@@ -852,6 +915,15 @@
 							"parameters": {
 								"key": 75
 							}
+						},
+						{
+							"id": "is-button-down",
+							"objectClass": "Gamepad",
+							"sid": 457432128636820,
+							"parameters": {
+								"gamepad": "0",
+								"button": "button-b"
+							}
 						}
 					],
 					"actions": [],
@@ -989,6 +1061,15 @@
 							"sid": 660363543073909,
 							"parameters": {
 								"key": 76
+							}
+						},
+						{
+							"id": "is-button-down",
+							"objectClass": "Gamepad",
+							"sid": 736349712516263,
+							"parameters": {
+								"gamepad": "0",
+								"button": "button-y"
 							}
 						}
 					],

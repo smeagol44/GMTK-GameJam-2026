@@ -41,6 +41,15 @@
 					}
 				},
 				{
+					"id": "set-solid-collision-filter",
+					"objectClass": "Count",
+					"sid": 147782846548401,
+					"parameters": {
+						"mode": "inclusive",
+						"tags": "\"wall\""
+					}
+				},
+				{
 					"id": "set-effect-enabled",
 					"objectClass": "Count",
 					"sid": 437698601091181,
@@ -52,9 +61,18 @@
 				{
 					"id": "set-default-color",
 					"objectClass": "Count",
-					"sid": 594807038065766,
+					"sid": 702295155337437,
 					"parameters": {
-						"color": "rgbEx(255, 255, 255)"
+						"color": "rgbEx(100, 100,100)"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Count",
+					"sid": 364246034346283,
+					"parameters": {
+						"x": "360/2",
+						"y": "270/2"
 					}
 				}
 			],
@@ -123,145 +141,127 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 104480145256016,
-							"parameters": {
-								"instance-variable": "input_left",
-								"comparison": 5,
-								"value": "HELD"
-							}
-						},
-						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 572717696855039,
+							"sid": 215013056491075,
 							"parameters": {
 								"variable": "is_movement_locked"
 							},
 							"isInverted": true
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 794428239282185,
+					"children": [
 						{
-							"id": "simulate-control",
-							"objectClass": "Count",
-							"sid": 625608328904310,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "left"
-							}
-						}
-					],
-					"sid": 394285496968426
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 991129180451131,
-							"parameters": {
-								"instance-variable": "input_right",
-								"comparison": 5,
-								"value": "HELD"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 110306334002688,
+									"parameters": {
+										"instance-variable": "input_left",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Count",
+									"sid": 930460817362746,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "left"
+									}
+								}
+							],
+							"sid": 930532119748038
 						},
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 131577792638731,
-							"parameters": {
-								"variable": "is_movement_locked"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "Count",
-							"sid": 665213991665552,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "right"
-							}
-						}
-					],
-					"sid": 187661482356292
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 847754015780347,
-							"parameters": {
-								"instance-variable": "input_down",
-								"comparison": 5,
-								"value": "HELD"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 339247947827923,
+									"parameters": {
+										"instance-variable": "input_right",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Count",
+									"sid": 879140872303778,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "right"
+									}
+								}
+							],
+							"sid": 899024929443469
 						},
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 923423859780524,
-							"parameters": {
-								"variable": "is_movement_locked"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "Count",
-							"sid": 395431285459464,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "down"
-							}
-						}
-					],
-					"sid": 658047612212870
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 605019583246912,
-							"parameters": {
-								"instance-variable": "input_up",
-								"comparison": 5,
-								"value": "HELD"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 831377273449290,
+									"parameters": {
+										"instance-variable": "input_down",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Count",
+									"sid": 296632501964893,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "down"
+									}
+								}
+							],
+							"sid": 509904834435069
 						},
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 466495683396288,
-							"parameters": {
-								"variable": "is_movement_locked"
-							},
-							"isInverted": true
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 936062512699812,
+									"parameters": {
+										"instance-variable": "input_up",
+										"comparison": 5,
+										"value": "HELD"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Count",
+									"sid": 665506536391038,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "up"
+									}
+								}
+							],
+							"sid": 490039175172538
 						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "Count",
-							"sid": 868773589370800,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "up"
-							}
-						}
-					],
-					"sid": 749668857920617
+					]
 				},
 				{
 					"eventType": "block",
@@ -289,10 +289,10 @@
 						{
 							"id": "set-max-speed",
 							"objectClass": "Count",
-							"sid": 272997980024149,
+							"sid": 433671631620968,
 							"behaviorType": "8Direction",
 							"parameters": {
-								"max-speed": "100"
+								"max-speed": "floor(Self.max_speed/2)"
 							}
 						}
 					],
@@ -311,10 +311,10 @@
 						{
 							"id": "set-max-speed",
 							"objectClass": "Count",
-							"sid": 794428570753038,
+							"sid": 168332255381852,
 							"behaviorType": "8Direction",
 							"parameters": {
-								"max-speed": "200"
+								"max-speed": "Self.max_speed"
 							}
 						},
 						{
@@ -368,104 +368,95 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 951678174875528,
-							"parameters": {
-								"instance-variable": "input_slash",
-								"comparison": 0,
-								"value": "PRESSED"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 255499540816191,
-							"parameters": {
-								"instance-variable": "dash_speed",
-								"comparison": 0,
-								"value": "0"
-							}
-						},
-						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 485773370367867,
+							"sid": 765935528320364,
 							"parameters": {
 								"variable": "is_movement_locked"
 							},
 							"isInverted": true
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 368886220654156,
+					"children": [
 						{
-							"callFunction": "command_slash",
-							"sid": 766071857411850
-						}
-					],
-					"sid": 188101672657340
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 467841091547421,
-							"parameters": {
-								"instance-variable": "input_dash",
-								"comparison": 0,
-								"value": "PRESSED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 963841057514471,
+									"parameters": {
+										"instance-variable": "input_slash",
+										"comparison": 0,
+										"value": "PRESSED"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 999200605488513,
+									"parameters": {
+										"instance-variable": "dash_speed",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "command_slash",
+									"sid": 227089938019990
+								}
+							],
+							"sid": 140311284778184
 						},
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 704917001934980,
-							"parameters": {
-								"variable": "is_movement_locked"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "command_dash",
-							"sid": 924222710869745
-						}
-					],
-					"sid": 353055244822043
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 506519737338031,
-							"parameters": {
-								"instance-variable": "input_bite",
-								"comparison": 0,
-								"value": "PRESSED"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 911832877166012,
+									"parameters": {
+										"instance-variable": "input_dash",
+										"comparison": 0,
+										"value": "PRESSED"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "command_dash",
+									"sid": 162347131016650
+								}
+							],
+							"sid": 153127418168608
 						},
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 722347376557616,
-							"parameters": {
-								"variable": "is_movement_locked"
-							},
-							"isInverted": true
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 930064747274118,
+									"parameters": {
+										"instance-variable": "input_bite",
+										"comparison": 0,
+										"value": "PRESSED"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "command_bite",
+									"sid": 595025203911450
+								}
+							],
+							"sid": 215449649203690
 						}
-					],
-					"actions": [
-						{
-							"callFunction": "command_bite",
-							"sid": 565492646740070
-						}
-					],
-					"sid": 536398976590433
+					]
 				},
 				{
 					"functionName": "command_slash",
@@ -499,10 +490,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 936878673613404,
+							"sid": 487272377111759,
 							"parameters": {
 								"object-to-create": "SlashHitbox",
-								"layer": "2",
+								"layer": "4",
 								"x": "Count.X",
 								"y": "Count.Y",
 								"create-hierarchy": false,
@@ -636,10 +627,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 636731102398727,
+							"sid": 508739573687931,
 							"parameters": {
 								"object-to-create": "BiteHitbox",
-								"layer": "2",
+								"layer": "4",
 								"x": "Count.X",
 								"y": "Count.Y",
 								"create-hierarchy": false,
@@ -681,6 +672,11 @@
 								"instance-variable": "type",
 								"value": "\"bite\""
 							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "BiteHitbox",
+							"sid": 868224780300816
 						}
 					],
 					"sid": 785409849683120,
@@ -948,10 +944,10 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "display_sangre",
-							"sid": 163113212625363,
+							"objectClass": "fontDefault",
+							"sid": 321058208943804,
 							"parameters": {
-								"text": "\"Sangre: \"&Count.blood"
+								"text": "\"BLOOD: \"&Count.blood"
 							}
 						},
 						{
@@ -971,22 +967,333 @@
 							"parameters": {
 								"tag": "\"blood_up\""
 							}
+						},
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 792055768864384,
+							"parameters": {
+								"tag": "\"blood_down\""
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-text",
-							"objectClass": "display_sangre",
-							"sid": 546799022444098,
+							"objectClass": "fontDefault",
+							"sid": 568199485270017,
 							"parameters": {
-								"text": "\"Sangre: \"&Count.blood"
+								"text": "\"BLOOD: \"&Count.blood"
 							}
 						}
 					],
-					"sid": 855319594473390
+					"sid": 855319594473390,
+					"isOrBlock": true
 				}
 			],
 			"sid": 670278027664587
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GettingHurt",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "auxangle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 651440504209032
+				},
+				{
+					"eventType": "variable",
+					"name": "auxangle2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 935262804569853
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Count",
+							"sid": 786295776746844,
+							"parameters": {
+								"object": "Enemies"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Count",
+							"sid": 659897649188340,
+							"parameters": {
+								"instance-variable": "invulnerable"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 974258294569355,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Count",
+							"sid": 262929691583403,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.2",
+								"type": "once",
+								"tag": "\"hurt\""
+							}
+						}
+					],
+					"sid": 343080834247782,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "Count",
+									"sid": 816958489883912,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"input": "start-ignoring"
+									}
+								},
+								{
+									"id": "set-deceleration",
+									"objectClass": "Count",
+									"sid": 139551292505790,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"deceleration": "500"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Count",
+									"sid": 787244609525060,
+									"parameters": {
+										"instance-variable": "invulnerable",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Count",
+									"sid": 316235386562243,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"max-speed": "Self.knockback"
+									}
+								},
+								{
+									"id": "set-vector-x",
+									"objectClass": "Count",
+									"sid": 439305971281168,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-x": "cos(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Self.knockback"
+									}
+								},
+								{
+									"id": "set-vector-y",
+									"objectClass": "Count",
+									"sid": 402795226578310,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-y": "sin(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Self.knockback"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Count",
+									"sid": 189635731493154,
+									"parameters": {
+										"instance-variable": "blood",
+										"value": "Enemies.damage"
+									}
+								},
+								{
+									"callFunction": "pubsub_publish",
+									"sid": 866229338375233,
+									"parameters": [
+										"\"blood_down\"",
+										"\"\""
+									]
+								}
+							],
+							"sid": 510941842535835
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 862650418915739,
+									"parameters": {
+										"tag": "\"hurt\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 154494922817900
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 518056016375697
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 892354727923413,
+									"parameters": {
+										"audio-file": {
+											"path": "hurt"
+										},
+										"loop": "not-looping",
+										"volume": "1",
+										"stereo-pan": "0",
+										"tag-optional": "\"hurt\""
+									}
+								}
+							],
+							"sid": 130879702066769
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 257749635857528,
+									"parameters": {
+										"instance-variable": "blood",
+										"comparison": 3,
+										"value": "Hitboxes.damage"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "game_over",
+									"sid": 835057164923729
+								}
+							],
+							"sid": 536685024202620
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 683724964090814
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Count",
+									"sid": 394977536388678,
+									"parameters": {
+										"instance-variable": "blood",
+										"value": "Hitboxes.damage"
+									}
+								},
+								{
+									"callFunction": "pubsub_publish",
+									"sid": 224383062413085,
+									"parameters": [
+										"\"blood_down\"",
+										"\"\""
+									]
+								}
+							],
+							"sid": 545993748544511
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Count",
+							"sid": 314750198506000,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"hurt\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Count",
+							"sid": 241196062784613,
+							"parameters": {
+								"instance-variable": "invulnerable",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Count",
+							"sid": 478082705538375,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Count",
+							"sid": 950774096374103,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"max-speed": "Self.max_speed"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 733812003947022,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Brightness\""
+							}
+						}
+					],
+					"sid": 406951570750806
+				}
+			],
+			"sid": 152336435764971
 		},
 		{
 			"eventType": "group",
@@ -1058,19 +1365,69 @@
 					"sid": 437757687611321
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 403059342046075,
+			"children": [
 				{
-					"id": "set-effect-parameter",
-					"objectClass": "Count",
-					"sid": 635066609537186,
-					"parameters": {
-						"effect": "\"Brightness\"",
-						"parameter-index": "0",
-						"value": "110 + Self.Sine.Value"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Count",
+							"sid": 349909161264072,
+							"parameters": {
+								"instance-variable": "invulnerable"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Count",
+							"sid": 683852970189581,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "100 + Self.Hurtsine.Value"
+							}
+						}
+					],
+					"sid": 975102617189179
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 298817123240763
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "Count",
+							"sid": 996731769934846,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "110 + Self.Sine.Value"
+							}
+						},
+						{
+							"id": "set-effect-parameter",
+							"objectClass": "fontDefault",
+							"sid": 955260890275084,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "110 + Count.Sine.Value"
+							}
+						}
+					],
+					"sid": 348107844310024
 				}
-			],
-			"sid": 403059342046075
+			]
 		}
 	],
 	"sid": 746909589108384

@@ -1,0 +1,60 @@
+{
+	"name": "Skelly",
+	"plugin-id": "Sprite",
+	"sid": 363193003784447,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "speed",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 945611401434963
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 27,
+						"height": 26,
+						"originX": 0.48148148148148145,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8988014,
+						"collisionPoly": {
+							"points": [
+								0.2195766388423859,
+								0.17857159625042893,
+								0.7513223476510832,
+								0.1813185555594305,
+								0.7380949151579038,
+								0.8736265413053748,
+								0.21428571428571427,
+								0.8846153846153845
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 775558891807711,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

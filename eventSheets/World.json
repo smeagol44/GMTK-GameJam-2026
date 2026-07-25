@@ -19,6 +19,28 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-created",
+					"objectClass": "Collider",
+					"sid": 110241349482065
+				}
+			],
+			"actions": [
+				{
+					"id": "set-tags",
+					"objectClass": "Collider",
+					"sid": 898911821499988,
+					"behaviorType": "Solid",
+					"parameters": {
+						"tags": "\"wall\""
+					}
+				}
+			],
+			"sid": 890165291035524
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 125342584598987
@@ -33,104 +55,46 @@
 						"variable": "roomCleared",
 						"value": "false"
 					}
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Enemies",
-					"sid": 256931938377350
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 988640897087793,
-					"parameters": {
-						"object-to-create": "Skelly",
-						"layer": "2",
-						"x": "random(10,350)",
-						"y": "random(10,260)",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "move-to-bottom",
-					"objectClass": "Skelly",
-					"sid": 526206283687236
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 148945579292034,
-					"parameters": {
-						"object-to-create": "Skelly",
-						"layer": "2",
-						"x": "random(10,350)",
-						"y": "random(10,260)",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "move-to-bottom",
-					"objectClass": "Skelly",
-					"sid": 811888117129915
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 162826846527500,
-					"parameters": {
-						"object-to-create": "Skelly",
-						"layer": "2",
-						"x": "random(10,350)",
-						"y": "random(10,260)",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "move-to-bottom",
-					"objectClass": "Skelly",
-					"sid": 886773959678057
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 662072832749365,
-					"parameters": {
-						"object-to-create": "Skelly",
-						"layer": "2",
-						"x": "random(10,350)",
-						"y": "random(10,260)",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "move-to-bottom",
-					"objectClass": "Skelly",
-					"sid": 587434966177851
-				},
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 766464798810579,
-					"parameters": {
-						"object-to-create": "Skelly",
-						"layer": "2",
-						"x": "random(10,350)",
-						"y": "random(10,260)",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "move-to-bottom",
-					"objectClass": "Skelly",
-					"sid": 945959908246315
 				}
 			],
-			"sid": 145989937733072
+			"sid": 145989937733072,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 439446567640494,
+							"parameters": {
+								"count": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "spawn_enemy_ranPos",
+							"sid": 502007567322860,
+							"parameters": [
+								"choose(\"Skelly\",\"Guts\")"
+							]
+						}
+					],
+					"sid": 962548548351934
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "move-to-top",
+							"objectClass": "Count",
+							"sid": 152577149971943
+						}
+					],
+					"sid": 657007128138113
+				}
+			]
 		},
 		{
 			"eventType": "comment",
@@ -373,6 +337,23 @@
 							"parameters": {
 								"color": "rgbEx(255, 0, 20)"
 							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "fontDefault",
+							"sid": 924355926030915,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "fontDefault",
+							"sid": 464315680050398,
+							"parameters": {
+								"color": "rgbEx(255, 0, 20)"
+							}
 						}
 					],
 					"sid": 584516256844458,
@@ -496,10 +477,10 @@
 										{
 											"id": "set-size",
 											"objectClass": "bloodSplat",
-											"sid": 806501975790317,
+											"sid": 341674527913107,
 											"parameters": {
-												"width": "Self.Width*0.75",
-												"height": "Self.Height*0.75"
+												"width": "Self.Width*0.90",
+												"height": "Self.Height*0.90"
 											}
 										}
 									],

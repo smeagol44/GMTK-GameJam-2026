@@ -1,0 +1,12 @@
+{
+	"name": "Followers",
+	"plugin-id": "Sprite",
+	"sid": 629842425200138,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Skelly",
+		"Zombie"
+	]
+}

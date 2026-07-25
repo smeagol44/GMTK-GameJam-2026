@@ -1,0 +1,369 @@
+{
+	"name": "Memory",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "Skelly",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"sid": 393610643711207,
+					"tags": "",
+					"instanceVariables": {
+						"blood": 0,
+						"max_speed": 60,
+						"knockback": 150,
+						"damage": 5,
+						"speed": 2
+					},
+					"behaviors": {
+						"damaged": {
+							"properties": {}
+						},
+						"Flash": {
+							"properties": {}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "value-only",
+								"wave": "sine",
+								"period": 0.1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 60,
+								"acceleration": 600,
+								"deceleration": 500,
+								"directions": "dir-8",
+								"set-angle": "no",
+								"allow-sliding": false,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 62,
+						"y": 63,
+						"width": 27,
+						"height": 26,
+						"originX": 0.48148148148148145,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Zombie",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 27,
+					"sid": 799095137402327,
+					"tags": "zombie",
+					"instanceVariables": {
+						"blood": 0,
+						"max_speed": 40,
+						"knockback": 200,
+						"damage": 10
+					},
+					"behaviors": {
+						"damaged": {
+							"properties": {}
+						},
+						"Flash": {
+							"properties": {}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "value-only",
+								"wave": "sine",
+								"period": 0.1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 40,
+								"acceleration": 600,
+								"deceleration": 500,
+								"directions": "dir-8",
+								"set-angle": "no",
+								"allow-sliding": false,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 62,
+						"y": 114,
+						"width": 29,
+						"height": 28,
+						"originX": 0.4827586206896552,
+						"originY": 0.5535714285714286,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Guts",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28,
+					"sid": 470718305090884,
+					"tags": "",
+					"instanceVariables": {
+						"blood": 0,
+						"max_speed": 50,
+						"knockback": 150,
+						"damage": 5,
+						"state": 0,
+						"positioningDirection": 0
+					},
+					"behaviors": {
+						"damaged": {
+							"properties": {}
+						},
+						"Flash": {
+							"properties": {}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "value-only",
+								"wave": "sine",
+								"period": 0.1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 50,
+								"acceleration": 600,
+								"deceleration": 500,
+								"directions": "dir-8",
+								"set-angle": "no",
+								"allow-sliding": false,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"use-instance-tags": true,
+								"tags": ""
+							}
+						}
+					},
+					"effects": {
+						"Brightness": {
+							"isEnabled": false,
+							"parameters": {
+								"brightness": 1
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 63,
+						"y": 85,
+						"width": 23,
+						"height": 32,
+						"originX": 0.5217391304347826,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Numbers",
+					"properties": {
+						"text": "098",
+						"enable-bbcode": true,
+						"character-width": 8,
+						"character-height": 12,
+						"character-set": "0123456789",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 16,
+					"sid": 841314005192029,
+					"tags": "",
+					"instanceVariables": {
+						"enemy_uid": 0
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 0.8,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 54,
+						"y": 30,
+						"width": 16,
+						"height": 13,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0.00024213526788546824
+					}
+				}
+			],
+			"sid": 476055423631149,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0,
+				0,
+				0,
+				1
+			],
+			"isTransparent": false,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		}
+	],
+	"sid": 849343597482046,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 720,
+	"height": 540,
+	"unboundedScrolling": false,
+	"sampling": "auto",
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": null
+}

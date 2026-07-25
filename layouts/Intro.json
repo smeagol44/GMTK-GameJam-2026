@@ -7,6 +7,72 @@
 			"subLayers": [],
 			"instances": [
 				{
+					"type": "Mort",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 33,
+					"sid": 359157709238079,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 239,
+						"y": 213,
+						"width": 200,
+						"height": 258,
+						"originX": 0.57,
+						"originY": 0.8062015503875969,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "boxTest",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 32,
+					"sid": 607299932682912,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 432,
+						"y": 362.6666666666667,
+						"width": 480,
+						"height": 92,
+						"originX": 0.9,
+						"originY": 1.0289855072463767,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "placeholder",
 					"properties": {
 						"text": "(The Count: Vampire Master)\n(Mort DeCay: Miner Zombie Lord)\n\n## INTRO ##\n\n[Mort arrives at castle]\n\n[The Count is unamused]\nCount: You again?\n\n[Mort smirks]\nMort DeCay: This time is different, Count... \n\n[Mort casts a terrible curse]\n\n[The Count is surprised/angry/worried]\nCount: What have you done?!\n\n[Mort laughs]\nMort DeCay: All your monsters will be turned into zombies now!\nMort DeCay: Your entire army will be mine in a matter of seconds!\n\n[The Count smirks]\nCount: Not if I eat it first...\n\n## GO TO TITLE SCREEN ##",
@@ -39,10 +105,61 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 11.39410400390625,
-						"y": 15.999691009521484,
+						"x": 431,
+						"y": -43,
 						"width": 342.8326881214857,
 						"height": 335.5932371864262,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "fontDefault",
+					"properties": {
+						"text": "MORT DE'CAY: THIS TIME WILL BE DIFFERENT, COUNT*",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": -3,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 30,
+					"sid": 327752239845863,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"effects": {
+						"Brightness": {
+							"isEnabled": true,
+							"parameters": {
+								"brightness": 1
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 17,
+						"y": 286,
+						"width": 447,
+						"height": 56,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -68,9 +185,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.011764705882352941,
+				0.011764705882352941,
+				0.011764705882352941,
 				1
 			],
 			"isTransparent": false,
@@ -89,7 +206,18 @@
 	],
 	"sid": 309797280760317,
 	"nonworld-instances": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "Brightness",
+			"instance": {
+				"isEnabled": false,
+				"parameters": {
+					"brightness": 0
+				}
+			}
+		}
+	],
 	"width": 720,
 	"height": 540,
 	"unboundedScrolling": false,

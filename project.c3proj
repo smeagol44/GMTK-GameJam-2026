@@ -156,26 +156,72 @@
 		],
 		"subfolders": [
 			{
-				"items": [
-					"Count",
-					"Collider",
-					"Escalera",
-					"SlashHitbox",
-					"BiteHitbox",
-					"Skelly",
-					"Coffin",
-					"SmallRock",
-					"floorRock",
-					"bloodSplat",
-					"goesDown",
-					"Numbers",
-					"Sprite",
-					"Zap",
-					"Guts",
-					"Zombie",
-					"bloodDrop"
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"BiteHitbox",
+							"SlashHitbox"
+						],
+						"subfolders": [],
+						"name": "Hitboxes"
+					},
+					{
+						"items": [
+							"Coffin",
+							"Escalera",
+							"floorRock",
+							"SmallRock",
+							"BG",
+							"Mort"
+						],
+						"subfolders": [],
+						"name": "Decos"
+					},
+					{
+						"items": [
+							"Collider",
+							"SpawnArea"
+						],
+						"subfolders": [],
+						"name": "Design"
+					},
+					{
+						"items": [
+							"Count",
+							"Guts",
+							"Skelly",
+							"Zombie"
+						],
+						"subfolders": [],
+						"name": "Characters"
+					},
+					{
+						"items": [
+							"bloodDrop"
+						],
+						"subfolders": [],
+						"name": "Pickups"
+					},
+					{
+						"items": [
+							"bloodSplat",
+							"Zap"
+						],
+						"subfolders": [],
+						"name": "Vfx"
+					},
+					{
+						"items": [
+							"goesDown",
+							"Numbers",
+							"fontDefault",
+							"boxTest"
+						],
+						"subfolders": [],
+						"name": "UI"
+					}
 				],
-				"subfolders": [],
 				"name": "Sprites"
 			},
 			{
@@ -213,7 +259,9 @@
 	"families": {
 		"items": [
 			"Enemies",
-			"Hitboxes"
+			"Hitboxes",
+			"Followers",
+			"Rammers"
 		],
 		"subfolders": []
 	},
@@ -222,7 +270,9 @@
 			"Gameplay Test",
 			"Game Over",
 			"Count Goes Down",
-			"Intro"
+			"Intro",
+			"Memory",
+			"Shop"
 		],
 		"subfolders": []
 	},
@@ -237,7 +287,8 @@
 			"Pubsub",
 			"World",
 			"CountGoesDown",
-			"Intro"
+			"Intro",
+			"Shop"
 		],
 		"subfolders": []
 	},
@@ -300,6 +351,14 @@
 					"name": "dash.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 842409126179844,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "bite.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 756423618753178,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -461,7 +520,7 @@
 		"exportFileStructure": "folders",
 		"scriptsType": "module"
 	},
-	"viewportWidth": 360,
-	"viewportHeight": 270,
-	"firstLayout": null
+	"viewportWidth": 480,
+	"viewportHeight": 360,
+	"firstLayout": "Intro"
 }

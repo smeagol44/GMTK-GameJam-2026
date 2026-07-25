@@ -7,6 +7,10 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "World"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "Player"
 		},
 		{
@@ -20,10 +24,6 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Pubsub"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "World"
 		}
 	],
 	"sid": 989755045004875

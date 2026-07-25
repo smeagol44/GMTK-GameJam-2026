@@ -1,0 +1,26 @@
+{
+	"name": "Rammers",
+	"plugin-id": "Sprite",
+	"sid": 472801601005297,
+	"instanceVariables": [
+		{
+			"name": "state",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 751817540569472
+		},
+		{
+			"name": "positioningDirection",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 570168286973150
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Guts"
+	]
+}

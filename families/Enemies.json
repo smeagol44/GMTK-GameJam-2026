@@ -9,6 +9,27 @@
 			"desc": "",
 			"show": true,
 			"sid": 944580095657228
+		},
+		{
+			"name": "max_speed",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 385803711241145
+		},
+		{
+			"name": "knockback",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 691555482792516
+		},
+		{
+			"name": "damage",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 224856566410584
 		}
 	],
 	"behaviorTypes": [
@@ -26,6 +47,16 @@
 			"behaviorId": "Sin",
 			"name": "Sine",
 			"sid": 388413605777896
+		},
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 401371574257368
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 432100567475474
 		}
 	],
 	"effectTypes": [

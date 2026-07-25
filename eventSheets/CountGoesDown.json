@@ -15,10 +15,10 @@
 				{
 					"id": "compare-y",
 					"objectClass": "Coffin",
-					"sid": 295075594468279,
+					"sid": 491498019507109,
 					"parameters": {
 						"comparison": 2,
-						"y-co-ordinate": "400"
+						"y-co-ordinate": "420"
 					}
 				}
 			],
@@ -26,12 +26,12 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 786913896219676,
+					"sid": 976747201976202,
 					"parameters": {
 						"object-to-create": "SmallRock",
 						"layer": "0",
-						"x": "floor(random(175,195))",
-						"y": "220",
+						"x": "floor(random(220,260))",
+						"y": "280",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -96,10 +96,10 @@
 						{
 							"id": "compare-y",
 							"objectClass": "Coffin",
-							"sid": 734902578289600,
+							"sid": 208864190008215,
 							"parameters": {
 								"comparison": 4,
-								"y-co-ordinate": "350"
+								"y-co-ordinate": "380"
 							}
 						}
 					],

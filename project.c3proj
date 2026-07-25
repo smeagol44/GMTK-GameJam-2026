@@ -190,7 +190,8 @@
 							"Count",
 							"Guts",
 							"Skelly",
-							"Zombie"
+							"Zombie",
+							"Clot"
 						],
 						"subfolders": [],
 						"name": "Characters"

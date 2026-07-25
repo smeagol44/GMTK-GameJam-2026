@@ -172,8 +172,7 @@
 							"Escalera",
 							"floorRock",
 							"SmallRock",
-							"BG",
-							"Mort"
+							"BG"
 						],
 						"subfolders": [],
 						"name": "Decos"
@@ -206,7 +205,8 @@
 					{
 						"items": [
 							"bloodSplat",
-							"Zap"
+							"Zap",
+							"poof"
 						],
 						"subfolders": [],
 						"name": "Vfx"
@@ -216,10 +216,19 @@
 							"goesDown",
 							"Numbers",
 							"fontDefault",
-							"boxTest"
+							"boxMsg",
+							"Sprite"
 						],
 						"subfolders": [],
 						"name": "UI"
+					},
+					{
+						"items": [
+							"Mort",
+							"message"
+						],
+						"subfolders": [],
+						"name": "Scenes"
 					}
 				],
 				"name": "Sprites"

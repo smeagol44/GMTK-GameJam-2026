@@ -2,6 +2,16 @@
 	"name": "Gameplay",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "DEBUG",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 434577253027446
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Inputs"
 		},

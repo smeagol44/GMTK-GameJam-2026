@@ -23,12 +23,12 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 239,
-						"y": 213,
+						"x": 225,
+						"y": 138,
 						"width": 200,
 						"height": 258,
-						"originX": 0.57,
-						"originY": 0.8062015503875969,
+						"originX": 0.5,
+						"originY": 0.5038759689922481,
 						"color": [
 							1,
 							1,
@@ -40,7 +40,7 @@
 					}
 				},
 				{
-					"type": "boxTest",
+					"type": "boxMsg",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -122,7 +122,7 @@
 					}
 				},
 				{
-					"type": "fontDefault",
+					"type": "message",
 					"properties": {
 						"text": "MORT DE'CAY: THIS TIME WILL BE DIFFERENT, COUNT*",
 						"enable-bbcode": true,
@@ -140,8 +140,8 @@
 						"origin": "top-left",
 						"read-aloud": false
 					},
-					"uid": 30,
-					"sid": 327752239845863,
+					"uid": 41,
+					"sid": 685420461138539,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
@@ -154,7 +154,7 @@
 						}
 					},
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 17,
 						"y": 286,

@@ -22,6 +22,16 @@
 			"sid": 732449858607550
 		},
 		{
+			"eventType": "variable",
+			"name": "dash_cost",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 315192677318770
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -339,16 +349,51 @@
 							"parameters": {
 								"object": "Collider"
 							}
+						},
+						{
+							"id": "is-timer-running",
+							"objectClass": "Count",
+							"sid": 625295103318639,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"timer_dash\""
+							}
 						}
 					],
 					"actions": [
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Count",
+							"sid": 638316230799371,
+							"parameters": {
+								"instance-variable": "invulnerable",
+								"value": "false"
+							}
+						},
+						{
 							"id": "stop-timer",
 							"objectClass": "Count",
-							"sid": 568601354055953,
+							"sid": 260749005481961,
 							"behaviorType": "Timer",
 							"parameters": {
 								"tag": "\"timer_dash\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 533322587521202,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Count",
+							"sid": 794079038214212,
+							"parameters": {
+								"color": "rgbEx(255, 255, 255)"
 							}
 						}
 					],
@@ -423,6 +468,16 @@
 										"instance-variable": "input_dash",
 										"comparison": 0,
 										"value": "PRESSED"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 459507688853320,
+									"parameters": {
+										"instance-variable": "dash_speed",
+										"comparison": 0,
+										"value": "0"
 									}
 								}
 							],
@@ -561,6 +616,24 @@
 							}
 						},
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Count",
+							"sid": 681417509435921,
+							"parameters": {
+								"instance-variable": "invulnerable",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Count",
+							"sid": 337042750501322,
+							"parameters": {
+								"animation": "\"dash\"",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "Count",
 							"sid": 744945510648541,
@@ -591,6 +664,40 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"dash\""
 							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 338511712977870,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Count",
+							"sid": 986589671144228,
+							"parameters": {
+								"color": "rgbEx(20, 0, 200)"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Count",
+							"sid": 361088777336208,
+							"parameters": {
+								"instance-variable": "blood",
+								"value": "dash_cost"
+							}
+						},
+						{
+							"callFunction": "pubsub_publish",
+							"sid": 854339233619159,
+							"parameters": [
+								"\"blood_down\"",
+								"\"\""
+							]
 						}
 					],
 					"sid": 824281684148635
@@ -1061,6 +1168,17 @@
 								"type": "once",
 								"tag": "\"hurt\""
 							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Count",
+							"sid": 652606273628258,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.4",
+								"type": "once",
+								"tag": "\"invulnerable\""
+							}
 						}
 					],
 					"sid": 343080834247782,
@@ -1254,15 +1372,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Count",
-							"sid": 241196062784613,
-							"parameters": {
-								"instance-variable": "invulnerable",
-								"value": "false"
-							}
-						},
-						{
 							"id": "set-ignoring-input",
 							"objectClass": "Count",
 							"sid": 478082705538375,
@@ -1279,18 +1388,44 @@
 							"parameters": {
 								"max-speed": "Self.max_speed"
 							}
+						}
+					],
+					"sid": 406951570750806
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Count",
+							"sid": 240920849577726,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"invulnerable\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Count",
+							"sid": 962144701462200,
+							"parameters": {
+								"instance-variable": "invulnerable",
+								"value": "false"
+							}
 						},
 						{
 							"id": "set-effect-enabled",
 							"objectClass": "Count",
-							"sid": 733812003947022,
+							"sid": 702852269757888,
 							"parameters": {
 								"mode": "disable",
 								"effect": "\"Brightness\""
 							}
 						}
 					],
-					"sid": 406951570750806
+					"sid": 476334048898992
 				}
 			],
 			"sid": 152336435764971
@@ -1428,6 +1563,123 @@
 					"sid": 348107844310024
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Count",
+					"sid": 304254256677968,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"wait\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 611282444171526,
+					"parameters": {
+						"variable": "is_movement_locked",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 932744122657645,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Count",
+					"sid": 725042664553259,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"timer_dash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "Count",
+					"sid": 469527469140665,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "0.5",
+						"type": "once",
+						"tag": "\"wait\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 114736185214648,
+					"parameters": {
+						"variable": "is_movement_locked",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Count",
+					"sid": 549848896450956,
+					"parameters": {
+						"animation": "\"wait\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 175899405156224,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Count",
+					"sid": 720516790994243,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"timer_dash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Count",
+					"sid": 484826326889808,
+					"parameters": {
+						"instance-variable": "invulnerable",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Count",
+					"sid": 941699479464787,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Brightness\""
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Count",
+					"sid": 155362821445633,
+					"parameters": {
+						"color": "rgbEx(255, 255, 255)"
+					}
+				}
+			],
+			"sid": 746912195410115
 		}
 	],
 	"sid": 746909589108384

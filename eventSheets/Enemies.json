@@ -2,9 +2,19 @@
 	"name": "Enemies",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "killbonus",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 242664442773739
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "OnCreate",
+			"title": "Simple events",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -102,6 +112,32 @@
 						}
 					],
 					"sid": 408687240296252
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Enemies",
+							"sid": 960059524382521
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 284569282671654,
+							"parameters": {
+								"object-to-create": "poof",
+								"layer": "4",
+								"x": "Enemies.X",
+								"y": "Enemies.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 867429051780610
 				}
 			],
 			"sid": 904840466494769
@@ -224,10 +260,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 584556528708289,
+													"sid": 747768461259385,
 													"parameters": {
 														"object-to-create": "Zap",
-														"layer": "2",
+														"layer": "4",
 														"x": "Enemies.X",
 														"y": "Enemies.Y",
 														"create-hierarchy": false,
@@ -1457,26 +1493,6 @@
 				0,
 				1
 			]
-		},
-		{
-			"eventType": "variable",
-			"name": "DEBUG",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 990982446138197
-		},
-		{
-			"eventType": "variable",
-			"name": "killbonus",
-			"type": "number",
-			"initialValue": "5",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 591051611501454
 		},
 		{
 			"eventType": "group",

@@ -7,6 +7,72 @@
 			"subLayers": [],
 			"instances": [
 				{
+					"type": "floorRock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 38,
+					"sid": 897598483245232,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 356,
+						"y": 206,
+						"width": 252,
+						"height": 74,
+						"originX": 0.5,
+						"originY": -0.7027027027027027,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "floorRock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 39,
+					"sid": 723464249738081,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 126,
+						"y": 206,
+						"width": 252,
+						"height": 74,
+						"originX": 0.5,
+						"originY": -0.7027027027027027,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
 					"type": "BG",
 					"properties": {
 						"initially-visible": true,
@@ -21,7 +87,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"showing": true,
-					"locked": false,
+					"locked": true,
 					"world": {
 						"x": 234,
 						"y": 152,

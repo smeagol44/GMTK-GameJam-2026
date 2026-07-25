@@ -3,7 +3,7 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "intro_brightness",
+			"name": "aux_brightness",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -20,6 +20,36 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 484080094798815
+		},
+		{
+			"eventType": "variable",
+			"name": "outro",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 996813739558026
+		},
+		{
+			"eventType": "variable",
+			"name": "step",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 984297385672846
+		},
+		{
+			"eventType": "variable",
+			"name": "skip",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 356185777044890
 		},
 		{
 			"eventType": "block",
@@ -64,7 +94,7 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 253541121803981,
+							"sid": 459728079785287,
 							"parameters": {
 								"variable": "intro"
 							}
@@ -72,105 +102,11 @@
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 984760846324114,
-							"parameters": {
-								"variable": "intro_brightness",
-								"value": "intro_brightness + 25"
-							}
+							"callFunction": "fade_in",
+							"sid": 107659163601635
 						}
 					],
-					"sid": 667857146591175,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 200046185249448,
-									"parameters": {
-										"first-value": "intro_brightness",
-										"comparison": 5,
-										"second-value": "100"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-layout-effect-parameter",
-									"objectClass": "System",
-									"sid": 167442403354023,
-									"parameters": {
-										"effect": "\"Brightness\"",
-										"parameter-index": "0",
-										"value": "100"
-									}
-								}
-							],
-							"sid": 926382319146887
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 385946216722311
-								}
-							],
-							"actions": [
-								{
-									"id": "set-layout-effect-parameter",
-									"objectClass": "System",
-									"sid": 618474162971670,
-									"parameters": {
-										"effect": "\"Brightness\"",
-										"parameter-index": "0",
-										"value": "intro_brightness"
-									}
-								}
-							],
-							"sid": 182176424313870
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 686985494185433,
-									"parameters": {
-										"first-value": "intro_brightness",
-										"comparison": 5,
-										"second-value": "250"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 311443422383530,
-									"parameters": {
-										"variable": "intro",
-										"value": "false"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 370919346280379,
-									"parameters": {
-										"variable": "intro_brightness",
-										"value": "100"
-									}
-								}
-							],
-							"sid": 849294751573061
-						}
-					]
+					"sid": 820650585058003
 				},
 				{
 					"eventType": "block",
@@ -178,47 +114,35 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 698296830711919
+							"sid": 128978799299589
 						}
 					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 397618304867342,
-							"parameters": {
-								"variable": "intro_brightness",
-								"value": "intro_brightness - 25"
-							}
-						}
-					],
-					"sid": 167036114928377,
+					"actions": [],
+					"sid": 995635671019227,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
+									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 720701023437822,
+									"sid": 150152277070478,
 									"parameters": {
-										"first-value": "intro_brightness",
-										"comparison": 2,
-										"second-value": "0"
+										"variable": "outro"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 384275785746179,
-									"parameters": {
-										"layout": "Count Goes Down"
-									}
+									"callFunction": "fade_out",
+									"sid": 291498985229394,
+									"parameters": [
+										"\"\"",
+										"\"\""
+									]
 								}
 							],
-							"sid": 918574128618862
+							"sid": 668149060775051
 						},
 						{
 							"eventType": "block",
@@ -226,22 +150,355 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 666293620868392
+									"sid": 925074675573663
 								}
 							],
 							"actions": [
 								{
-									"id": "set-layout-effect-parameter",
-									"objectClass": "System",
-									"sid": 300199756709070,
-									"parameters": {
-										"effect": "\"Brightness\"",
-										"parameter-index": "0",
-										"value": "intro_brightness"
-									}
+									"callFunction": "wait_for_user",
+									"sid": 216282413221892
 								}
 							],
-							"sid": 703854875687990
+							"sid": 718745659792766
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "fade_in",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 758233117112048,
+					"parameters": {
+						"variable": "aux_brightness",
+						"value": "aux_brightness + step"
+					}
+				}
+			],
+			"sid": 852971687057098,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 198165591973125,
+							"parameters": {
+								"first-value": "aux_brightness",
+								"comparison": 5,
+								"second-value": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-effect-parameter",
+							"objectClass": "System",
+							"sid": 431738220282689,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "100"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 912711868123285,
+							"parameters": {
+								"variable": "intro",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 662195416466029
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 507721584802655
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-effect-parameter",
+							"objectClass": "System",
+							"sid": 378350918586442,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "aux_brightness"
+							}
+						}
+					],
+					"sid": 287676996925599
+				}
+			]
+		},
+		{
+			"functionName": "fade_out",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "scene_image",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 989592937742785
+				},
+				{
+					"name": "scene_message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 511130426215764
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 759065070036710,
+					"parameters": {
+						"variable": "aux_brightness",
+						"value": "aux_brightness - step"
+					}
+				}
+			],
+			"sid": 741434668177082,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 532611287997125,
+							"parameters": {
+								"first-value": "aux_brightness",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-effect-parameter",
+							"objectClass": "System",
+							"sid": 366808309869912,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "100"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 608365764017214,
+							"parameters": {
+								"variable": "aux_brightness",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "loadNext",
+							"sid": 221648005597762,
+							"parameters": [
+								"scene_image",
+								"scene_message"
+							]
+						}
+					],
+					"sid": 382425271626202
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 124625421414118
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-effect-parameter",
+							"objectClass": "System",
+							"sid": 934478599922484,
+							"parameters": {
+								"effect": "\"Brightness\"",
+								"parameter-index": "0",
+								"value": "aux_brightness"
+							}
+						}
+					],
+					"sid": 609785414129828
+				}
+			]
+		},
+		{
+			"functionName": "wait_for_user",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 448591511659919,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 280986210986967,
+							"parameters": {
+								"interval-seconds": "15"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 427239859990665,
+							"parameters": {
+								"variable": "skip"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 607806460051312,
+							"parameters": {
+								"variable": "outro",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 386049294244895,
+							"parameters": {
+								"variable": "skip",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 899213809457954,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"functionName": "loadNext",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "scene_image",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 211243700880539
+				},
+				{
+					"name": "scene_message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 467078829623670
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 849352758452192,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Aca habria que ir al main menu, pero no hay"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 484921730744455,
+							"parameters": {
+								"first-value": "scene_image",
+								"comparison": 0,
+								"second-value": "\"\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 920046074952319,
+							"parameters": {
+								"first-value": "scene_message",
+								"comparison": 0,
+								"second-value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 660002846037439,
+							"parameters": {
+								"layout": "Count Goes Down"
+							}
+						}
+					],
+					"sid": 576935831469191
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 790488320222408
+						}
+					],
+					"actions": [],
+					"sid": 297798006518114,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Falta un wait aca"
 						},
 						{
 							"eventType": "block",
@@ -249,30 +506,214 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 828157321582485,
+									"sid": 813652364286674,
 									"parameters": {
-										"first-value": "intro_brightness",
-										"comparison": 5,
-										"second-value": "250"
+										"first-value": "scene_image",
+										"comparison": 0,
+										"second-value": "\"\""
 									}
 								}
 							],
 							"actions": [
 								{
+									"id": "set-text",
+									"objectClass": "message",
+									"sid": 394327589943600,
+									"parameters": {
+										"text": "scene_message"
+									}
+								}
+							],
+							"sid": 916787553829595
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 776382846535053
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 104487790078170,
+									"parameters": {
+										"object-name": "scene_image",
+										"layer": "0",
+										"x": "225",
+										"y": "138",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "message",
+									"sid": 433683762241599,
+									"parameters": {
+										"text": "scene_message"
+									}
+								},
+								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 956067900597357,
+									"sid": 476223378002546,
 									"parameters": {
 										"variable": "intro",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 202802365267568,
+									"parameters": {
+										"variable": "outro",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 851981308839081
+							"sid": 135859793994159
 						}
 					]
 				}
 			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Skip scene"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 393027550246274,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-a"
+					}
+				},
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 487019536370325,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-b"
+					}
+				},
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 983597772664060,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-y"
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 306969361096013,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 269324489103332,
+					"parameters": {
+						"key": 90
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 741125100993252,
+					"parameters": {
+						"key": 88
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 348430109132123,
+					"parameters": {
+						"key": 67
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 679380848891421,
+					"parameters": {
+						"key": 74
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 799623497269607,
+					"parameters": {
+						"key": 75
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 494443686524563,
+					"parameters": {
+						"key": 76
+					}
+				}
+			],
+			"actions": [],
+			"sid": 481392078619789,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 230050024473550,
+							"parameters": {
+								"variable": "intro"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 965810674891299,
+							"parameters": {
+								"variable": "outro"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 386458077393606,
+							"parameters": {
+								"variable": "skip",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 909307643553504,
+					"isOrBlock": true
+				}
+			],
+			"isOrBlock": true
 		}
 	],
 	"sid": 873807298050679

@@ -293,6 +293,27 @@
 			"sid": 154020796692582
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "poof",
+					"sid": 178722308641404,
+					"parameters": {
+						"animation": "\"default\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "poof",
+					"sid": 390427865701259
+				}
+			],
+			"sid": 190998725966208
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Blood Absorb",

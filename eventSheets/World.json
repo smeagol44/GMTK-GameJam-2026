@@ -233,10 +233,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 236481921890828,
+					"sid": 407687059395756,
 					"parameters": {
 						"object-to-create": "Zombie",
-						"layer": "2",
+						"layer": "\"characters\"",
 						"x": "Zap.X",
 						"y": "Zap.Y",
 						"create-hierarchy": false,
@@ -476,10 +476,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 384256645113371,
+											"sid": 769101313632040,
 											"parameters": {
 												"object-to-create": "bloodDrop",
-												"layer": "0",
+												"layer": "\"decals\"",
 												"x": "bloodSplat.X",
 												"y": "bloodSplat.Y",
 												"create-hierarchy": false,
@@ -541,7 +541,8 @@
 												}
 											],
 											"actions": [],
-											"sid": 395678541701289
+											"sid": 395678541701289,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -552,20 +553,9 @@
 													"sid": 423950327976418
 												}
 											],
-											"actions": [
-												{
-													"id": "move-to-object",
-													"objectClass": "bloodDrop",
-													"sid": 324335027603350,
-													"behaviorType": "MoveTo",
-													"parameters": {
-														"object": "Count",
-														"image-point": "0",
-														"mode": "direct"
-													}
-												}
-											],
-											"sid": 497481933431178
+											"actions": [],
+											"sid": 497481933431178,
+											"disabled": true
 										}
 									]
 								}
@@ -610,6 +600,33 @@
 						}
 					],
 					"sid": 180553186050587
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 843388781054115,
+							"parameters": {
+								"object": "bloodDrop"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-object",
+							"objectClass": "bloodDrop",
+							"sid": 777548618241956,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"object": "Count",
+								"image-point": "0",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 303471897503848
 				}
 			],
 			"sid": 956141944899011,

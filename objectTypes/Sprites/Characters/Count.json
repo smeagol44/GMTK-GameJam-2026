@@ -90,20 +90,6 @@
 			"sid": 847650126415909
 		},
 		{
-			"name": "knockback",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 340340432122763
-		},
-		{
-			"name": "max_speed",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 683014743590246
-		},
-		{
 			"name": "invulnerable",
 			"type": "boolean",
 			"desc": "",

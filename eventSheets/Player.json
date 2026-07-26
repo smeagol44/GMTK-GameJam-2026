@@ -12,24 +12,16 @@
 			"sid": 799919383958583
 		},
 		{
-			"eventType": "variable",
-			"name": "dash_full_speed",
-			"type": "number",
-			"initialValue": "7",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 732449858607550
+			"eventType": "include",
+			"includeSheet": "Inputs"
 		},
 		{
-			"eventType": "variable",
-			"name": "dash_cost",
-			"type": "number",
-			"initialValue": "2",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 315192677318770
+			"eventType": "include",
+			"includeSheet": "CollisionBoxes"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Pubsub"
 		},
 		{
 			"eventType": "block",
@@ -299,10 +291,10 @@
 						{
 							"id": "set-max-speed",
 							"objectClass": "Count",
-							"sid": 433671631620968,
+							"sid": 499950846039809,
 							"behaviorType": "8Direction",
 							"parameters": {
-								"max-speed": "floor(Self.max_speed/2)"
+								"max-speed": "floor(Functions.count_get_stat(\"walk_speed\",0)/2)"
 							}
 						}
 					],
@@ -321,10 +313,10 @@
 						{
 							"id": "set-max-speed",
 							"objectClass": "Count",
-							"sid": 168332255381852,
+							"sid": 917415739819413,
 							"behaviorType": "8Direction",
 							"parameters": {
-								"max-speed": "Self.max_speed"
+								"max-speed": "Functions.count_get_stat(\"walk_speed\",0)"
 							}
 						},
 						{
@@ -398,6 +390,66 @@
 						}
 					],
 					"sid": 397931431482654
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Count",
+							"sid": 102676825562515,
+							"parameters": {
+								"object": "Enemies"
+							}
+						},
+						{
+							"id": "is-timer-running",
+							"objectClass": "Count",
+							"sid": 607266571112140,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"timer_dash\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 768717600544289,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 240669125934584,
+									"parameters": {
+										"object": "Enemies"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemies",
+									"sid": 681361292729127,
+									"parameters": {
+										"instance-variable": "blood",
+										"comparison": 3,
+										"value": "Functions.count_get_stat(\"dash_dmg\",0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "pubsub_publish",
+									"sid": 930413410733518,
+									"parameters": [
+										"\"kill_enemy_by_uid\"",
+										"\"\"&Enemies.UID"
+									]
+								}
+							],
+							"sid": 906032602337669
+						}
+					]
 				}
 			],
 			"sid": 534690006846982
@@ -545,10 +597,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 487272377111759,
+							"sid": 252803613710312,
 							"parameters": {
 								"object-to-create": "SlashHitbox",
-								"layer": "4",
+								"layer": "\"characters\"",
 								"x": "Count.X",
 								"y": "Count.Y",
 								"create-hierarchy": false,
@@ -584,10 +636,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "SlashHitbox",
-							"sid": 932520759713688,
+							"sid": 138394403536250,
 							"parameters": {
 								"instance-variable": "damage",
-								"value": "3"
+								"value": "Functions.count_get_stat(\"slash_dmg\",0)"
 							}
 						}
 					],
@@ -645,10 +697,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Count",
-							"sid": 213352163673711,
+							"sid": 834703634625636,
 							"parameters": {
 								"instance-variable": "dash_speed",
-								"value": "dash_full_speed"
+								"value": "Functions.count_get_stat(\"dash_speed\",0)"
 							}
 						},
 						{
@@ -685,10 +737,10 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Count",
-							"sid": 361088777336208,
+							"sid": 694557277038819,
 							"parameters": {
 								"instance-variable": "blood",
-								"value": "dash_cost"
+								"value": "Functions.count_get_stat(\"dash_cost\",0)"
 							}
 						},
 						{
@@ -734,10 +786,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 508739573687931,
+							"sid": 359336264302192,
 							"parameters": {
 								"object-to-create": "BiteHitbox",
-								"layer": "4",
+								"layer": "\"characters\"",
 								"x": "Count.X",
 								"y": "Count.Y",
 								"create-hierarchy": false,
@@ -765,10 +817,10 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "BiteHitbox",
-							"sid": 463927850003072,
+							"sid": 694537044122460,
 							"parameters": {
 								"instance-variable": "damage",
-								"value": "10"
+								"value": "Functions.count_get_stat(\"bite_dmg\",0)"
 							}
 						},
 						{
@@ -1131,9 +1183,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
+							"id": "is-overlapping-another-object",
 							"objectClass": "Count",
-							"sid": 786295776746844,
+							"sid": 412338869919164,
 							"parameters": {
 								"object": "Enemies"
 							}
@@ -1199,10 +1251,10 @@
 								{
 									"id": "set-deceleration",
 									"objectClass": "Count",
-									"sid": 139551292505790,
+									"sid": 560572945639941,
 									"behaviorType": "8Direction",
 									"parameters": {
-										"deceleration": "500"
+										"deceleration": "Functions.count_get_stat(\"knockback_decay\",0)"
 									}
 								},
 								{
@@ -1217,28 +1269,28 @@
 								{
 									"id": "set-max-speed",
 									"objectClass": "Count",
-									"sid": 316235386562243,
+									"sid": 301705483369194,
 									"behaviorType": "8Direction",
 									"parameters": {
-										"max-speed": "Self.knockback"
+										"max-speed": "Functions.count_get_stat(\"knockback\",0)"
 									}
 								},
 								{
 									"id": "set-vector-x",
 									"objectClass": "Count",
-									"sid": 439305971281168,
+									"sid": 622904935770123,
 									"behaviorType": "8Direction",
 									"parameters": {
-										"vector-x": "cos(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Self.knockback"
+										"vector-x": "cos(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
 									}
 								},
 								{
 									"id": "set-vector-y",
 									"objectClass": "Count",
-									"sid": 402795226578310,
+									"sid": 836663567235961,
 									"behaviorType": "8Direction",
 									"parameters": {
-										"vector-y": "sin(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Self.knockback"
+										"vector-y": "sin(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
 									}
 								},
 								{
@@ -1383,10 +1435,10 @@
 						{
 							"id": "set-max-speed",
 							"objectClass": "Count",
-							"sid": 950774096374103,
+							"sid": 104257368424413,
 							"behaviorType": "8Direction",
 							"parameters": {
-								"max-speed": "Self.max_speed"
+								"max-speed": "Functions.count_get_stat(\"walk_speed\",0)"
 							}
 						}
 					],
@@ -1563,80 +1615,6 @@
 					"sid": 348107844310024
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-timer",
-					"objectClass": "Count",
-					"sid": 304254256677968,
-					"behaviorType": "Timer",
-					"parameters": {
-						"tag": "\"wait\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 611282444171526,
-					"parameters": {
-						"variable": "is_movement_locked",
-						"value": "false"
-					}
-				}
-			],
-			"sid": 932744122657645,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-timer",
-					"objectClass": "Count",
-					"sid": 725042664553259,
-					"behaviorType": "Timer",
-					"parameters": {
-						"tag": "\"timer_dash\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "start-timer",
-					"objectClass": "Count",
-					"sid": 469527469140665,
-					"behaviorType": "Timer",
-					"parameters": {
-						"duration": "0.5",
-						"type": "once",
-						"tag": "\"wait\""
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 114736185214648,
-					"parameters": {
-						"variable": "is_movement_locked",
-						"value": "true"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Count",
-					"sid": 549848896450956,
-					"parameters": {
-						"animation": "\"wait\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 175899405156224,
-			"disabled": true
 		},
 		{
 			"eventType": "block",

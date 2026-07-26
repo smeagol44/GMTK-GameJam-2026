@@ -126,10 +126,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 284569282671654,
+							"sid": 132132793428002,
 							"parameters": {
 								"object-to-create": "poof",
-								"layer": "4",
+								"layer": "\"characters\"",
 								"x": "Enemies.X",
 								"y": "Enemies.Y",
 								"create-hierarchy": false,
@@ -260,10 +260,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 747768461259385,
+													"sid": 483691669221860,
 													"parameters": {
 														"object-to-create": "Zap",
-														"layer": "4",
+														"layer": "\"characters\"",
 														"x": "Enemies.X",
 														"y": "Enemies.Y",
 														"create-hierarchy": false,
@@ -379,24 +379,55 @@
 					"text": "Al colisionar con cualquier tipo de hitbox los enemigos reciben daño"
 				},
 				{
-					"eventType": "variable",
-					"name": "auxangle",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 484778024898567
-				},
-				{
-					"eventType": "variable",
-					"name": "auxangle2",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 405140623325747
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 624090049704566,
+							"parameters": {
+								"tag": "\"kill_enemy_by_uid\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 797210163695510,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Enemies",
+									"sid": 322403056951842,
+									"parameters": {
+										"unique-id": "int(Functions.pubsub_getData(\"kill_enemy_by_uid\"))"
+									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "Enemies",
+									"sid": 198360772836838,
+									"parameters": {
+										"tags": "\"zombie\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "killEnemy",
+									"sid": 813862739885211,
+									"parameters": [
+										"Enemies.blood",
+										"Enemies.UID",
+										"\"bite\""
+									]
+								}
+							],
+							"sid": 451519538510325
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -404,7 +435,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Enemies",
-							"sid": 247552476136635,
+							"sid": 286184724580088,
 							"parameters": {
 								"object": "Hitboxes"
 							}
@@ -691,7 +722,8 @@
 								}
 							]
 						}
-					]
+					],
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -753,6 +785,50 @@
 						}
 					],
 					"sid": 262385002403066
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemies",
+							"sid": 160085546906938,
+							"parameters": {
+								"instance-variable": "blood",
+								"comparison": 3,
+								"value": "Functions.count_get_stat(\"dash_dmg\",0)"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Enemies",
+							"sid": 274513766838149,
+							"parameters": {
+								"tags": "\"zombie\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Enemies",
+							"sid": 947801405218584,
+							"parameters": {
+								"color": "rgbEx(255, 0, 20)"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Enemies",
+							"sid": 765907151538884,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						}
+					],
+					"sid": 278898972925463
 				}
 			],
 			"sid": 567120270303107,
@@ -922,10 +998,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 461172844431318,
+											"sid": 568469154260218,
 											"parameters": {
 												"object-to-create": "Numbers",
-												"layer": "3",
+												"layer": "\"ui\"",
 												"x": "Enemies.X",
 												"y": "Enemies.Y -floor(Enemies.Height)",
 												"create-hierarchy": false,

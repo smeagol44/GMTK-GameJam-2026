@@ -460,8 +460,6 @@
 						"attacking_angle": 0,
 						"dash_speed": 0,
 						"dash_angle": 0,
-						"knockback": 200,
-						"max_speed": 100,
 						"invulnerable": false
 					},
 					"behaviors": {
@@ -722,6 +720,14 @@
 			"properties": {},
 			"uid": 17,
 			"sid": 822094189697805,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "JsonCountStats",
+			"properties": {},
+			"uid": 42,
+			"sid": 143102061851200,
 			"tags": "",
 			"instanceVariables": {}
 		}

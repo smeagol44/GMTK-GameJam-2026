@@ -1,0 +1,151 @@
+{
+	"name": "JsonParsing",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "JsonCountStats",
+					"sid": 733714247308227
+				}
+			],
+			"actions": [],
+			"sid": 617653909764849
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 330753086820786
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 285714910841923,
+					"parameters": {
+						"tag": "\"jsonCountStats\"",
+						"file": {
+							"path": "count_stats.json"
+						}
+					}
+				}
+			],
+			"sid": 290407594873097
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 560547298165550,
+					"parameters": {
+						"tag": "\"jsonCountStats\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JsonCountStats",
+					"sid": 474837641964929,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 702593456925349,
+					"parameters": {
+						"variable": "DEBUG",
+						"value": "\"CARGU{E\""
+					}
+				}
+			],
+			"sid": 718935790117542
+		},
+		{
+			"functionName": "count_get_stat",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "any",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "stat_name",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 350329971493676
+				},
+				{
+					"name": "is_string",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 806050270332628
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 479518815153030,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 622532348729573,
+							"parameters": {
+								"variable": "is_string"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 831723720441086,
+							"parameters": {
+								"value": "int(JsonCountStats.Get(\"count.\"&stat_name))"
+							}
+						}
+					],
+					"sid": 338485560225934
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 916834170858424
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 916806590478016,
+							"parameters": {
+								"value": "JsonCountStats.Get(\"count.\"&stat_name)"
+							}
+						}
+					],
+					"sid": 191200895341888
+				}
+			]
+		}
+	],
+	"sid": 243876613863972
+}

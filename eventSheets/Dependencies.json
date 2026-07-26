@@ -1,0 +1,22 @@
+{
+	"name": "Dependencies",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Inputs"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "CollisionBoxes"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Pubsub"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "JsonParsing"
+		}
+	],
+	"sid": 922331783121208
+}

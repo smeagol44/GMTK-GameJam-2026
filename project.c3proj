@@ -256,7 +256,8 @@
 			},
 			{
 				"items": [
-					"JsonPubsub"
+					"JsonPubsub",
+					"JsonCountStats"
 				],
 				"subfolders": [],
 				"name": "JsonObjects"
@@ -298,7 +299,9 @@
 			"World",
 			"CountGoesDown",
 			"Intro",
-			"Shop"
+			"Shop",
+			"JsonParsing",
+			"Dependencies"
 		],
 		"subfolders": []
 	},
@@ -450,7 +453,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "count_stats.json",
+					"type": "application/json",
+					"sid": 686738148529005,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		}
 	},

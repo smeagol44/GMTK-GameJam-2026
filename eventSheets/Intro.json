@@ -2,6 +2,10 @@
 	"name": "Intro",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Dependencies"
+		},
+		{
 			"eventType": "variable",
 			"name": "aux_brightness",
 			"type": "number",

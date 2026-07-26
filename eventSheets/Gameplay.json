@@ -13,7 +13,7 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Inputs"
+			"includeSheet": "Dependencies"
 		},
 		{
 			"eventType": "include",
@@ -25,15 +25,7 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "CollisionBoxes"
-		},
-		{
-			"eventType": "include",
 			"includeSheet": "Enemies"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Pubsub"
 		}
 	],
 	"sid": 989755045004875

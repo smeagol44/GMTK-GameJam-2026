@@ -1,0 +1,10 @@
+{"count":{
+  "dash_speed":7,
+  "dash_cost":2,
+  "walk_speed":100,
+  "knockback":300,
+  "knockback_decay":300,
+  "slash_dmg":3,
+  "dash_dmg":2,
+  "bite_dmg":10
+}}

@@ -22,8 +22,7 @@
 						"blood": 0,
 						"max_speed": 60,
 						"knockback": 150,
-						"damage": 5,
-						"speed": 2
+						"damage": 5
 					},
 					"behaviors": {
 						"damaged": {
@@ -372,7 +371,11 @@
 						"blood": 0,
 						"max_speed": 60,
 						"knockback": 150,
-						"damage": 5
+						"damage": 5,
+						"state": 0,
+						"running_speed": 150,
+						"walking_speed": 105,
+						"shoot_delay": 1.5
 					},
 					"behaviors": {
 						"damaged": {
@@ -383,9 +386,9 @@
 						},
 						"Sine": {
 							"properties": {
-								"movement": "horizontal",
+								"movement": "value-only",
 								"wave": "sine",
-								"period": 4,
+								"period": 0.1,
 								"period-random": 0,
 								"period-offset": 0,
 								"period-offset-random": 0,
@@ -397,27 +400,30 @@
 						},
 						"8Direction": {
 							"properties": {
-								"max-speed": 200,
+								"max-speed": 60,
 								"acceleration": 600,
 								"deceleration": 500,
 								"directions": "dir-8",
-								"set-angle": "smooth",
+								"set-angle": "no",
 								"allow-sliding": false,
-								"default-controls": true,
+								"default-controls": false,
 								"enabled": true
 							}
 						},
 						"Solid": {
 							"properties": {
 								"enabled": true,
-								"use-instance-tags": false,
+								"use-instance-tags": true,
 								"tags": ""
 							}
+						},
+						"Timer": {
+							"properties": {}
 						}
 					},
 					"effects": {
 						"Brightness": {
-							"isEnabled": true,
+							"isEnabled": false,
 							"parameters": {
 								"brightness": 1
 							}
@@ -432,6 +438,103 @@
 						"height": 28,
 						"originX": 0.4827586206896552,
 						"originY": 0.5535714285714286,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "bloodDrop",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 43,
+					"sid": 792963784456350,
+					"tags": "",
+					"instanceVariables": {
+						"blood": 0
+					},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 20000,
+								"deceleration": 20000,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 265,
+						"y": 24,
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "spit",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 44,
+					"sid": 774739946123358,
+					"tags": "",
+					"instanceVariables": {
+						"targetX": 0,
+						"targetY": 0,
+						"max_speed": 200,
+						"damage": 6
+					},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 20000,
+								"deceleration": 20000,
+								"rotate-speed": 0,
+								"set-angle": true,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 186.27565002441406,
+						"y": 55.57416915893555,
+						"width": 16,
+						"height": 10,
+						"originX": 0,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,

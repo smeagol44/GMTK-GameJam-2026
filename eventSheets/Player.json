@@ -24,6 +24,16 @@
 			"includeSheet": "Pubsub"
 		},
 		{
+			"eventType": "variable",
+			"name": "blood_glob",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 920680145408110
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -114,13 +124,13 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 852586412663620,
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 176569570307268,
 									"parameters": {
-										"first-value": " Count.8Direction.MovingAngle%90",
-										"comparison": 0,
-										"second-value": "0"
+										"instance-variable": "input_right",
+										"comparison": 4,
+										"value": "0"
 									}
 								}
 							],
@@ -128,14 +138,95 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Count",
-									"sid": 643793410126809,
+									"sid": 653073457124768,
 									"parameters": {
 										"instance-variable": "attacking_angle",
-										"value": "Self.8Direction.MovingAngle"
+										"value": "0"
 									}
 								}
 							],
 							"sid": 563638506580653
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 199094257771865,
+									"parameters": {
+										"instance-variable": "input_left",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 334745885397067,
+									"parameters": {
+										"instance-variable": "attacking_angle",
+										"value": "180"
+									}
+								}
+							],
+							"sid": 749653539088460
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 692255729668175,
+									"parameters": {
+										"instance-variable": "input_up",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 648166452866784,
+									"parameters": {
+										"instance-variable": "attacking_angle",
+										"value": "-90"
+									}
+								}
+							],
+							"sid": 993409195985921
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 437317665454219,
+									"parameters": {
+										"instance-variable": "input_down",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 458823392239095,
+									"parameters": {
+										"instance-variable": "attacking_angle",
+										"value": "90"
+									}
+								}
+							],
+							"sid": 154019429760927
 						}
 					]
 				},
@@ -383,9 +474,9 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "Count",
-							"sid": 794079038214212,
+							"sid": 196990130433765,
 							"parameters": {
-								"color": "rgbEx(255, 255, 255)"
+								"color": "rgbEx(100, 100, 100)"
 							}
 						}
 					],
@@ -735,11 +826,11 @@
 							}
 						},
 						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Count",
-							"sid": 694557277038819,
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 887787919148407,
 							"parameters": {
-								"instance-variable": "blood",
+								"variable": "blood_glob",
 								"value": "Functions.count_get_stat(\"dash_cost\",0)"
 							}
 						},
@@ -1093,20 +1184,20 @@
 					],
 					"actions": [
 						{
-							"id": "add-to-instvar",
-							"objectClass": "Count",
-							"sid": 228871957765605,
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 174039143180819,
 							"parameters": {
-								"instance-variable": "blood",
-								"value": "-1"
+								"variable": "blood_glob",
+								"value": "1"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "fontDefault",
-							"sid": 321058208943804,
+							"sid": 923456632759305,
 							"parameters": {
-								"text": "\"BLOOD: \"&Count.blood"
+								"text": "\"BLOOD: \"&blood_glob"
 							}
 						},
 						{
@@ -1140,9 +1231,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "fontDefault",
-							"sid": 568199485270017,
+							"sid": 976031068261786,
 							"parameters": {
-								"text": "\"BLOOD: \"&Count.blood"
+								"text": "\"BLOOD: \"&blood_glob"
 							}
 						}
 					],
@@ -1294,11 +1385,11 @@
 									}
 								},
 								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Count",
-									"sid": 189635731493154,
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 121599409736880,
 									"parameters": {
-										"instance-variable": "blood",
+										"variable": "blood_glob",
 										"value": "Enemies.damage"
 									}
 								},
@@ -1359,13 +1450,13 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Count",
-									"sid": 257749635857528,
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 696785619535606,
 									"parameters": {
-										"instance-variable": "blood",
+										"variable": "blood_glob",
 										"comparison": 3,
-										"value": "Hitboxes.damage"
+										"value": "Enemies.damage"
 									}
 								}
 							],
@@ -1388,12 +1479,12 @@
 							],
 							"actions": [
 								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Count",
-									"sid": 394977536388678,
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 218721734427939,
 									"parameters": {
-										"instance-variable": "blood",
-										"value": "Hitboxes.damage"
+										"variable": "blood_glob",
+										"value": "Enemies.damage"
 									}
 								},
 								{
@@ -1406,6 +1497,236 @@
 								}
 							],
 							"sid": 545993748544511
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Count",
+							"sid": 699905379801892,
+							"parameters": {
+								"object": "spit"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Count",
+							"sid": 178996248272572,
+							"parameters": {
+								"instance-variable": "invulnerable"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 276510943349737,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Count",
+							"sid": 937504101664814,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.2",
+								"type": "once",
+								"tag": "\"hurt\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Count",
+							"sid": 593997847360658,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.4",
+								"type": "once",
+								"tag": "\"invulnerable\""
+							}
+						}
+					],
+					"sid": 667148962239197,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "Count",
+									"sid": 325349858741071,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"input": "start-ignoring"
+									}
+								},
+								{
+									"id": "set-deceleration",
+									"objectClass": "Count",
+									"sid": 723187382384616,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"deceleration": "Functions.count_get_stat(\"knockback_decay\",0)"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Count",
+									"sid": 529011578510298,
+									"parameters": {
+										"instance-variable": "invulnerable",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Count",
+									"sid": 549007343820609,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"max-speed": "Functions.count_get_stat(\"knockback\",0)"
+									}
+								},
+								{
+									"id": "set-vector-x",
+									"objectClass": "Count",
+									"sid": 182799701873030,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-x": "cos(angle(spit.X, spit.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
+									}
+								},
+								{
+									"id": "set-vector-y",
+									"objectClass": "Count",
+									"sid": 896933459141688,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-y": "sin(angle(spit.X, spit.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 691589515833605,
+									"parameters": {
+										"variable": "blood_glob",
+										"value": "spit.damage"
+									}
+								},
+								{
+									"callFunction": "pubsub_publish",
+									"sid": 978863818150467,
+									"parameters": [
+										"\"blood_down\"",
+										"\"\""
+									]
+								}
+							],
+							"sid": 355298167726278
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 588308980005615,
+									"parameters": {
+										"tag": "\"hurt\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 875399207722668
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 535391689262036
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 320669417011736,
+									"parameters": {
+										"audio-file": {
+											"path": "hurt"
+										},
+										"loop": "not-looping",
+										"volume": "1",
+										"stereo-pan": "0",
+										"tag-optional": "\"hurt\""
+									}
+								}
+							],
+							"sid": 389193048873360
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 370360956024709,
+									"parameters": {
+										"variable": "blood_glob",
+										"comparison": 3,
+										"value": "spit.damage"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "game_over",
+									"sid": 443083781723539
+								}
+							],
+							"sid": 920766463557616
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 250378904678532
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 543052924357712,
+									"parameters": {
+										"variable": "blood_glob",
+										"value": "spit.damage"
+									}
+								},
+								{
+									"callFunction": "pubsub_publish",
+									"sid": 227491163970485,
+									"parameters": [
+										"\"blood_down\"",
+										"\"\""
+									]
+								}
+							],
+							"sid": 370986557175776
 						}
 					]
 				},
@@ -1430,6 +1751,15 @@
 							"behaviorType": "8Direction",
 							"parameters": {
 								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "set-deceleration",
+							"objectClass": "Count",
+							"sid": 592543091986192,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"deceleration": "20000"
 							}
 						},
 						{
@@ -1500,11 +1830,11 @@
 					"eventType": "function-block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 988593285508550,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 355463633931592,
 							"parameters": {
-								"instance-variable": "blood",
+								"variable": "blood_glob",
 								"comparison": 0,
 								"value": "0"
 							}
@@ -1651,9 +1981,9 @@
 				{
 					"id": "set-default-color",
 					"objectClass": "Count",
-					"sid": 155362821445633,
+					"sid": 342234114693121,
 					"parameters": {
-						"color": "rgbEx(255, 255, 255)"
+						"color": "rgbEx(100, 100, 100)"
 					}
 				}
 			],

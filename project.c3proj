@@ -230,6 +230,13 @@
 						],
 						"subfolders": [],
 						"name": "Scenes"
+					},
+					{
+						"items": [
+							"spit"
+						],
+						"subfolders": [],
+						"name": "Projectiles"
 					}
 				],
 				"name": "Sprites"
@@ -272,7 +279,8 @@
 			"Enemies",
 			"Hitboxes",
 			"Followers",
-			"Rammers"
+			"Rammers",
+			"Shooters"
 		],
 		"subfolders": []
 	},
@@ -372,6 +380,14 @@
 					"name": "bite.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 756423618753178,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "spit.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 983461326283685,
 					"file-info": {
 						"purpose": "none"
 					}

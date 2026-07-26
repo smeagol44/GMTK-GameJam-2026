@@ -4,15 +4,7 @@
 	"sid": 363193003784447,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
-		{
-			"name": "speed",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 945611401434963
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {

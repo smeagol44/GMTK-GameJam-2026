@@ -1,0 +1,46 @@
+{
+	"name": "Shooters",
+	"plugin-id": "Sprite",
+	"sid": 901443141520373,
+	"instanceVariables": [
+		{
+			"name": "state",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 198215326066262
+		},
+		{
+			"name": "running_speed",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 881149236959989
+		},
+		{
+			"name": "walking_speed",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 473755175626405
+		},
+		{
+			"name": "shoot_delay",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 911414292090844
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 979159936173345
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Clot"
+	]
+}

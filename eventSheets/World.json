@@ -65,18 +65,18 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 439446567640494,
+							"sid": 239019449475944,
 							"parameters": {
-								"count": "5"
+								"count": "6"
 							}
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "spawn_enemy_ranPos",
-							"sid": 502007567322860,
+							"sid": 857070318538409,
 							"parameters": [
-								"choose(\"Skelly\",\"Guts\")"
+								"choose(\"Clot\", \"Skelly\", \"Guts\")"
 							]
 						}
 					],
@@ -354,9 +354,9 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "Count",
-							"sid": 732445658891650,
+							"sid": 823044777180492,
 							"parameters": {
-								"color": "rgbEx(255, 0, 20)"
+								"color": "rgbEx(100, 0, 20)"
 							}
 						},
 						{
@@ -371,9 +371,9 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "fontDefault",
-							"sid": 464315680050398,
+							"sid": 367251674050665,
 							"parameters": {
-								"color": "rgbEx(255, 0, 20)"
+								"color": "rgbEx(100, 0, 20)"
 							}
 						}
 					],
@@ -582,11 +582,11 @@
 							"sid": 541026623457479
 						},
 						{
-							"id": "add-to-instvar",
-							"objectClass": "Count",
-							"sid": 117245185074317,
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 730520887756047,
 							"parameters": {
-								"instance-variable": "blood",
+								"variable": "blood_glob",
 								"value": "1"
 							}
 						},

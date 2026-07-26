@@ -2,6 +2,10 @@
 	"name": "GameOver",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Dependencies"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -12,12 +16,8 @@
 			],
 			"actions": [
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 465284055380705,
-					"parameters": {
-						"layout": "Gameplay Test"
-					}
+					"callFunction": "new_game",
+					"sid": 561913093871636
 				}
 			],
 			"sid": 951589165555037

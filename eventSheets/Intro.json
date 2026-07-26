@@ -478,12 +478,8 @@
 					],
 					"actions": [
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 660002846037439,
-							"parameters": {
-								"layout": "Count Goes Down"
-							}
+							"callFunction": "new_game",
+							"sid": 720121580230597
 						}
 					],
 					"sid": 576935831469191
@@ -711,6 +707,10 @@
 								"variable": "skip",
 								"value": "true"
 							}
+						},
+						{
+							"callFunction": "new_game",
+							"sid": 427616789794263
 						}
 					],
 					"sid": 909307643553504,

@@ -7,7 +7,6 @@
 	"effectTypes": [],
 	"members": [
 		"Skelly",
-		"Zombie",
-		"Clot"
+		"Zombie"
 	]
 }

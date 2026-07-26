@@ -26,6 +26,37 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Enemies"
+		},
+		{
+			"functionName": "new_game",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 838801140073466,
+					"parameters": {
+						"layout": "Gameplay Test"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 420040390004258,
+					"parameters": {
+						"variable": "blood_glob",
+						"value": "100"
+					}
+				}
+			],
+			"sid": 653859787971957
 		}
 	],
 	"sid": 989755045004875

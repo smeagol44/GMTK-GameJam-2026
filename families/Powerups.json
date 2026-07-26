@@ -3,8 +3,24 @@
 	"plugin-id": "Sprite",
 	"sid": 541473411920193,
 	"instanceVariables": [],
-	"behaviorTypes": [],
-	"effectTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 237045026941512
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 764780071258868
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
+		}
+	],
 	"members": [
 		"power1",
 		"power2",

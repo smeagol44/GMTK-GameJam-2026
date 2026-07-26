@@ -12,83 +12,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-created",
+							"id": "on-any-animation-finished",
 							"objectClass": "BiteHitbox",
-							"sid": 712825722363097
-						}
-					],
-					"actions": [
-						{
-							"id": "set-collisions-enabled",
-							"objectClass": "BiteHitbox",
-							"sid": 379404183955103,
-							"parameters": {
-								"collisions": "disabled"
-							}
-						}
-					],
-					"sid": 776981922554437
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-animation-frame-changed",
-							"objectClass": "BiteHitbox",
-							"sid": 747813409351691
-						},
-						{
-							"id": "compare-animation-frame",
-							"objectClass": "BiteHitbox",
-							"sid": 952732489594416,
-							"parameters": {
-								"comparison": 0,
-								"number": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-collisions-enabled",
-							"objectClass": "BiteHitbox",
-							"sid": 737123642719774,
-							"parameters": {
-								"collisions": "enabled"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 121823547744353,
-							"parameters": {
-								"audio-file": {
-									"path": "bite"
-								},
-								"loop": "not-looping",
-								"volume": "5",
-								"stereo-pan": "0",
-								"tag-optional": "\"bite\""
-							}
-						}
-					],
-					"sid": 249566531905962
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-animation-frame-changed",
-							"objectClass": "BiteHitbox",
-							"sid": 232428581004293
-						},
-						{
-							"id": "compare-animation-frame",
-							"objectClass": "BiteHitbox",
-							"sid": 663988989526032,
-							"parameters": {
-								"comparison": 0,
-								"number": "2"
-							}
+							"sid": 464080695600861
 						}
 					],
 					"actions": [
@@ -96,33 +22,6 @@
 							"id": "destroy",
 							"objectClass": "BiteHitbox",
 							"sid": 218821250969844
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Count",
-							"sid": 653383225635341,
-							"parameters": {
-								"animation": "\"side\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 862203335547318,
-							"parameters": {
-								"variable": "is_movement_locked",
-								"value": "false"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "BiteHitbox",
-							"sid": 271782294526920,
-							"parameters": {
-								"instance-variable": "damage",
-								"value": "0"
-							}
 						}
 					],
 					"sid": 411712969556997
@@ -141,17 +40,61 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-animation-frame-changed",
+							"id": "on-any-animation-finished",
 							"objectClass": "SlashHitbox",
-							"sid": 509034101193424
+							"sid": 584689487159902
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "SlashHitbox",
+							"sid": 939925445028784,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.1",
+								"type": "once",
+								"tag": "\"reset\""
+							}
 						},
 						{
-							"id": "compare-animation-frame",
+							"id": "set-collisions-enabled",
 							"objectClass": "SlashHitbox",
-							"sid": 494203042500709,
+							"sid": 987177688371146,
 							"parameters": {
-								"comparison": 0,
-								"number": "1"
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "SlashHitbox",
+							"sid": 454675697461562,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 955300665179083,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "count_state_idle"
+							}
+						}
+					],
+					"sid": 675728328420652
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "SlashHitbox",
+							"sid": 311960577049097,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"reset\""
 							}
 						}
 					],
@@ -159,37 +102,28 @@
 						{
 							"id": "destroy",
 							"objectClass": "SlashHitbox",
-							"sid": 580882810944230
+							"sid": 456319865015479
 						},
 						{
-							"id": "set-animation",
-							"objectClass": "Count",
-							"sid": 972563108384800,
+							"id": "set-instvar-value",
+							"objectClass": "SlashHitbox",
+							"sid": 133208857136623,
 							"parameters": {
-								"animation": "\"side\"",
-								"from": "beginning"
+								"instance-variable": "damage",
+								"value": "0"
 							}
 						},
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 129925546476469,
+							"sid": 519518952291596,
 							"parameters": {
 								"variable": "is_movement_locked",
 								"value": "false"
 							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "SlashHitbox",
-							"sid": 572337951675288,
-							"parameters": {
-								"instance-variable": "damage",
-								"value": "0"
-							}
 						}
 					],
-					"sid": 403121456494609
+					"sid": 205561166147974
 				}
 			],
 			"sid": 935562764885115
@@ -203,7 +137,16 @@
 					"sid": 459836033563472
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-scale",
+					"objectClass": "SlashHitbox",
+					"sid": 225357751471821,
+					"parameters": {
+						"scale": "float(Functions.count_get_stat(\"slash_scale\",0))/100"
+					}
+				}
+			],
 			"sid": 553943712978914,
 			"children": [
 				{

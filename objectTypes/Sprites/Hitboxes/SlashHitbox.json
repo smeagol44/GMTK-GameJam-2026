@@ -5,15 +5,21 @@
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 811443243482078
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 50,
-						"height": 50,
+						"width": 55,
+						"height": 54,
 						"originX": 0.1,
 						"originY": 0.5,
 						"originalSource": "",
@@ -34,33 +40,59 @@
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 10,
+						"duration": 2,
 						"tag": ""
 					},
 					{
-						"width": 65,
-						"height": 65,
-						"originX": -0.2692307692307692,
+						"width": 55,
+						"height": 54,
+						"originX": 0.1,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6474677,
+						"imageSpriteId": 2898321,
 						"collisionPoly": {
 							"points": [
-								0,
-								1,
-								1,
-								1,
+								0.33200008719308005,
+								0.005714198521205357,
 								1,
 								0,
-								0,
-								0
+								1,
+								1,
+								0.3399999128069196,
+								1
 							]
 						},
 						"useCollisionPoly": true,
-						"duration": 3,
+						"duration": 2,
+						"tag": ""
+					},
+					{
+						"width": 55,
+						"height": 54,
+						"originX": 0.1,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9255367,
+						"collisionPoly": {
+							"points": [
+								0.33200008719308005,
+								0.005714198521205357,
+								1,
+								0,
+								1,
+								1,
+								0.3399999128069196,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 2,
 						"tag": ""
 					}
 				],

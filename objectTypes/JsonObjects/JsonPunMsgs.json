@@ -1,0 +1,8 @@
+{
+	"name": "JsonPunMsgs",
+	"plugin-id": "Json",
+	"sid": 608001144674376,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": []
+}

@@ -1,4 +1,7 @@
 {"count":{
+  "world_tick_seconds":1,
+  "invulnerability_time":0.4,
+  "slash_scale":100,
   "dash_speed":7,
   "dash_cost":2,
   "walk_speed":100,
@@ -6,5 +9,6 @@
   "knockback_decay":300,
   "slash_dmg":3,
   "dash_dmg":2,
+  "dash_special_dmg":4,
   "bite_dmg":10
 }}

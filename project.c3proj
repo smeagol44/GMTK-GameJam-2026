@@ -275,7 +275,8 @@
 			{
 				"items": [
 					"JsonPubsub",
-					"JsonCountStats"
+					"JsonCountStats",
+					"JsonPunMsgs"
 				],
 				"subfolders": [],
 				"name": "JsonObjects"
@@ -401,6 +402,22 @@
 					"file-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "powerUp.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 539654710776694,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "guts_dash.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 417141840238207,
+					"file-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": []
@@ -484,6 +501,14 @@
 					"name": "count_stats.json",
 					"type": "application/json",
 					"sid": 686738148529005,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "down_msgs.json",
+					"type": "application/json",
+					"sid": 645829988626049,
 					"file-info": {
 						"purpose": "none"
 					}

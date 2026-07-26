@@ -22,6 +22,36 @@
 			"sid": 789017273173477
 		},
 		{
+			"eventType": "variable",
+			"name": "powerups_displayed",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 569081236436204
+		},
+		{
+			"eventType": "variable",
+			"name": "powerup_bought",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 350358147427371
+		},
+		{
+			"eventType": "variable",
+			"name": "moving_to_powerups_safezone",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 587301091109062
+		},
+		{
 			"eventType": "comment",
 			"text": "Creación de dummies para testear. Esto debería borrarse"
 		},
@@ -65,6 +95,33 @@
 						"variable": "roomCleared",
 						"value": "false"
 					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 352321639982105,
+					"parameters": {
+						"variable": "shop",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 697602245241348,
+					"parameters": {
+						"variable": "powerups_displayed",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 840719148248138,
+					"parameters": {
+						"variable": "powerup_bought",
+						"value": "false"
+					}
 				}
 			],
 			"sid": 145989937733072,
@@ -75,7 +132,7 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 510786343677171,
+							"sid": 103236845324733,
 							"parameters": {
 								"count": "1"
 							}
@@ -85,7 +142,6 @@
 						{
 							"callFunction": "spawn_enemy_ranPos",
 							"sid": 857070318538409,
-							"disabled": true,
 							"parameters": [
 								"choose(\"Clot\", \"Skelly\", \"Guts\")"
 							]
@@ -117,9 +173,9 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 349340197970148,
+					"sid": 712299511469559,
 					"parameters": {
-						"interval-seconds": "1.0"
+						"interval-seconds": "Functions.count_get_stat(\"world_tick_seconds\",0)"
 					}
 				},
 				{
@@ -332,6 +388,15 @@
 							"sid": 480850823048312,
 							"parameters": {
 								"variable": "shop"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 958557159104087,
+							"parameters": {
+								"variable": "powerups_displayed"
 							},
 							"isInverted": true
 						}
@@ -588,6 +653,18 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 501073068349193
+						}
+					],
+					"actions": [],
+					"sid": 525381528281221
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "bloodDrop",
 							"sid": 795556829872548,
@@ -657,26 +734,6 @@
 				0,
 				1
 			]
-		},
-		{
-			"eventType": "variable",
-			"name": "powerups_displayed",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 821862516079495
-		},
-		{
-			"eventType": "variable",
-			"name": "powerup_bought",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 448740314051503
 		},
 		{
 			"eventType": "group",
@@ -788,15 +845,72 @@
 					"sid": 391541084948627,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "powerup1",
+							"type": "number",
+							"initialValue": "-1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 486235733850014
+						},
+						{
+							"eventType": "variable",
+							"name": "powerup2",
+							"type": "number",
+							"initialValue": "-1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 973209199388477
+						},
+						{
+							"eventType": "variable",
+							"name": "powerup3",
+							"type": "number",
+							"initialValue": "-1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 229209909153431
+						},
+						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
 								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 224236731544327,
+									"parameters": {
+										"variable": "powerup1",
+										"value": "floor(random(0,6))"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 380199284917330,
+									"parameters": {
+										"variable": "powerup2",
+										"value": "powerup1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 106165717699059,
+									"parameters": {
+										"variable": "powerup3",
+										"value": "powerup1"
+									}
+								},
+								{
 									"id": "create-object-by-name",
 									"objectClass": "System",
-									"sid": 692740470139910,
+									"sid": 134849237040330,
 									"parameters": {
-										"object-name": "\"power\"&floor(random(0,6))",
+										"object-name": "\"power\"&powerup1",
 										"layer": "\"characters\"",
 										"x": "160",
 										"y": "ViewportHeight(\"characters\")/2",
@@ -809,19 +923,31 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 317127835172068
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 694858750268411,
+									"parameters": {
+										"first-value": "powerup2",
+										"comparison": 0,
+										"second-value": "powerup1"
+									}
+								}
+							],
 							"actions": [
 								{
-									"id": "create-object-by-name",
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 876237120627178,
+									"sid": 300531001513287,
 									"parameters": {
-										"object-name": "\"power\"&floor(random(0,6))",
-										"layer": "\"characters\"",
-										"x": "240",
-										"y": "ViewportHeight(\"characters\")/2",
-										"create-hierarchy": false,
-										"template-name": "\"\""
+										"variable": "powerup2",
+										"value": "floor(random(0,6))"
 									}
 								}
 							],
@@ -834,9 +960,61 @@
 								{
 									"id": "create-object-by-name",
 									"objectClass": "System",
-									"sid": 310957238251358,
+									"sid": 522622960950909,
 									"parameters": {
-										"object-name": "\"power\"&floor(random(0,6))",
+										"object-name": "\"power\"&powerup2",
+										"layer": "\"characters\"",
+										"x": "240",
+										"y": "ViewportHeight(\"characters\")/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 362742323845665
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 329586479050199
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 895466611427012,
+									"parameters": {
+										"first-value": "(powerup3 = powerup2) |( powerup3 = powerup1)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 361472509650570,
+									"parameters": {
+										"variable": "powerup3",
+										"value": "floor(random(0,6))"
+									}
+								}
+							],
+							"sid": 644716551749313
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 953866266083406,
+									"parameters": {
+										"object-name": "\"power\"&powerup3",
 										"layer": "\"characters\"",
 										"x": "320",
 										"y": "ViewportHeight(\"characters\")/2",
@@ -845,7 +1023,23 @@
 									}
 								}
 							],
-							"sid": 748698979735142
+							"sid": 777470593332886
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 355844625754536,
+									"parameters": {
+										"variable": "moving_to_powerups_safezone",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 993279984042963
 						}
 					]
 				}
@@ -863,6 +1057,766 @@
 				0,
 				1
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 484173627463080,
+					"parameters": {
+						"variable": "moving_to_powerups_safezone"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 227971126774232,
+					"parameters": {
+						"variable": "is_movement_locked",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Count",
+					"sid": 857744064486398,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Brightness\""
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Count",
+					"sid": 225473255979691,
+					"parameters": {
+						"color": "rgbEx(100, 0, 20)"
+					}
+				},
+				{
+					"id": "set-max-speed",
+					"objectClass": "Count",
+					"sid": 581650863042328,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"max-speed": "6000"
+					}
+				},
+				{
+					"id": "set-vector-x",
+					"objectClass": "Count",
+					"sid": 154849168690543,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"vector-x": "cos(angle(Count.X, Count.Y, 240,280))*6000"
+					}
+				},
+				{
+					"id": "set-vector-y",
+					"objectClass": "Count",
+					"sid": 421683154777747,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"vector-y": "sin(angle(Count.X, Count.Y, 240,280))*6000"
+					}
+				},
+				{
+					"id": "set-collisions-enabled",
+					"objectClass": "Count",
+					"sid": 421812262681607,
+					"parameters": {
+						"collisions": "disabled"
+					}
+				}
+			],
+			"sid": 351678551294646,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 906598322031750,
+							"parameters": {
+								"first-value": "floor(abs(240-Count.X))",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 396123045512346,
+							"parameters": {
+								"first-value": "floor(abs(280-Count.Y))",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Count",
+							"sid": 869749930627691,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 789129419046402,
+							"parameters": {
+								"variable": "moving_to_powerups_safezone",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 605644719803075,
+							"parameters": {
+								"variable": "is_movement_locked",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Count",
+							"sid": 247580241197104,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"max-speed": "Functions.count_get_stat(\"walk_speed\",0)"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 436222298384441,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Count",
+							"sid": 904858144498807,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 784775227606025
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "PowerUps"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Count",
+					"sid": 279541968424883,
+					"parameters": {
+						"object": "Powerups"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 546926970967060,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Powerups",
+							"sid": 745731525412152,
+							"parameters": {
+								"which": "nearest",
+								"x": "Count.X",
+								"y": "Count.Y",
+								"z": "0",
+								"pick-all-tied": false
+							}
+						}
+					],
+					"actions": [],
+					"sid": 699808128354939,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "upgrade0_value",
+							"type": "number",
+							"initialValue": "5",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 911695478133742
+						},
+						{
+							"eventType": "variable",
+							"name": "bite_dmg",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 746215661676077
+						},
+						{
+							"eventType": "variable",
+							"name": "dash_dmg",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 895734840246573
+						},
+						{
+							"eventType": "variable",
+							"name": "dash_special_dmg",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 768630542294418
+						},
+						{
+							"eventType": "variable",
+							"name": "slash_dmg",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 563280666720772
+						},
+						{
+							"eventType": "comment",
+							"text": "Power 0 - DMG up"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 890619330034977,
+									"parameters": {
+										"first-value": "Powerups.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "power0.ObjectTypeName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 332813238896822,
+									"parameters": {
+										"variable": "bite_dmg",
+										"value": "Functions.count_get_stat(\"bite_dmg\",0)+upgrade0_value"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 727801477734258,
+									"parameters": {
+										"variable": "dash_dmg",
+										"value": "Functions.count_get_stat(\"dash_dmg\",0)+upgrade0_value"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 276474548264862,
+									"parameters": {
+										"variable": "dash_special_dmg",
+										"value": "Functions.count_get_stat(\"dash_special_dmg\",0)+upgrade0_value"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 263136971156746,
+									"parameters": {
+										"variable": "slash_dmg",
+										"value": "Functions.count_get_stat(\"slash_dmg\",0)+upgrade0_value"
+									}
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 300754467905586,
+									"parameters": [
+										"\"bite_dmg\"",
+										"\"\"&bite_dmg"
+									]
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 337012127028042,
+									"parameters": [
+										"\"dash_dmg\"",
+										"\"\"&dash_dmg"
+									]
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 338927012861752,
+									"parameters": [
+										"\"dash_special_dmg\"",
+										"\"\"&dash_special_dmg"
+									]
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 985559649043403,
+									"parameters": [
+										"\"slash_dmg\"",
+										"\"\"&slash_dmg"
+									]
+								}
+							],
+							"sid": 792696213169512
+						},
+						{
+							"eventType": "variable",
+							"name": "upgrade1_value",
+							"type": "number",
+							"initialValue": "5",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 866029213847024
+						},
+						{
+							"eventType": "variable",
+							"name": "dash_speed",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 452871071545258
+						},
+						{
+							"eventType": "comment",
+							"text": "Power 1 - Dash length"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 133436420143575,
+									"parameters": {
+										"first-value": "Powerups.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "power1.ObjectTypeName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 820592567497586,
+									"parameters": {
+										"variable": "dash_speed",
+										"value": "Functions.count_get_stat(\"dash_speed\",0)+upgrade1_value"
+									}
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 953427319967396,
+									"parameters": [
+										"\"dash_speed\"",
+										"\"\"&dash_speed"
+									]
+								}
+							],
+							"sid": 712372234192101
+						},
+						{
+							"eventType": "variable",
+							"name": "upgrade2_value",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 949974607316941
+						},
+						{
+							"eventType": "variable",
+							"name": "world_tick_seconds",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 900799442119702
+						},
+						{
+							"eventType": "comment",
+							"text": "Power 2 - World tick (seconds)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 673734568551330,
+									"parameters": {
+										"first-value": "Powerups.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "power2.ObjectTypeName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 897061574120497,
+									"parameters": {
+										"variable": "world_tick_seconds",
+										"value": "Functions.count_get_stat(\"world_tick_seconds\",0)+upgrade2_value"
+									}
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 841034978014194,
+									"parameters": [
+										"\"world_tick_seconds\"",
+										"\"\"&world_tick_seconds"
+									]
+								}
+							],
+							"sid": 621032609699726
+						},
+						{
+							"eventType": "variable",
+							"name": "upgrade3_value",
+							"type": "number",
+							"initialValue": "50",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 832403355775796
+						},
+						{
+							"eventType": "variable",
+							"name": "walk_speed",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 365490038046063
+						},
+						{
+							"eventType": "comment",
+							"text": "Power 3 - Move speed "
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 965946223991502,
+									"parameters": {
+										"first-value": "Powerups.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "power3.ObjectTypeName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 292617173062233,
+									"parameters": {
+										"variable": "walk_speed",
+										"value": "Functions.count_get_stat(\"walk_speed\",0)+upgrade3_value"
+									}
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 503881307049591,
+									"parameters": [
+										"\"invulnerability_time\"",
+										"\"\"&invulnerability_time"
+									]
+								}
+							],
+							"sid": 107843531479958
+						},
+						{
+							"eventType": "variable",
+							"name": "upgrade4_value",
+							"type": "number",
+							"initialValue": "0.4",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 396393446993510
+						},
+						{
+							"eventType": "variable",
+							"name": "invulnerability_time",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 382884053350135
+						},
+						{
+							"eventType": "comment",
+							"text": "Power 4 - Invulnerability time"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 618548274909361,
+									"parameters": {
+										"first-value": "Powerups.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "power4.ObjectTypeName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 795385797027030,
+									"parameters": {
+										"variable": "invulnerability_time",
+										"value": "float(Functions.count_get_stat(\"invulnerability_time\",1))+upgrade4_value"
+									}
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 479902873687489,
+									"parameters": [
+										"\"invulnerability_time\"",
+										"\"\"&invulnerability_time"
+									]
+								}
+							],
+							"sid": 432695425768623
+						},
+						{
+							"eventType": "variable",
+							"name": "upgrade5_value",
+							"type": "number",
+							"initialValue": "25",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 216716815828145
+						},
+						{
+							"eventType": "variable",
+							"name": "slash_scale",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 778031022243384
+						},
+						{
+							"eventType": "comment",
+							"text": "Power 5 - Bigger Slash"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 281963890546043,
+									"parameters": {
+										"first-value": "Powerups.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "power5.ObjectTypeName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 521162725875598,
+									"parameters": {
+										"variable": "slash_scale",
+										"value": "Functions.count_get_stat(\"slash_scale\",0)+upgrade5_value"
+									}
+								},
+								{
+									"callFunction": "count_set_stat",
+									"sid": 862684678852605,
+									"parameters": [
+										"\"slash_scale\"",
+										"\"\"&slash_scale"
+									]
+								}
+							],
+							"sid": 111100592124625
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 943040466989750,
+							"parameters": {
+								"object": "Powerups"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Powerups",
+							"sid": 886593020787483
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 425496768698772,
+							"parameters": {
+								"audio-file": {
+									"path": "powerUp"
+								},
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"powerup\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 483636371831848,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Brightness\""
+							}
+						}
+					],
+					"sid": 876363956627358
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Audio",
+					"sid": 692759264481144,
+					"parameters": {
+						"tag": "\"powerup\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "Count",
+					"sid": 152774772376508,
+					"parameters": {
+						"color": "rgbEx(random(0,100), random(0,100), random(0,100))"
+					}
+				}
+			],
+			"sid": 505026978876844
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-ended",
+					"objectClass": "Audio",
+					"sid": 450451809768022,
+					"parameters": {
+						"tag": "\"powerup\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "Count",
+					"sid": 386437674953351,
+					"parameters": {
+						"color": "rgbEx(100, 100, 100)"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 739255503002954,
+					"parameters": {
+						"variable": "powerup_bought",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 662852991263035
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 947273487538560
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-parameter",
+					"objectClass": "Powerups",
+					"sid": 219923235123719,
+					"parameters": {
+						"effect": "\"Brightness\"",
+						"parameter-index": "0",
+						"value": "110 + Self.Sine.Value"
+					}
+				}
+			],
+			"sid": 556310400231127
 		}
 	],
 	"sid": 804304100084860

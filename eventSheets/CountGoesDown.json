@@ -189,25 +189,32 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 753635457432998,
-							"parameters": {
-								"audio-file": {
-									"path": "dig"
-								},
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"\""
-							}
 						}
 					],
 					"sid": 486068132939843
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 100731151224139
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "fontDefault",
+					"sid": 387628847312337,
+					"parameters": {
+						"text": "Functions.get_pun_msg"
+					}
+				}
+			],
+			"sid": 886712310408127
 		}
 	],
 	"sid": 980235807885183

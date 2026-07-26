@@ -12,6 +12,66 @@
 			"sid": 799919383958583
 		},
 		{
+			"eventType": "variable",
+			"name": "count_state_idle",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 589471319915132
+		},
+		{
+			"eventType": "variable",
+			"name": "count_state_dash",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 701486896901308
+		},
+		{
+			"eventType": "variable",
+			"name": "count_state_bite",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 402807590529950
+		},
+		{
+			"eventType": "variable",
+			"name": "count_state_slash",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 158906439535226
+		},
+		{
+			"eventType": "variable",
+			"name": "count_state_bloodgain",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 560464369593093
+		},
+		{
+			"eventType": "variable",
+			"name": "blood_glob",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 235057870499005
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Inputs"
 		},
@@ -22,16 +82,6 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Pubsub"
-		},
-		{
-			"eventType": "variable",
-			"name": "blood_glob",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 920680145408110
 		},
 		{
 			"eventType": "block",
@@ -85,6 +135,15 @@
 					"parameters": {
 						"x": "360/2",
 						"y": "270/2"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Count",
+					"sid": 910125719564770,
+					"parameters": {
+						"instance-variable": "state",
+						"value": "count_state_idle"
 					}
 				}
 			],
@@ -740,7 +799,7 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 765935528320364,
+							"sid": 616166638815877,
 							"parameters": {
 								"variable": "is_movement_locked"
 							},
@@ -748,7 +807,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 368886220654156,
+					"sid": 657771158478725,
 					"children": [
 						{
 							"eventType": "block",
@@ -756,7 +815,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 963841057514471,
+									"sid": 291034267076191,
 									"parameters": {
 										"instance-variable": "input_slash",
 										"comparison": 0,
@@ -766,7 +825,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 999200605488513,
+									"sid": 848689028118575,
 									"parameters": {
 										"instance-variable": "dash_speed",
 										"comparison": 0,
@@ -777,10 +836,10 @@
 							"actions": [
 								{
 									"callFunction": "command_slash",
-									"sid": 227089938019990
+									"sid": 356958314744729
 								}
 							],
-							"sid": 140311284778184
+							"sid": 223010244087981
 						},
 						{
 							"eventType": "block",
@@ -788,7 +847,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 911832877166012,
+									"sid": 254305878947233,
 									"parameters": {
 										"instance-variable": "input_dash",
 										"comparison": 0,
@@ -798,7 +857,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 459507688853320,
+									"sid": 506100223965319,
 									"parameters": {
 										"instance-variable": "dash_speed",
 										"comparison": 0,
@@ -809,10 +868,10 @@
 							"actions": [
 								{
 									"callFunction": "command_dash",
-									"sid": 162347131016650
+									"sid": 782379990709725
 								}
 							],
-							"sid": 153127418168608
+							"sid": 941046581579944
 						},
 						{
 							"eventType": "block",
@@ -820,7 +879,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 930064747274118,
+									"sid": 906828873291328,
 									"parameters": {
 										"instance-variable": "input_bite",
 										"comparison": 0,
@@ -831,10 +890,10 @@
 							"actions": [
 								{
 									"callFunction": "command_bite",
-									"sid": 595025203911450
+									"sid": 853391389040564
 								}
 							],
-							"sid": 215449649203690
+							"sid": 294496388631116
 						}
 					]
 				},
@@ -844,11 +903,11 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 513217264398974
+							"sid": 593938642886655
 						}
 					],
 					"actions": [],
-					"sid": 894278826296621,
+					"sid": 685930362298445,
 					"children": [
 						{
 							"eventType": "block",
@@ -856,7 +915,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 491148594594402,
+									"sid": 114516954785867,
 									"parameters": {
 										"instance-variable": "input_dash",
 										"comparison": 0,
@@ -866,7 +925,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 374032791369731,
+									"sid": 641868686822123,
 									"parameters": {
 										"instance-variable": "dash_speed",
 										"comparison": 0,
@@ -876,7 +935,7 @@
 								{
 									"id": "is-timer-running",
 									"objectClass": "Count",
-									"sid": 428858278681767,
+									"sid": 897798229579910,
 									"behaviorType": "Timer",
 									"parameters": {
 										"tag": "\"bite\""
@@ -886,10 +945,10 @@
 							"actions": [
 								{
 									"callFunction": "command_dash",
-									"sid": 600506914191865
+									"sid": 852862653070159
 								}
 							],
-							"sid": 127319915153322
+							"sid": 344082398916527
 						}
 					]
 				},
@@ -907,7 +966,7 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 774515529765931,
+							"sid": 389520069506964,
 							"parameters": {
 								"variable": "is_movement_locked",
 								"value": "true"
@@ -916,7 +975,8 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Count",
-							"sid": 801838908974410,
+							"sid": 946832109451701,
+							"disabled": true,
 							"parameters": {
 								"animation": "\"slash\"",
 								"from": "beginning"
@@ -925,7 +985,7 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 252803613710312,
+							"sid": 917783023576831,
 							"parameters": {
 								"object-to-create": "SlashHitbox",
 								"layer": "\"characters\"",
@@ -938,7 +998,7 @@
 						{
 							"id": "add-child",
 							"objectClass": "Count",
-							"sid": 427642446291642,
+							"sid": 250466353714748,
 							"parameters": {
 								"child": "SlashHitbox",
 								"transform-x": true,
@@ -956,7 +1016,7 @@
 						{
 							"id": "set-angle",
 							"objectClass": "SlashHitbox",
-							"sid": 746128656081747,
+							"sid": 462914994542215,
 							"parameters": {
 								"angle": "Count.attacking_angle"
 							}
@@ -964,14 +1024,23 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "SlashHitbox",
-							"sid": 138394403536250,
+							"sid": 520153744470399,
 							"parameters": {
 								"instance-variable": "damage",
 								"value": "Functions.count_get_stat(\"slash_dmg\",0)"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 948945494924712,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "count_state_slash"
+							}
 						}
 					],
-					"sid": 190109242631363
+					"sid": 472882368181659
 				},
 				{
 					"functionName": "command_dash",
@@ -987,7 +1056,7 @@
 						{
 							"id": "start-timer",
 							"objectClass": "Count",
-							"sid": 686942997883986,
+							"sid": 923671626193789,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "0.2",
@@ -998,7 +1067,7 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Count",
-							"sid": 681417509435921,
+							"sid": 516005073150331,
 							"parameters": {
 								"instance-variable": "invulnerable",
 								"value": "true"
@@ -1007,7 +1076,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Count",
-							"sid": 779218866238391,
+							"sid": 825256772081760,
 							"parameters": {
 								"instance-variable": "dash_angle",
 								"value": "Self.action_angle"
@@ -1016,7 +1085,8 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Count",
-							"sid": 337042750501322,
+							"sid": 660925250165088,
+							"disabled": true,
 							"parameters": {
 								"animation": "\"dash\"",
 								"from": "beginning"
@@ -1025,7 +1095,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Count",
-							"sid": 834703634625636,
+							"sid": 163682135886960,
 							"parameters": {
 								"instance-variable": "dash_speed",
 								"value": "Functions.count_get_stat(\"dash_speed\",0)"
@@ -1034,7 +1104,7 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 794735956705666,
+							"sid": 328119484506835,
 							"parameters": {
 								"audio-file": {
 									"path": "dash"
@@ -1048,7 +1118,7 @@
 						{
 							"id": "set-effect-enabled",
 							"objectClass": "Count",
-							"sid": 338511712977870,
+							"sid": 699846753750324,
 							"parameters": {
 								"mode": "enable",
 								"effect": "\"Brightness\""
@@ -1057,7 +1127,7 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "Count",
-							"sid": 986589671144228,
+							"sid": 370794897485420,
 							"parameters": {
 								"color": "rgbEx(20, 0, 200)"
 							}
@@ -1065,7 +1135,7 @@
 						{
 							"id": "subtract-from-eventvar",
 							"objectClass": "System",
-							"sid": 887787919148407,
+							"sid": 217423696782916,
 							"parameters": {
 								"variable": "blood_glob",
 								"value": "Functions.count_get_stat(\"dash_cost\",0)"
@@ -1073,14 +1143,24 @@
 						},
 						{
 							"callFunction": "pubsub_publish",
-							"sid": 854339233619159,
+							"sid": 470430157248595,
 							"parameters": [
 								"\"blood_down\"",
 								"\"\""
 							]
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 669371944637706,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "count_state_dash"
+							}
 						}
 					],
-					"sid": 824281684148635
+					"sid": 263938304235174
 				},
 				{
 					"functionName": "command_bite",
@@ -1096,25 +1176,156 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 885703455525402,
+							"sid": 742266482542801,
 							"parameters": {
 								"variable": "is_movement_locked",
 								"value": "true"
 							}
 						},
 						{
-							"id": "set-animation",
+							"id": "start-timer",
 							"objectClass": "Count",
-							"sid": 929358160941207,
+							"sid": 335582655664735,
+							"behaviorType": "Timer",
 							"parameters": {
-								"animation": "\"bite\"",
-								"from": "beginning"
+								"duration": "0.8",
+								"type": "once",
+								"tag": "\"bite\""
 							}
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 518324707515870,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "count_state_bite"
+							}
+						}
+					],
+					"sid": 910154857702489,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 707836811590217,
+									"parameters": {
+										"instance-variable": "attacking_angle",
+										"comparison": 0,
+										"value": "-90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Count",
+									"sid": 386342798457266,
+									"parameters": {
+										"animation": "\"bite_back\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 928499894359959
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 921574757759634
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 161794921423682,
+									"parameters": {
+										"instance-variable": "attacking_angle",
+										"comparison": 0,
+										"value": "90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Count",
+									"sid": 529001440608713,
+									"parameters": {
+										"animation": "\"bite_front\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 145796239323680
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 579281512735553
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Count",
+									"sid": 805461866033367,
+									"parameters": {
+										"animation": "\"bite_side\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 157786469492400
+						}
+					]
+				}
+			],
+			"sid": 541051619522878
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "States",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame-tag",
+							"objectClass": "Count",
+							"sid": 970374317966975,
+							"parameters": {
+								"comparison": 0,
+								"tag": "\"bite\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 369366826696675,
+							"parameters": {
+								"first-value": "BiteHitbox.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 359336264302192,
+							"sid": 338156995809931,
 							"parameters": {
 								"object-to-create": "BiteHitbox",
 								"layer": "\"characters\"",
@@ -1125,16 +1336,30 @@
 							}
 						},
 						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 855471957894490,
+							"parameters": {
+								"audio-file": {
+									"path": "bite"
+								},
+								"loop": "not-looping",
+								"volume": "5",
+								"stereo-pan": "0",
+								"tag-optional": "\"bite\""
+							}
+						},
+						{
 							"id": "add-child",
 							"objectClass": "Count",
-							"sid": 724552025923596,
+							"sid": 233083550476264,
 							"parameters": {
 								"child": "BiteHitbox",
 								"transform-x": true,
 								"transform-y": true,
-								"transform-z-elevation": true,
+								"transform-z-elevation": false,
 								"transform-w": false,
-								"transform-h": true,
+								"transform-h": false,
 								"transform-d": false,
 								"transform-a": false,
 								"transform-o": false,
@@ -1145,7 +1370,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "BiteHitbox",
-							"sid": 694537044122460,
+							"sid": 379797203659923,
 							"parameters": {
 								"instance-variable": "damage",
 								"value": "Functions.count_get_stat(\"bite_dmg\",0)"
@@ -1154,7 +1379,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "BiteHitbox",
-							"sid": 258600262715202,
+							"sid": 885796317423905,
 							"parameters": {
 								"instance-variable": "type",
 								"value": "\"bite\""
@@ -1163,47 +1388,52 @@
 						{
 							"id": "move-to-top",
 							"objectClass": "BiteHitbox",
-							"sid": 868224780300816
+							"sid": 381976641732821
 						},
 						{
-							"id": "start-timer",
-							"objectClass": "Count",
-							"sid": 292623224096043,
-							"behaviorType": "Timer",
+							"id": "set-angle",
+							"objectClass": "BiteHitbox",
+							"sid": 531198665822838,
 							"parameters": {
-								"duration": "0.8",
-								"type": "once",
-								"tag": "\"bite\""
+								"angle": "Count.attacking_angle"
 							}
 						}
 					],
-					"sid": 785409849683120,
-					"children": [
+					"sid": 908177392745258
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-mirrored",
-									"objectClass": "Count",
-									"sid": 593914185817783
-								}
-							],
-							"actions": [
-								{
-									"id": "set-mirrored",
-									"objectClass": "BiteHitbox",
-									"sid": 541607236226341,
-									"parameters": {
-										"state": "mirrored"
-									}
-								}
-							],
-							"sid": 808815712434403
+							"id": "on-any-animation-finished",
+							"objectClass": "Count",
+							"sid": 634399703610328
 						}
-					]
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 713682048476913,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "count_state_idle"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 727097808490394,
+							"parameters": {
+								"variable": "is_movement_locked",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 940728264846447
 				}
 			],
-			"sid": 873679016158788
+			"sid": 695861576898530
 		},
 		{
 			"eventType": "group",
@@ -1218,143 +1448,150 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Count",
-							"sid": 314193669457018,
+							"sid": 627944257922737,
 							"parameters": {
-								"instance-variable": "facing_angle",
+								"instance-variable": "state",
 								"comparison": 0,
-								"value": "-90"
+								"value": "count_state_idle"
 							}
+						}
+					],
+					"actions": [],
+					"sid": 209833419629615,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 839821005816711,
+									"parameters": {
+										"instance-variable": "facing_angle",
+										"comparison": 0,
+										"value": "-90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Count",
+									"sid": 115211082952431,
+									"parameters": {
+										"animation": "\"up\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 144888374589725
 						},
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Count",
-							"sid": 478388506088587,
-							"parameters": {
-								"animation": "\"slash\""
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Count",
-							"sid": 326034548896556,
-							"parameters": {
-								"animation": "\"up\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 208824684009009
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 979044540263496,
-							"parameters": {
-								"instance-variable": "facing_angle",
-								"comparison": 0,
-								"value": "90"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 346892483907783,
+									"parameters": {
+										"instance-variable": "facing_angle",
+										"comparison": 0,
+										"value": "90"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Count",
+									"sid": 493536091218934,
+									"parameters": {
+										"animation": "\"down\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 930752194232964
 						},
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Count",
-							"sid": 721977121053397,
-							"parameters": {
-								"animation": "\"slash\""
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Count",
-							"sid": 611460931451968,
-							"parameters": {
-								"animation": "\"down\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 770999026868693
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 382464554160122,
-							"parameters": {
-								"instance-variable": "facing_angle",
-								"comparison": 0,
-								"value": "180"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 645657261725948,
+									"parameters": {
+										"instance-variable": "facing_angle",
+										"comparison": 0,
+										"value": "180"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Count",
+									"sid": 957033978491924,
+									"parameters": {
+										"animation": "\"side\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 633960813052900
 						},
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Count",
-							"sid": 624258988560739,
-							"parameters": {
-								"animation": "\"slash\""
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Count",
-							"sid": 290248324148329,
-							"parameters": {
-								"animation": "\"side\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 473174727474470
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Count",
-							"sid": 137034327872348,
-							"parameters": {
-								"instance-variable": "facing_angle",
-								"comparison": 0,
-								"value": "0"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Count",
+									"sid": 418849853727922,
+									"parameters": {
+										"instance-variable": "facing_angle",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Count",
+									"sid": 398101964555002,
+									"parameters": {
+										"animation": "\"side\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 948590389703612
 						},
 						{
-							"id": "is-animation-playing",
-							"objectClass": "Count",
-							"sid": 332890718904134,
-							"parameters": {
-								"animation": "\"slash\""
-							},
-							"isInverted": true
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "Count",
+									"sid": 374199006258657,
+									"behaviorType": "8Direction",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Count",
+									"sid": 404188226034297,
+									"parameters": {
+										"speed": "0"
+									}
+								}
+							],
+							"sid": 553362617386319,
+							"disabled": true
 						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Count",
-							"sid": 889545873325448,
-							"parameters": {
-								"animation": "\"side\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 653122486688506
+					]
 				},
 				{
 					"eventType": "block",
@@ -1362,7 +1599,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 235401196278224,
+							"sid": 129685916621111,
 							"parameters": {
 								"first-value": "Count.8Direction.VectorX",
 								"comparison": 4,
@@ -1374,13 +1611,13 @@
 						{
 							"id": "set-mirrored",
 							"objectClass": "Count",
-							"sid": 691466201766167,
+							"sid": 723208949920242,
 							"parameters": {
 								"state": "not-mirrored"
 							}
 						}
 					],
-					"sid": 301625022268883
+					"sid": 304315105437047
 				},
 				{
 					"eventType": "block",
@@ -1388,7 +1625,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 766811961236493,
+							"sid": 266028451657024,
 							"parameters": {
 								"first-value": "Count.8Direction.VectorX",
 								"comparison": 2,
@@ -1400,16 +1637,16 @@
 						{
 							"id": "set-mirrored",
 							"objectClass": "Count",
-							"sid": 356454414936315,
+							"sid": 219695937978043,
 							"parameters": {
 								"state": "mirrored"
 							}
 						}
 					],
-					"sid": 417030466514854
+					"sid": 785164487578265
 				}
 			],
-			"sid": 264067388341637
+			"sid": 578286256586327
 		},
 		{
 			"eventType": "group",
@@ -1563,10 +1800,10 @@
 						{
 							"id": "start-timer",
 							"objectClass": "Count",
-							"sid": 652606273628258,
+							"sid": 511551287275693,
 							"behaviorType": "Timer",
 							"parameters": {
-								"duration": "0.4",
+								"duration": "float(Functions.count_get_stat(\"invulnerability_time\",1))",
 								"type": "once",
 								"tag": "\"invulnerable\""
 							}
@@ -2018,6 +2255,15 @@
 							"parameters": {
 								"max-speed": "Functions.count_get_stat(\"walk_speed\",0)"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 696917310296423,
+							"parameters": {
+								"variable": "is_movement_locked",
+								"value": "false"
+							}
 						}
 					],
 					"sid": 406951570750806
@@ -2235,7 +2481,34 @@
 					}
 				}
 			],
-			"sid": 746912195410115
+			"sid": 746912195410115,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Count",
+							"sid": 601384387758135,
+							"parameters": {
+								"animation": "\"idle\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Count",
+							"sid": 134649235977001,
+							"parameters": {
+								"instance-variable": "state",
+								"value": "count_state_idle"
+							}
+						}
+					],
+					"sid": 568238194759280
+				}
+			]
 		}
 	],
 	"sid": 746909589108384

@@ -2,6 +2,30 @@
 	"name": "JsonParsing",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "json_count_loaded",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 917550791974942
+		},
+		{
+			"eventType": "variable",
+			"name": "json_pun_msgs_loaded",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 114646777931534
+		},
+		{
+			"eventType": "comment",
+			"text": "Count Stats loader"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -20,6 +44,15 @@
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 330753086820786
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 209468660413595,
+					"parameters": {
+						"variable": "json_count_loaded"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -59,16 +92,106 @@
 					}
 				},
 				{
-					"id": "set-eventvar-value",
+					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 702593456925349,
+					"sid": 654131508703164,
 					"parameters": {
-						"variable": "DEBUG",
-						"value": "\"CARGU{E\""
+						"variable": "json_count_loaded",
+						"value": "true"
 					}
 				}
 			],
 			"sid": 718935790117542
+		},
+		{
+			"eventType": "comment",
+			"text": "Pun Messages Loader"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "JsonPunMsgs",
+					"sid": 644406258285372
+				}
+			],
+			"actions": [],
+			"sid": 983106969298317
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 683372513460618
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 201816809494191,
+					"parameters": {
+						"variable": "json_pun_msgs_loaded"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 649380622353001,
+					"parameters": {
+						"variable": "json_count_loaded"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 388406734452331,
+					"parameters": {
+						"tag": "\"jsonPunMsgs\"",
+						"file": {
+							"path": "down_msgs.json"
+						}
+					}
+				}
+			],
+			"sid": 770842572671363
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 132398930819472,
+					"parameters": {
+						"tag": "\"jsonPunMsgs\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JsonPunMsgs",
+					"sid": 152535945108220,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 995720102833249,
+					"parameters": {
+						"variable": "json_pun_msgs_loaded",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 739162458399807
 		},
 		{
 			"functionName": "count_get_stat",
@@ -143,6 +266,170 @@
 						}
 					],
 					"sid": 191200895341888
+				}
+			]
+		},
+		{
+			"functionName": "count_set_stat",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "stat_name",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 670477319494443
+				},
+				{
+					"name": "value",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 776291502291504
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-value",
+					"objectClass": "JsonCountStats",
+					"sid": 289058834433255,
+					"parameters": {
+						"path": "\"count.\"&stat_name",
+						"value": "value"
+					}
+				}
+			],
+			"sid": 370329880521079
+		},
+		{
+			"functionName": "get_pun_msg",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 118537420901477,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "msgNmbr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 521371195805670
+				},
+				{
+					"eventType": "variable",
+					"name": "msgNmbrString",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 474662298156227
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 680061530326521,
+							"parameters": {
+								"variable": "msgNmbr",
+								"value": "floor(random(0,5))"
+							}
+						}
+					],
+					"sid": 568542369954249,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 464242682066978,
+									"parameters": {
+										"first-value": "msgNmbr",
+										"comparison": 2,
+										"second-value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 923315390074961,
+									"parameters": {
+										"variable": "msgNmbrString",
+										"value": "\"0\"&msgNmbr"
+									}
+								}
+							],
+							"sid": 676684268294375
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 449055937482172
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 377486205487218,
+									"parameters": {
+										"variable": "msgNmbrString",
+										"value": "msgNmbr"
+									}
+								}
+							],
+							"sid": 348405689513838
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 412976483641053,
+							"parameters": {
+								"value": "JsonPunMsgs.Get(\"puns.msg\"&msgNmbrString)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 747840264214356,
+							"parameters": {
+								"variable": "DEBUG",
+								"value": "\"jsonmsg: \"&\"puns.msg\"&msgNmbrString"
+							}
+						}
+					],
+					"sid": 220561222061525
 				}
 			]
 		}

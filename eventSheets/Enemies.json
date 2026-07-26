@@ -2269,6 +2269,13 @@
 									"objectClass": "spit",
 									"sid": 648036714662452,
 									"behaviorType": "MoveTo"
+								},
+								{
+									"id": "is-moving",
+									"objectClass": "spit",
+									"sid": 506595832662755,
+									"behaviorType": "MoveTo",
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -2278,7 +2285,8 @@
 									"sid": 304748719372719
 								}
 							],
-							"sid": 675984767813414
+							"sid": 675984767813414,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -2296,19 +2304,29 @@
 							"sid": 866247836842306,
 							"children": [
 								{
+									"eventType": "variable",
+									"name": "has_shot",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 608585744584308
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "for-each",
 											"objectClass": "System",
-											"sid": 522631965393711,
+											"sid": 189017389916251,
 											"parameters": {
 												"object": "Shooters"
 											}
 										}
 									],
 									"actions": [],
-									"sid": 130604280904210,
+									"sid": 938985801261023,
 									"children": [
 										{
 											"eventType": "block",
@@ -2316,7 +2334,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Shooters",
-													"sid": 170301925119620,
+													"sid": 958362771073217,
 													"parameters": {
 														"instance-variable": "state",
 														"comparison": 0,
@@ -2326,64 +2344,98 @@
 											],
 											"actions": [
 												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 422544897966021,
+													"id": "set-animation",
+													"objectClass": "Shooters",
+													"sid": 458075105222177,
 													"parameters": {
-														"object-to-create": "spit",
-														"layer": "\"characters\"",
-														"x": "Shooters.X",
-														"y": "Shooters.Y",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "set-angle-toward-position",
-													"objectClass": "spit",
-													"sid": 403605393099570,
-													"parameters": {
-														"x": "Count.X",
-														"y": "Count.Y"
+														"animation": "\"shoot\"",
+														"from": "beginning"
 													}
 												}
 											],
-											"sid": 542704906071702,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-tag-playing",
-															"objectClass": "Audio",
-															"sid": 697354809274226,
-															"parameters": {
-																"tag": "\"spit\""
-															},
-															"isInverted": true
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Audio",
-															"sid": 628445322430144,
-															"parameters": {
-																"audio-file": {
-																	"path": "spit"
-																},
-																"loop": "not-looping",
-																"volume": "0",
-																"stereo-pan": "0",
-																"tag-optional": "\"spit\""
-															}
-														}
-													],
-													"sid": 391145995169556
-												}
-											]
+											"sid": 949149989775504
 										}
 									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 442775910188044,
+									"parameters": {
+										"object": "Shooters"
+									}
+								},
+								{
+									"id": "compare-animation-frame-tag",
+									"objectClass": "Shooters",
+									"sid": 670496206982265,
+									"parameters": {
+										"comparison": 0,
+										"tag": "\"shoot\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 916052915736422,
+									"parameters": {
+										"object-to-create": "spit",
+										"layer": "\"characters\"",
+										"x": "Shooters.X",
+										"y": "Shooters.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "spit",
+									"sid": 890600519953967,
+									"parameters": {
+										"x": "Count.X",
+										"y": "Count.Y"
+									}
+								}
+							],
+							"sid": 101271965290081,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 166555043078200,
+											"parameters": {
+												"tag": "\"spit\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 782027958317677,
+											"parameters": {
+												"audio-file": {
+													"path": "spit"
+												},
+												"loop": "not-looping",
+												"volume": "-7",
+												"stereo-pan": "0",
+												"tag-optional": "\"spit\""
+											}
+										}
+									],
+									"sid": 918374315113956
 								}
 							]
 						},
@@ -2444,6 +2496,31 @@
 								}
 							],
 							"sid": 377633303468294
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Shooters",
+									"sid": 490492015721889,
+									"parameters": {
+										"animation": "\"shoot\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Shooters",
+									"sid": 499420365448407,
+									"parameters": {
+										"animation": "\"idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 153693177673244
 						}
 					],
 					"sid": 103861518617501,
@@ -3304,6 +3381,68 @@
 									"sid": 349392720800815
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Rammers",
+									"sid": 235715283070571,
+									"parameters": {
+										"instance-variable": "state",
+										"comparison": 0,
+										"value": "state_ramming"
+									}
+								},
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 297964698250920,
+									"parameters": {
+										"tag": "\"ramming\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "Rammers",
+									"sid": 364456784564339,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"timer_ramming\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 403125299539232,
+									"parameters": {
+										"audio-file": {
+											"path": "guts_dash"
+										},
+										"loop": "not-looping",
+										"volume": "-7",
+										"stereo-pan": "0",
+										"tag-optional": "\"ramming\""
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "Rammers",
+									"sid": 247200640031810,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "0.15",
+										"type": "once",
+										"tag": "\"timer_ramming\""
+									}
+								}
+							],
+							"sid": 957338608023931
 						}
 					],
 					"sid": 699209360914042,

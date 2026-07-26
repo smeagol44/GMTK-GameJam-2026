@@ -18,7 +18,13 @@
 			"sid": 570168286973150
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 964286522196448
+		}
+	],
 	"effectTypes": [],
 	"members": [
 		"Guts"

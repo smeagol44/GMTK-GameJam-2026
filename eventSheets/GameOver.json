@@ -9,18 +9,101 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-clicked",
-					"objectClass": "Button",
-					"sid": 193397343961479
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 867179415870375,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-a"
+					}
+				},
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 321737625563510,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-b"
+					}
+				},
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 614915822779004,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-y"
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 321313935817541,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 503783308591329,
+					"parameters": {
+						"key": 90
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 936521261452109,
+					"parameters": {
+						"key": 88
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 531031045868603,
+					"parameters": {
+						"key": 67
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 349818604735331,
+					"parameters": {
+						"key": 74
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 282969219250204,
+					"parameters": {
+						"key": 75
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 859918289212116,
+					"parameters": {
+						"key": 76
+					}
 				}
 			],
 			"actions": [
 				{
-					"callFunction": "new_game",
-					"sid": 561913093871636
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 458754451723668,
+					"parameters": {
+						"layout": "Intro"
+					}
 				}
 			],
-			"sid": 951589165555037
+			"sid": 826297696391182,
+			"isOrBlock": true
 		}
 	],
 	"sid": 636452755253610

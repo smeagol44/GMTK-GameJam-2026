@@ -227,7 +227,18 @@
 							"Mort",
 							"message"
 						],
-						"subfolders": [],
+						"subfolders": [
+							{
+								"items": [
+									"gameOver",
+									"tryAgain",
+									"titleScreen",
+									"countDescends"
+								],
+								"subfolders": [],
+								"name": "Cutscenes"
+							}
+						],
 						"name": "Scenes"
 					},
 					{
@@ -303,7 +314,8 @@
 			"Game Over",
 			"Count Goes Down",
 			"Intro",
-			"Memory"
+			"Memory",
+			"MainMenu"
 		],
 		"subfolders": []
 	},
@@ -320,7 +332,8 @@
 			"CountGoesDown",
 			"Intro",
 			"JsonParsing",
-			"Dependencies"
+			"Dependencies",
+			"MainMenu"
 		],
 		"subfolders": []
 	},
@@ -423,7 +436,16 @@
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "title_loop.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 123364243587990,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

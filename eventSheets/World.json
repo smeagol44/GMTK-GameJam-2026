@@ -52,6 +52,16 @@
 			"sid": 587301091109062
 		},
 		{
+			"eventType": "variable",
+			"name": "floors",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 485935467121858
+		},
+		{
 			"eventType": "comment",
 			"text": "Creación de dummies para testear. Esto debería borrarse"
 		},
@@ -122,6 +132,15 @@
 						"variable": "powerup_bought",
 						"value": "false"
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 681999835982891,
+					"parameters": {
+						"variable": "floors",
+						"value": "floors +1"
+					}
 				}
 			],
 			"sid": 145989937733072,
@@ -132,9 +151,9 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 103236845324733,
+							"sid": 989903408974639,
 							"parameters": {
-								"count": "1"
+								"count": "floors"
 							}
 						}
 					],

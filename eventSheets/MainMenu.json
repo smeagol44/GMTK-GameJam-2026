@@ -1,0 +1,166 @@
+{
+	"name": "MainMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 477063385453425
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 321815385908049,
+					"parameters": {
+						"audio-file": {
+							"path": "title_loop"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 887144909824792
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 489810589079875,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-a"
+					}
+				},
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 413280391866085,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-b"
+					}
+				},
+				{
+					"id": "is-button-down",
+					"objectClass": "Gamepad",
+					"sid": 648384855624663,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-y"
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 638232661121818,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 828585363485202,
+					"parameters": {
+						"key": 90
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 966603725059279,
+					"parameters": {
+						"key": 88
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 423429269669291,
+					"parameters": {
+						"key": 67
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 682178570922225,
+					"parameters": {
+						"key": 74
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 529245839362326,
+					"parameters": {
+						"key": 75
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 205536203841091,
+					"parameters": {
+						"key": 76
+					}
+				}
+			],
+			"actions": [],
+			"sid": 930625562221053,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 898314260025156,
+							"parameters": {
+								"variable": "intro"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 831827402175038,
+							"parameters": {
+								"variable": "outro"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 851038171696855,
+							"parameters": {
+								"variable": "skip",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "new_game",
+							"sid": 978040442875993
+						}
+					],
+					"sid": 952690933994409,
+					"isOrBlock": true
+				}
+			],
+			"isOrBlock": true
+		}
+	],
+	"sid": 277491227326272
+}

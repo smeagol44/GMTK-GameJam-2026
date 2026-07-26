@@ -1,5 +1,5 @@
 {
-	"name": "Game Over",
+	"name": "MainMenu",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -7,7 +7,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "gameOver",
+					"type": "titleScreen",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -15,8 +15,8 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 13,
-					"sid": 493787800414689,
+					"uid": 15,
+					"sid": 436298837583312,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
@@ -38,42 +38,9 @@
 						"z": 0,
 						"angle": 0
 					}
-				},
-				{
-					"type": "tryAgain",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 50,
-					"sid": 473678768752820,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 128,
-						"y": 288,
-						"width": 236,
-						"height": 48,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
 				}
 			],
-			"sid": 348741150062004,
+			"sid": 358768242090561,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -104,15 +71,15 @@
 			"global": false
 		}
 	],
-	"sid": 508401410074000,
+	"sid": 231732210655723,
 	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 720,
-	"height": 540,
+	"width": 960,
+	"height": 720,
 	"unboundedScrolling": false,
 	"sampling": "auto",
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "GameOver"
+	"eventSheet": "MainMenu"
 }

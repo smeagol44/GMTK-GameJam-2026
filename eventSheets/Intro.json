@@ -73,6 +73,15 @@
 						"mode": "enable",
 						"effect": "\"Brightness\""
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 717100864226404,
+					"parameters": {
+						"variable": "floors",
+						"value": "0"
+					}
 				}
 			],
 			"sid": 406499870951388
@@ -478,8 +487,12 @@
 					],
 					"actions": [
 						{
-							"callFunction": "new_game",
-							"sid": 720121580230597
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 687167129828326,
+							"parameters": {
+								"layout": "MainMenu"
+							}
 						}
 					],
 					"sid": 576935831469191
@@ -707,10 +720,6 @@
 								"variable": "skip",
 								"value": "true"
 							}
-						},
-						{
-							"callFunction": "new_game",
-							"sid": 427616789794263
 						}
 					],
 					"sid": 909307643553504,

@@ -13,12 +13,12 @@
 					}
 				},
 				{
-					"id": "compare-y",
-					"objectClass": "Coffin",
-					"sid": 491498019507109,
+					"id": "compare-animation-frame",
+					"objectClass": "countDescends",
+					"sid": 283773379997084,
 					"parameters": {
-						"comparison": 2,
-						"y-co-ordinate": "420"
+						"comparison": 4,
+						"number": "32"
 					}
 				}
 			],
@@ -61,66 +61,33 @@
 						"instance-variable": "xSpeed",
 						"value": "floor(random(-75,75))"
 					}
-				},
+				}
+			],
+			"sid": 401893856849559
+		},
+		{
+			"eventType": "block",
+			"conditions": [
 				{
-					"id": "set-animation-speed",
-					"objectClass": "Coffin",
-					"sid": 772279878216387,
+					"id": "on-animation-finished",
+					"objectClass": "countDescends",
+					"sid": 533234473320146,
 					"parameters": {
-						"speed": "Self.AnimationSpeed+2"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Coffin",
-					"sid": 159994257481757,
-					"parameters": {
-						"instance-variable": "ySpeed",
-						"value": "Self.ySpeed+0.2"
-					}
-				},
-				{
-					"id": "set-y",
-					"objectClass": "Coffin",
-					"sid": 942925352149275,
-					"parameters": {
-						"y": "Self.Y+Self.ySpeed"
+						"animation": "\"Animation 1\""
 					}
 				}
 			],
-			"sid": 401893856849559,
-			"children": [
+			"actions": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-y",
-							"objectClass": "Coffin",
-							"sid": 208864190008215,
-							"parameters": {
-								"comparison": 4,
-								"y-co-ordinate": "380"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Coffin",
-							"sid": 769284100917630
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 953517169157911,
-							"parameters": {
-								"layout": "Gameplay Test"
-							}
-						}
-					],
-					"sid": 514166967570234
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 954756308525735,
+					"parameters": {
+						"layout": "Gameplay Test"
+					}
 				}
-			]
+			],
+			"sid": 935502139118647
 		},
 		{
 			"eventType": "block",
@@ -171,8 +138,17 @@
 					"conditions": [
 						{
 							"id": "on-animation-frame-changed",
-							"objectClass": "Coffin",
+							"objectClass": "countDescends",
 							"sid": 339150682134713
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "countDescends",
+							"sid": 785738660442616,
+							"parameters": {
+								"comparison": 4,
+								"number": "32"
+							}
 						}
 					],
 					"actions": [

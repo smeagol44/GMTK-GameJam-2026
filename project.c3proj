@@ -217,8 +217,7 @@
 							"goesDown",
 							"Numbers",
 							"fontDefault",
-							"boxMsg",
-							"Sprite"
+							"boxMsg"
 						],
 						"subfolders": [],
 						"name": "UI"
@@ -237,6 +236,18 @@
 						],
 						"subfolders": [],
 						"name": "Projectiles"
+					},
+					{
+						"items": [
+							"power1",
+							"power2",
+							"power3",
+							"power4",
+							"power5",
+							"power0"
+						],
+						"subfolders": [],
+						"name": "Powerups"
 					}
 				],
 				"name": "Sprites"
@@ -280,7 +291,8 @@
 			"Hitboxes",
 			"Followers",
 			"Rammers",
-			"Shooters"
+			"Shooters",
+			"Powerups"
 		],
 		"subfolders": []
 	},
@@ -290,8 +302,7 @@
 			"Game Over",
 			"Count Goes Down",
 			"Intro",
-			"Memory",
-			"Shop"
+			"Memory"
 		],
 		"subfolders": []
 	},
@@ -307,7 +318,6 @@
 			"World",
 			"CountGoesDown",
 			"Intro",
-			"Shop",
 			"JsonParsing",
 			"Dependencies"
 		],

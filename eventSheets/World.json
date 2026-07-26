@@ -12,6 +12,16 @@
 			"sid": 841427243387753
 		},
 		{
+			"eventType": "variable",
+			"name": "shop",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 789017273173477
+		},
+		{
 			"eventType": "comment",
 			"text": "Creación de dummies para testear. Esto debería borrarse"
 		},
@@ -65,9 +75,9 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 239019449475944,
+							"sid": 510786343677171,
 							"parameters": {
-								"count": "6"
+								"count": "1"
 							}
 						}
 					],
@@ -75,6 +85,7 @@
 						{
 							"callFunction": "spawn_enemy_ranPos",
 							"sid": 857070318538409,
+							"disabled": true,
 							"parameters": [
 								"choose(\"Clot\", \"Skelly\", \"Guts\")"
 							]
@@ -167,22 +178,6 @@
 				}
 			],
 			"actions": [
-				{
-					"id": "set-visible",
-					"objectClass": "Escalera",
-					"sid": 458825394570587,
-					"parameters": {
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-collisions-enabled",
-					"objectClass": "Escalera",
-					"sid": 871184516516552,
-					"parameters": {
-						"collisions": "enabled"
-					}
-				},
 				{
 					"id": "set-visible",
 					"objectClass": "display_room_clear",
@@ -330,6 +325,15 @@
 							"parameters": {
 								"variable": "roomCleared"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 480850823048312,
+							"parameters": {
+								"variable": "shop"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -450,11 +454,55 @@
 									],
 									"actions": [
 										{
-											"id": "go-to-layout",
+											"id": "set-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 849456845099509,
+											"sid": 318439633360006,
 											"parameters": {
-												"layout": "Count Goes Down"
+												"variable": "is_movement_locked",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Count",
+											"sid": 662148258636312,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Brightness\""
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "Count",
+											"sid": 697361580387788,
+											"parameters": {
+												"color": "rgbEx(100, 100, 100)"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "fontDefault",
+											"sid": 873205606089418,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Brightness\""
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "fontDefault",
+											"sid": 927869619857090,
+											"parameters": {
+												"color": "rgbEx(100, 100, 100)"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 549091754661074,
+											"parameters": {
+												"variable": "shop",
+												"value": "true"
 											}
 										}
 									],
@@ -529,33 +577,6 @@
 												}
 											],
 											"sid": 847911802886870
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-moving",
-													"objectClass": "bloodDrop",
-													"sid": 955517051627220,
-													"behaviorType": "MoveTo"
-												}
-											],
-											"actions": [],
-											"sid": 395678541701289,
-											"disabled": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 423950327976418
-												}
-											],
-											"actions": [],
-											"sid": 497481933431178,
-											"disabled": true
 										}
 									]
 								}
@@ -633,6 +654,212 @@
 			"background-color": [
 				1,
 				0,
+				0,
+				1
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "powerups_displayed",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 821862516079495
+		},
+		{
+			"eventType": "variable",
+			"name": "powerup_bought",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 448740314051503
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shop",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 720586967254796,
+							"parameters": {
+								"variable": "roomCleared"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 291955572942811,
+							"parameters": {
+								"variable": "shop"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 533729840206766,
+							"parameters": {
+								"variable": "powerup_bought"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 256925353468175,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 787403363308092,
+									"parameters": {
+										"variable": "powerups_displayed"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "show_powerups",
+									"sid": 476475132061162
+								}
+							],
+							"sid": 432836798476364
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 591516761886186,
+							"parameters": {
+								"variable": "powerup_bought"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 512027638569073,
+							"parameters": {
+								"layout": "Count Goes Down"
+							}
+						}
+					],
+					"sid": 884127922955457
+				},
+				{
+					"functionName": "show_powerups",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 702780156886397,
+							"parameters": {
+								"variable": "powerups_displayed",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 391541084948627,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 692740470139910,
+									"parameters": {
+										"object-name": "\"power\"&floor(random(0,6))",
+										"layer": "\"characters\"",
+										"x": "160",
+										"y": "ViewportHeight(\"characters\")/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 167178566425574
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 876237120627178,
+									"parameters": {
+										"object-name": "\"power\"&floor(random(0,6))",
+										"layer": "\"characters\"",
+										"x": "240",
+										"y": "ViewportHeight(\"characters\")/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 853087565738389
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 310957238251358,
+									"parameters": {
+										"object-name": "\"power\"&floor(random(0,6))",
+										"layer": "\"characters\"",
+										"x": "320",
+										"y": "ViewportHeight(\"characters\")/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 748698979735142
+						}
+					]
+				}
+			],
+			"sid": 114083921847203,
+			"text-color": [
+				0,
+				0,
+				0,
+				0
+			],
+			"background-color": [
+				0.7803921568627451,
+				0.49411764705882355,
 				0,
 				1
 			]

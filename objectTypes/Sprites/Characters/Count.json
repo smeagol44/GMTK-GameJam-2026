@@ -76,6 +76,13 @@
 			"sid": 583973176348853
 		},
 		{
+			"name": "action_angle",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 646591642385884
+		},
+		{
 			"name": "dash_speed",
 			"type": "number",
 			"desc": "",

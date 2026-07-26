@@ -458,6 +458,7 @@
 						"facing_angle": 0,
 						"blood": 100,
 						"attacking_angle": 0,
+						"action_angle": 0,
 						"dash_speed": 0,
 						"dash_angle": 0,
 						"invulnerable": false

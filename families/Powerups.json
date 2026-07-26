@@ -1,0 +1,16 @@
+{
+	"name": "Powerups",
+	"plugin-id": "Sprite",
+	"sid": 541473411920193,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"power1",
+		"power2",
+		"power3",
+		"power4",
+		"power5",
+		"power0"
+	]
+}

@@ -7,9 +7,9 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 548915258234723,
+					"sid": 613393506784872,
 					"parameters": {
-						"interval-seconds": "0.1"
+						"interval-seconds": "0.05"
 					}
 				},
 				{
@@ -26,12 +26,12 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 976747201976202,
+					"sid": 115421353754077,
 					"parameters": {
 						"object-to-create": "SmallRock",
 						"layer": "0",
 						"x": "floor(random(220,260))",
-						"y": "280",
+						"y": "240",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -47,19 +47,19 @@
 				{
 					"id": "set-vector-y",
 					"objectClass": "SmallRock",
-					"sid": 618934016469208,
+					"sid": 320930998040705,
 					"behaviorType": "Platform",
 					"parameters": {
-						"vector-y": "-500"
+						"vector-y": "-400 - floor(random(0,150))"
 					}
 				},
 				{
 					"id": "set-instvar-value",
 					"objectClass": "SmallRock",
-					"sid": 958792657018582,
+					"sid": 588744609515882,
 					"parameters": {
 						"instance-variable": "xSpeed",
-						"value": "floor(random(-75,75))"
+						"value": "floor(random(-95,95))"
 					}
 				}
 			],
@@ -155,7 +155,7 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 146978865925519,
+							"sid": 275274059954678,
 							"parameters": {
 								"audio-file": {
 									"path": "dig"

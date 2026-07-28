@@ -53,7 +53,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "floors",
+			"name": "current_floor",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -138,8 +138,8 @@
 					"objectClass": "System",
 					"sid": 681999835982891,
 					"parameters": {
-						"variable": "floors",
-						"value": "floors +1"
+						"variable": "current_floor",
+						"value": "current_floor +1"
 					}
 				}
 			],
@@ -153,7 +153,7 @@
 							"objectClass": "System",
 							"sid": 989903408974639,
 							"parameters": {
-								"count": "floors"
+								"count": "current_floor"
 							}
 						}
 					],
@@ -621,10 +621,10 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "bloodSplat",
-											"sid": 211250289972259,
+											"sid": 145947865783301,
 											"parameters": {
 												"instance-variable": "blood",
-												"value": "1"
+												"value": "current_floor"
 											}
 										},
 										{
@@ -645,10 +645,10 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "bloodSplat",
-													"sid": 365125236592032,
+													"sid": 744285552615619,
 													"parameters": {
 														"instance-variable": "blood",
-														"comparison": 0,
+														"comparison": 3,
 														"value": "0"
 													}
 												}
@@ -701,10 +701,10 @@
 						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 730520887756047,
+							"sid": 845332686228370,
 							"parameters": {
 								"variable": "blood_glob",
-								"value": "1"
+								"value": "current_floor"
 							}
 						},
 						{
@@ -936,6 +936,19 @@
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 904206107830457,
+									"parameters": {
+										"object-to-create": "poof",
+										"layer": "\"characters\"",
+										"x": "160",
+										"y": "ViewportHeight(\"characters\")/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
 								}
 							],
 							"sid": 167178566425574
@@ -982,6 +995,19 @@
 									"sid": 522622960950909,
 									"parameters": {
 										"object-name": "\"power\"&powerup2",
+										"layer": "\"characters\"",
+										"x": "240",
+										"y": "ViewportHeight(\"characters\")/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 591661452962605,
+									"parameters": {
+										"object-to-create": "poof",
 										"layer": "\"characters\"",
 										"x": "240",
 										"y": "ViewportHeight(\"characters\")/2",
@@ -1039,6 +1065,33 @@
 										"y": "ViewportHeight(\"characters\")/2",
 										"create-hierarchy": false,
 										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 279032504899564,
+									"parameters": {
+										"object-to-create": "poof",
+										"layer": "\"characters\"",
+										"x": "320",
+										"y": "ViewportHeight(\"characters\")/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 694741392111826,
+									"parameters": {
+										"audio-file": {
+											"path": "zap"
+										},
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
 									}
 								}
 							],
@@ -1119,7 +1172,7 @@
 				{
 					"id": "set-max-speed",
 					"objectClass": "Count",
-					"sid": 581650863042328,
+					"sid": 175157916021138,
 					"behaviorType": "8Direction",
 					"parameters": {
 						"max-speed": "6000"
@@ -1160,21 +1213,21 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 906598322031750,
+							"sid": 436872452220490,
 							"parameters": {
 								"first-value": "floor(abs(240-Count.X))",
-								"comparison": 0,
-								"second-value": "0"
+								"comparison": 3,
+								"second-value": "10"
 							}
 						},
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 396123045512346,
+							"sid": 659858805410845,
 							"parameters": {
 								"first-value": "floor(abs(280-Count.Y))",
-								"comparison": 0,
-								"second-value": "0"
+								"comparison": 3,
+								"second-value": "10"
 							}
 						}
 					],
@@ -1233,6 +1286,12 @@
 						}
 					],
 					"sid": 784775227606025
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 487564170561506
 				}
 			]
 		},
@@ -1278,7 +1337,7 @@
 							"eventType": "variable",
 							"name": "upgrade0_value",
 							"type": "number",
-							"initialValue": "5",
+							"initialValue": "1",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -1327,6 +1386,22 @@
 						{
 							"eventType": "comment",
 							"text": "Power 0 - DMG up"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 852560003623968,
+									"parameters": {
+										"variable": "upgrade0_value",
+										"value": "upgrade0_value + floor(current_floor/2)"
+									}
+								}
+							],
+							"sid": 489794246903909
 						},
 						{
 							"eventType": "block",
@@ -1418,7 +1493,7 @@
 							"eventType": "variable",
 							"name": "upgrade1_value",
 							"type": "number",
-							"initialValue": "5",
+							"initialValue": "1",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -1437,6 +1512,22 @@
 						{
 							"eventType": "comment",
 							"text": "Power 1 - Dash length"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 695952797050980,
+									"parameters": {
+										"variable": "upgrade1_value",
+										"value": "upgrade1_value + floor(current_floor/2)"
+									}
+								}
+							],
+							"sid": 163858954458868
 						},
 						{
 							"eventType": "block",
@@ -1477,7 +1568,7 @@
 							"eventType": "variable",
 							"name": "upgrade2_value",
 							"type": "number",
-							"initialValue": "1",
+							"initialValue": "0.1",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -1515,10 +1606,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 897061574120497,
+									"sid": 322950407191312,
 									"parameters": {
 										"variable": "world_tick_seconds",
-										"value": "Functions.count_get_stat(\"world_tick_seconds\",0)+upgrade2_value"
+										"value": "Functions.count_get_stat(\"world_tick_seconds\",1)+upgrade2_value"
 									}
 								},
 								{
@@ -1536,7 +1627,7 @@
 							"eventType": "variable",
 							"name": "upgrade3_value",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "10",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -1582,10 +1673,10 @@
 								},
 								{
 									"callFunction": "count_set_stat",
-									"sid": 503881307049591,
+									"sid": 667135977638234,
 									"parameters": [
-										"\"invulnerability_time\"",
-										"\"\"&invulnerability_time"
+										"\"walk_speed\"",
+										"\"\"&walk_speed"
 									]
 								}
 							],
@@ -1595,7 +1686,7 @@
 							"eventType": "variable",
 							"name": "upgrade4_value",
 							"type": "number",
-							"initialValue": "0.4",
+							"initialValue": "0.1",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -1654,7 +1745,7 @@
 							"eventType": "variable",
 							"name": "upgrade5_value",
 							"type": "number",
-							"initialValue": "25",
+							"initialValue": "5",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,

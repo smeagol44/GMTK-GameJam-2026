@@ -2,6 +2,16 @@
 	"name": "MainMenu",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "title",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 174246596598251
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -23,6 +33,17 @@
 						"volume": "0",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "titleScreen",
+					"sid": 858172597252598,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "0.8",
+						"type": "once",
+						"tag": "\"title\""
 					}
 				}
 			],
@@ -124,42 +145,49 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 898314260025156,
+							"sid": 178600953920459,
 							"parameters": {
-								"variable": "intro"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 831827402175038,
-							"parameters": {
-								"variable": "outro"
+								"variable": "title"
 							},
 							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 851038171696855,
-							"parameters": {
-								"variable": "skip",
-								"value": "true"
-							}
-						},
-						{
 							"callFunction": "new_game",
-							"sid": 978040442875993
+							"sid": 754895012995262
 						}
 					],
-					"sid": 952690933994409,
-					"isOrBlock": true
+					"sid": 210098201970110
 				}
 			],
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "titleScreen",
+					"sid": 504558699441303,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"title\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 988688071095975,
+					"parameters": {
+						"variable": "title",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 944429198865858
 		}
 	],
 	"sid": 277491227326272

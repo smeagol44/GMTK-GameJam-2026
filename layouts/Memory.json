@@ -22,7 +22,7 @@
 						"blood": 0,
 						"max_speed": 60,
 						"knockback": 150,
-						"damage": 5
+						"damage": 10
 					},
 					"behaviors": {
 						"damaged": {
@@ -194,7 +194,7 @@
 						"blood": 0,
 						"max_speed": 50,
 						"knockback": 150,
-						"damage": 5,
+						"damage": 15,
 						"state": 0,
 						"positioningDirection": 0
 					},
@@ -294,18 +294,7 @@
 					"instanceVariables": {
 						"enemy_uid": 0
 					},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 0.8,
-								"destroy": true,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
+					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -374,7 +363,7 @@
 						"blood": 0,
 						"max_speed": 60,
 						"knockback": 150,
-						"damage": 5,
+						"damage": 4,
 						"state": 0,
 						"running_speed": 150,
 						"walking_speed": 105,
@@ -627,8 +616,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 435.747314453125,
-						"y": 39.11360549926758,
+						"x": 450,
+						"y": 50,
 						"width": 25,
 						"height": 25,
 						"originX": 0.5,
@@ -686,8 +675,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 442.60137939453125,
-						"y": 64.11075973510742,
+						"x": 450,
+						"y": 75,
 						"width": 25,
 						"height": 25,
 						"originX": 0.5,
@@ -745,8 +734,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 442.1981506347656,
-						"y": 95.15558624267578,
+						"x": 450,
+						"y": 100,
 						"width": 25,
 						"height": 25,
 						"originX": 0.5,
@@ -804,8 +793,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 443.0045166015625,
-						"y": 127.00679779052734,
+						"x": 450,
+						"y": 125,
 						"width": 25,
 						"height": 25,
 						"originX": 0.5,
@@ -863,8 +852,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 446.6331481933594,
-						"y": 157.6484375,
+						"x": 450,
+						"y": 150,
 						"width": 25,
 						"height": 25,
 						"originX": 0.5,
@@ -922,8 +911,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 445.0204162597656,
-						"y": 185.8710174560547,
+						"x": 450,
+						"y": 175,
 						"width": 25,
 						"height": 25,
 						"originX": 0.5,

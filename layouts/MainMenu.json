@@ -19,7 +19,11 @@
 					"sid": 436298837583312,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Timer": {
+							"properties": {}
+						}
+					},
 					"showing": true,
 					"locked": false,
 					"world": {

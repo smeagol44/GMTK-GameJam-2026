@@ -204,9 +204,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 460,
+						"x": 642,
 						"y": 180,
-						"width": 40,
+						"width": 404,
 						"height": 360,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -246,9 +246,9 @@
 					"locked": false,
 					"world": {
 						"x": 240,
-						"y": 16,
-						"width": 32,
-						"height": 480,
+						"y": -93,
+						"width": 250,
+						"height": 1208,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -286,18 +286,7 @@
 					"instanceVariables": {
 						"enemy_uid": 0
 					},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
+					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -342,9 +331,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 20,
+						"x": -162,
 						"y": 180,
-						"width": 40,
+						"width": 404,
 						"height": 360,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -384,9 +373,9 @@
 					"locked": false,
 					"world": {
 						"x": 240,
-						"y": 344,
-						"width": 32,
-						"height": 480,
+						"y": 453,
+						"width": 250,
+						"height": 1208,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -608,8 +597,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 308,
-						"y": 48,
+						"x": 353,
+						"y": 0,
 						"width": 98,
 						"height": 19,
 						"originX": 0,

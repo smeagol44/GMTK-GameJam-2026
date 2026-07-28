@@ -1736,32 +1736,12 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "variable",
-					"name": "auxangle",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 651440504209032
-				},
-				{
-					"eventType": "variable",
-					"name": "auxangle2",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 935262804569853
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
+							"id": "on-collision-with-another-object",
 							"objectClass": "Count",
-							"sid": 412338869919164,
+							"sid": 516183654963054,
 							"parameters": {
 								"object": "Enemies"
 							}
@@ -1777,6 +1757,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Count",
+							"sid": 239776474055634,
+							"parameters": {
+								"instance-variable": "invulnerable",
+								"value": "true"
+							}
+						},
 						{
 							"id": "set-effect-enabled",
 							"objectClass": "Count",
@@ -1831,15 +1820,6 @@
 									"behaviorType": "8Direction",
 									"parameters": {
 										"deceleration": "Functions.count_get_stat(\"knockback_decay\",0)"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Count",
-									"sid": 787244609525060,
-									"parameters": {
-										"instance-variable": "invulnerable",
-										"value": "true"
 									}
 								},
 								{

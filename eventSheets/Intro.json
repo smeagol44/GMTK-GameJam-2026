@@ -75,11 +75,19 @@
 					}
 				},
 				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 993241780006154,
+					"parameters": {
+						"reset-static": true
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 717100864226404,
 					"parameters": {
-						"variable": "floors",
+						"variable": "current_floor",
 						"value": "0"
 					}
 				}

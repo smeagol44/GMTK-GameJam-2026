@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "killbonus",
 			"type": "number",
-			"initialValue": "3",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -76,10 +76,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 556929879955591,
+									"sid": 671308790238137,
 									"parameters": {
 										"instance-variable": "blood",
-										"value": "floor(random(8,16))"
+										"value": "floor(random(8+current_floor,16+current_floor*2))"
 									}
 								},
 								{
@@ -91,6 +91,114 @@
 								}
 							],
 							"sid": 448109253996976
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 456583494224193,
+									"parameters": {
+										"first-value": "Enemies.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Skelly\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemies",
+									"sid": 829270888864607,
+									"parameters": {
+										"instance-variable": "damage",
+										"value": "Self.damage + current_floor"
+									}
+								}
+							],
+							"sid": 922766005518630
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 763491416229781,
+									"parameters": {
+										"first-value": "Enemies.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Guts\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemies",
+									"sid": 310869551693263,
+									"parameters": {
+										"instance-variable": "damage",
+										"value": "Self.damage + current_floor"
+									}
+								}
+							],
+							"sid": 698288955270270
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 815133499386220,
+									"parameters": {
+										"first-value": "Enemies.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Clot\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemies",
+									"sid": 911008542170902,
+									"parameters": {
+										"instance-variable": "damage",
+										"value": "Self.damage + current_floor"
+									}
+								}
+							],
+							"sid": 393102430177868
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 798156616492026,
+									"parameters": {
+										"first-value": "Enemies.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Zombie\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemies",
+									"sid": 814610028297826,
+									"parameters": {
+										"instance-variable": "damage",
+										"value": "Self.damage + current_floor"
+									}
+								}
+							],
+							"sid": 196790798171911
 						}
 					]
 				},
@@ -351,6 +459,13 @@
 										{
 											"callFunction": "create_enemy_floating_number",
 											"sid": 439870273261687,
+											"parameters": [
+												"Enemies.UID"
+											]
+										},
+										{
+											"callFunction": "update_enemy_number",
+											"sid": 623452728276479,
 											"parameters": [
 												"Enemies.UID"
 											]
@@ -1476,6 +1591,15 @@
 											],
 											"actions": [
 												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 687466279663256,
+													"parameters": {
+														"variable": "killbonus",
+														"value": "floor(killbonus/2) + floor(current_floor/2)"
+													}
+												},
+												{
 													"callFunction": "drop_blood_floor",
 													"sid": 820723361119731,
 													"parameters": [
@@ -1551,12 +1675,6 @@
 											"parameters": {
 												"text": "Enemies.blood"
 											}
-										},
-										{
-											"id": "restart-fade",
-											"objectClass": "Numbers",
-											"sid": 226756438836449,
-											"behaviorType": "Fade"
 										}
 									],
 									"sid": 273938509850700

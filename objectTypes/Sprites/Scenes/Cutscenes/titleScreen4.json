@@ -1,0 +1,89 @@
+{
+	"name": "titleScreen4",
+	"plugin-id": "Sprite",
+	"sid": 293974856898697,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 598769358810185
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 539510287540798
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 44,
+						"height": 20,
+						"originX": -0.9545454545454546,
+						"originY": -0.3,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6637517,
+						"collisionPoly": {
+							"points": [
+								0.13636363636363635,
+								0,
+								0.8636363636363636,
+								0,
+								0.8636363636363636,
+								1,
+								0.13636363636363635,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 44,
+						"height": 20,
+						"originX": -0.9545454545454546,
+						"originY": -0.3,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3395208,
+						"collisionPoly": {
+							"points": [
+								0.13636363636363635,
+								0,
+								0.8636363636363636,
+								0,
+								0.8636363636363636,
+								1,
+								0.13636363636363635,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 807500351825657,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,58 @@
+{
+	"name": "titleScreen2",
+	"plugin-id": "Sprite",
+	"sid": 456637388240321,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 391561395380563
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 533,
+						"height": 400,
+						"originX": 0.04971857410881801,
+						"originY": 0.05,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 244959,
+						"collisionPoly": {
+							"points": [
+								0.2654784240150094,
+								0.1875,
+								0.7345215759849906,
+								0.1875,
+								0.7345215759849906,
+								0.8125,
+								0.2654784240150094,
+								0.8125
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 249653357662407,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -22,6 +22,14 @@
 			],
 			"actions": [
 				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 226095612124799,
+					"parameters": {
+						"reset-static": true
+					}
+				},
+				{
 					"id": "play",
 					"objectClass": "Audio",
 					"sid": 321815385908049,
@@ -44,6 +52,50 @@
 						"duration": "0.4",
 						"type": "once",
 						"tag": "\"title\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "titleScreen",
+					"sid": 297656497302257,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "15.0",
+						"type": "regular",
+						"tag": "\"lightning_call\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "titleScreen",
+					"sid": 773391176969164,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "0.4",
+						"type": "once",
+						"tag": "\"lightning\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "titleScreen",
+					"sid": 671520509145112,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "9.0",
+						"type": "regular",
+						"tag": "\"eyes_call\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "titleScreen",
+					"sid": 669552481313388,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "0.4",
+						"type": "once",
+						"tag": "\"eyes\""
 					}
 				}
 			],
@@ -164,30 +216,302 @@
 			"isOrBlock": true
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Timers",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-timer",
-					"objectClass": "titleScreen",
-					"sid": 504558699441303,
-					"behaviorType": "Timer",
-					"parameters": {
-						"tag": "\"title\""
-					}
+					"eventType": "comment",
+					"text": "This is to make the player unable to skip the title screen for the first 0.4 seconds"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "titleScreen",
+							"sid": 949649569544068,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"title\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 669034358961260,
+							"parameters": {
+								"variable": "just_main_menu",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 421195382132063
+				},
+				{
+					"eventType": "comment",
+					"text": "Lightning effect"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "titleScreen",
+							"sid": 648724126048097,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"lightning\""
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 752610897145848,
+							"parameters": {
+								"interval-seconds": "0.05"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 782230875428375,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "titleScreen2",
+									"sid": 752961443639887,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "titleScreen2",
+									"sid": 614545932516882,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 334215792250945
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 553132939565963
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "titleScreen2",
+									"sid": 588410152141039,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 221956689379927
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "titleScreen",
+							"sid": 657633397457371,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"lightning\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "titleScreen2",
+							"sid": 332562448546271,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 459963513662705
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "titleScreen",
+							"sid": 217422294849800,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"lightning_call\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "titleScreen",
+							"sid": 907842658543328,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.8",
+								"type": "once",
+								"tag": "\"lightning\""
+							}
+						}
+					],
+					"sid": 966687331561082
+				},
+				{
+					"eventType": "comment",
+					"text": "Eyes effect"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "titleScreen",
+							"sid": 937584307763052,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"eyes\""
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 262757879966804,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 749369452533388,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "titleScreen3",
+									"sid": 133399824115891,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "titleScreen3",
+									"sid": 810519195441744,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 470716601209462
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 280978419170837
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "titleScreen3",
+									"sid": 880431288113440,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 692101751938182
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "titleScreen",
+							"sid": 303147631212652,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"lightning\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "titleScreen3",
+							"sid": 312220189788465,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 263776245733779
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "titleScreen",
+							"sid": 267821987687121,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"eyes_call\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "titleScreen",
+							"sid": 747322801164135,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.4",
+								"type": "once",
+								"tag": "\"eyes\""
+							}
+						}
+					],
+					"sid": 612688326869058
 				}
 			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 988688071095975,
-					"parameters": {
-						"variable": "just_main_menu",
-						"value": "false"
-					}
-				}
-			],
-			"sid": 944429198865858
+			"sid": 744967052037848,
+			"background-color": [
+				0.18823529411764706,
+				0.4196078431372549,
+				0,
+				1
+			]
 		}
 	],
 	"sid": 277491227326272

@@ -316,25 +316,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-layout-effect-parameter",
-							"objectClass": "System",
-							"sid": 366808309869912,
-							"parameters": {
-								"effect": "\"Brightness\"",
-								"parameter-index": "0",
-								"value": "100"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 608365764017214,
-							"parameters": {
-								"variable": "aux_brightness",
-								"value": "0"
-							}
-						},
-						{
 							"callFunction": "loadNext",
 							"sid": 221648005597762,
 							"parameters": [

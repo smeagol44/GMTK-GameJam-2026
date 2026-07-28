@@ -228,7 +228,10 @@
 									"tryAgain",
 									"titleScreen",
 									"countDescends",
-									"countDescends2"
+									"countDescends2",
+									"titleScreen2",
+									"titleScreen3",
+									"titleScreen4"
 								],
 								"subfolders": [],
 								"name": "Cutscenes"

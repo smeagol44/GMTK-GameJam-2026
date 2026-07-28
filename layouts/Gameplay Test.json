@@ -617,7 +617,7 @@
 				{
 					"type": "fontDefault",
 					"properties": {
-						"text": "BLOOD: 123456789",
+						"text": "BLOOD: 9999999",
 						"enable-bbcode": true,
 						"character-width": 16,
 						"character-height": 16,
@@ -668,7 +668,7 @@
 				{
 					"type": "floorNumber",
 					"properties": {
-						"text": "FLOOR: 0",
+						"text": "FLOOR: 9999",
 						"enable-bbcode": true,
 						"character-width": 16,
 						"character-height": 16,
@@ -677,8 +677,8 @@
 						"scale": 1,
 						"character-spacing": -1,
 						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "bottom",
+						"horizontal-alignment": "right",
+						"vertical-alignment": "top",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left",
@@ -700,9 +700,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 20,
-						"y": 340,
-						"width": 260,
+						"x": 280,
+						"y": 10,
+						"width": 170,
 						"height": 20,
 						"originX": 0,
 						"originY": 0,

@@ -183,7 +183,7 @@
 			"actions": [
 				{
 					"id": "set-text",
-					"objectClass": "fontDefault",
+					"objectClass": "bloodNumber",
 					"sid": 387628847312337,
 					"parameters": {
 						"text": "Functions.get_pun_msg"

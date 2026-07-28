@@ -457,7 +457,7 @@
 						},
 						{
 							"id": "set-effect-enabled",
-							"objectClass": "fontDefault",
+							"objectClass": "bloodNumber",
 							"sid": 924355926030915,
 							"parameters": {
 								"mode": "enable",
@@ -466,7 +466,7 @@
 						},
 						{
 							"id": "set-default-color",
-							"objectClass": "fontDefault",
+							"objectClass": "bloodNumber",
 							"sid": 367251674050665,
 							"parameters": {
 								"color": "rgbEx(100, 0, 20)"
@@ -573,7 +573,7 @@
 										},
 										{
 											"id": "set-effect-enabled",
-											"objectClass": "fontDefault",
+											"objectClass": "bloodNumber",
 											"sid": 873205606089418,
 											"parameters": {
 												"mode": "disable",
@@ -582,7 +582,7 @@
 										},
 										{
 											"id": "set-default-color",
-											"objectClass": "fontDefault",
+											"objectClass": "bloodNumber",
 											"sid": 927869619857090,
 											"parameters": {
 												"color": "rgbEx(100, 100, 100)"
@@ -1935,6 +1935,248 @@
 				}
 			],
 			"sid": 556310400231127
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Powerups Tooltips",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 881446076596982,
+							"parameters": {
+								"variable": "moving_to_powerups_safezone"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Powerups",
+							"sid": 572090346741257,
+							"parameters": {
+								"which": "nearest",
+								"x": "Count.X",
+								"y": "Count.Y",
+								"z": "0",
+								"pick-all-tied": false
+							}
+						}
+					],
+					"actions": [],
+					"sid": 156607430680840,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 617016668588195,
+									"parameters": {
+										"first-value": "distance(Powerups.X, Powerups.Y, Count.X, Count.Y)",
+										"comparison": 2,
+										"second-value": "70"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 570108092500415,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 348713121320146,
+											"parameters": {
+												"first-value": "Powerups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"power0\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerDesc",
+											"sid": 694856126544692,
+											"parameters": {
+												"text": "\"+ damage\""
+											}
+										}
+									],
+									"sid": 729006340966110
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 561671577922661,
+											"parameters": {
+												"first-value": "Powerups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"power1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerDesc",
+											"sid": 468039111841881,
+											"parameters": {
+												"text": "\"+ dash length\""
+											}
+										}
+									],
+									"sid": 419152232441045
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 863479262159859,
+											"parameters": {
+												"first-value": "Powerups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"power2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerDesc",
+											"sid": 393031294893722,
+											"parameters": {
+												"text": "\"- blood decay\""
+											}
+										}
+									],
+									"sid": 972053756235798
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 497657138870993,
+											"parameters": {
+												"first-value": "Powerups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"power3\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerDesc",
+											"sid": 456029271828317,
+											"parameters": {
+												"text": "\"+ move speed\""
+											}
+										}
+									],
+									"sid": 324850792477885
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 373234888920067,
+											"parameters": {
+												"first-value": "Powerups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"power4\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerDesc",
+											"sid": 561411445965841,
+											"parameters": {
+												"text": "\"+ immunity time\""
+											}
+										}
+									],
+									"sid": 926723594290896
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 700785974112927,
+											"parameters": {
+												"first-value": "Powerups.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"power5\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerDesc",
+											"sid": 665293270971356,
+											"parameters": {
+												"text": "\"+ slash size\""
+											}
+										}
+									],
+									"sid": 866519561928379
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 897810760503799
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "powerDesc",
+									"sid": 891569289637185,
+									"parameters": {
+										"text": "\"\""
+									}
+								}
+							],
+							"sid": 910442632814937
+						}
+					]
+				}
+			],
+			"sid": 347501509646828,
+			"background-color": [
+				0,
+				0.054901960784313725,
+				0.8196078431372549,
+				1
+			]
 		}
 	],
 	"sid": 804304100084860

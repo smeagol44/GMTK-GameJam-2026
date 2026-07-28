@@ -165,7 +165,8 @@
 							"Escalera",
 							"floorRock",
 							"SmallRock",
-							"BG"
+							"BG",
+							"tinyBat"
 						],
 						"subfolders": [],
 						"name": "Decos"
@@ -209,9 +210,10 @@
 						"items": [
 							"goesDown",
 							"Numbers",
-							"fontDefault",
+							"bloodNumber",
 							"boxMsg",
-							"floorNumber"
+							"floorNumber",
+							"powerDesc"
 						],
 						"subfolders": [],
 						"name": "UI"
@@ -230,8 +232,7 @@
 									"countDescends",
 									"countDescends2",
 									"titleScreen2",
-									"titleScreen3",
-									"titleScreen4"
+									"titleScreen3"
 								],
 								"subfolders": [],
 								"name": "Cutscenes"

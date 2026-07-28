@@ -1,0 +1,28 @@
+{
+	"name": "powerDesc",
+	"plugin-id": "Spritefont2",
+	"sid": 234674101907987,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
+		}
+	],
+	"image": {
+		"width": 128,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 1935461,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

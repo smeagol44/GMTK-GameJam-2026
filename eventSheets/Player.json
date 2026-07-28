@@ -1688,7 +1688,7 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "fontDefault",
+							"objectClass": "bloodNumber",
 							"sid": 923456632759305,
 							"parameters": {
 								"text": "\"BLOOD: \"&blood_glob"
@@ -1724,7 +1724,7 @@
 					"actions": [
 						{
 							"id": "set-text",
-							"objectClass": "fontDefault",
+							"objectClass": "bloodNumber",
 							"sid": 976031068261786,
 							"parameters": {
 								"text": "\"BLOOD: \"&blood_glob"
@@ -1826,15 +1826,6 @@
 								"duration": "Count.invulnerability_time",
 								"type": "once",
 								"tag": "\"invulnerable\""
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 409262001981822,
-							"parameters": {
-								"variable": "DEBUG",
-								"value": "\"Count is inv: \"&Count.invulnerable"
 							}
 						}
 					],
@@ -2215,15 +2206,6 @@
 								"mode": "disable",
 								"effect": "\"Brightness\""
 							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 635639507414104,
-							"parameters": {
-								"variable": "DEBUG",
-								"value": "\"Count not inv: \"&Count.invulnerable"
-							}
 						}
 					],
 					"sid": 476334048898992
@@ -2352,7 +2334,7 @@
 						},
 						{
 							"id": "set-effect-parameter",
-							"objectClass": "fontDefault",
+							"objectClass": "bloodNumber",
 							"sid": 955260890275084,
 							"parameters": {
 								"effect": "\"Brightness\"",

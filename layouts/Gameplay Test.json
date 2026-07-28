@@ -615,7 +615,7 @@
 					}
 				},
 				{
-					"type": "fontDefault",
+					"type": "bloodNumber",
 					"properties": {
 						"text": "BLOOD: 9999999",
 						"enable-bbcode": true,
@@ -627,7 +627,7 @@
 						"character-spacing": -1,
 						"line-height": 0,
 						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"vertical-alignment": "bottom",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left",
@@ -649,8 +649,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 20,
-						"y": 10,
+						"x": 30,
+						"y": 0,
 						"width": 249,
 						"height": 20,
 						"originX": 0,
@@ -678,7 +678,7 @@
 						"character-spacing": -1,
 						"line-height": 0,
 						"horizontal-alignment": "right",
-						"vertical-alignment": "top",
+						"vertical-alignment": "bottom",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left",
@@ -701,8 +701,59 @@
 					"locked": false,
 					"world": {
 						"x": 280,
-						"y": 10,
+						"y": 0,
 						"width": 170,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "powerDesc",
+					"properties": {
+						"text": "",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": -5,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 51,
+					"sid": 410618593121285,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"effects": {
+						"Brightness": {
+							"isEnabled": true,
+							"parameters": {
+								"brightness": 1
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 50,
+						"y": 300,
+						"width": 210,
 						"height": 20,
 						"originX": 0,
 						"originY": 0,

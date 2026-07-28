@@ -40,9 +40,9 @@
 					}
 				},
 				{
-					"type": "fontDefault",
+					"type": "bloodNumber",
 					"properties": {
-						"text": "BLOOD: 123456789",
+						"text": "THE COUNTDOWN ENDS WHEN THE COUNT SAYS SO!",
 						"enable-bbcode": true,
 						"character-width": 16,
 						"character-height": 16,

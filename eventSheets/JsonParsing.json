@@ -12,30 +12,8 @@
 			"sid": 917550791974942
 		},
 		{
-			"eventType": "variable",
-			"name": "json_pun_msgs_loaded",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 114646777931534
-		},
-		{
 			"eventType": "comment",
 			"text": "Count Stats loader"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "JsonCountStats",
-					"sid": 733714247308227
-				}
-			],
-			"actions": [],
-			"sid": 617653909764849
 		},
 		{
 			"eventType": "block",
@@ -99,57 +77,15 @@
 						"variable": "json_count_loaded",
 						"value": "true"
 					}
-				}
-			],
-			"sid": 718935790117542
-		},
-		{
-			"eventType": "comment",
-			"text": "Pun Messages Loader"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "JsonPunMsgs",
-					"sid": 644406258285372
-				}
-			],
-			"actions": [],
-			"sid": 983106969298317
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 683372513460618
 				},
 				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 201816809494191,
-					"parameters": {
-						"variable": "json_pun_msgs_loaded"
-					},
-					"isInverted": true
+					"type": "comment",
+					"text": "// pun msgs request"
 				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 649380622353001,
-					"parameters": {
-						"variable": "json_count_loaded"
-					}
-				}
-			],
-			"actions": [
 				{
 					"id": "request-project-file",
 					"objectClass": "AJAX",
-					"sid": 388406734452331,
+					"sid": 930155806803008,
 					"parameters": {
 						"tag": "\"jsonPunMsgs\"",
 						"file": {
@@ -158,7 +94,11 @@
 					}
 				}
 			],
-			"sid": 770842572671363
+			"sid": 718935790117542
+		},
+		{
+			"eventType": "comment",
+			"text": "Pun Messages Loader"
 		},
 		{
 			"eventType": "block",
@@ -179,15 +119,6 @@
 					"sid": 152535945108220,
 					"parameters": {
 						"data": "AJAX.LastData"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 995720102833249,
-					"parameters": {
-						"variable": "json_pun_msgs_loaded",
-						"value": "true"
 					}
 				}
 			],
@@ -422,10 +353,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 747840264214356,
+							"sid": 783610500278744,
 							"parameters": {
 								"variable": "DEBUG",
-								"value": "\"jsonmsg: \"&\"puns.msg\"&msgNmbrString"
+								"value": "\"jsonmsg: \"&\"puns.msg\"&msgNmbrString&\" --- \"&JsonPunMsgs.Get(\"puns.msg\"&msgNmbrString)"
 							}
 						}
 					],

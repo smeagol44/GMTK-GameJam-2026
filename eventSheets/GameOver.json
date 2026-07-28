@@ -2,8 +2,42 @@
 	"name": "GameOver",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "just_game_over",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 464925538174075
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Dependencies"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 781135061283089
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "gameOver",
+					"sid": 989683165765734,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "0.4",
+						"type": "once",
+						"tag": "\"game_over\""
+					}
+				}
+			],
+			"sid": 910423750196120
 		},
 		{
 			"eventType": "block",
@@ -103,7 +137,56 @@
 				}
 			],
 			"sid": 826297696391182,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 692669956699185,
+							"parameters": {
+								"variable": "just_game_over"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "new_game",
+							"sid": 284528801516304
+						}
+					],
+					"sid": 868423214075184
+				}
+			],
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "titleScreen",
+					"sid": 507405040286933,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"game_over\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 951809711434422,
+					"parameters": {
+						"variable": "just_game_over",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 957576034122285
 		}
 	],
 	"sid": 636452755253610

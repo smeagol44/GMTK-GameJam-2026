@@ -109,6 +109,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 816107674534915
+		},
+		{
+			"name": "invulnerability_time",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 751856695393812
 		}
 	],
 	"behaviorTypes": [

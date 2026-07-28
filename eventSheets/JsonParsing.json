@@ -347,10 +347,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 680061530326521,
+							"sid": 702066921522918,
 							"parameters": {
 								"variable": "msgNmbr",
-								"value": "floor(random(0,5))"
+								"value": "floor(random(0,21))"
 							}
 						}
 					],

@@ -3,7 +3,7 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "title",
+			"name": "just_main_menu",
 			"type": "boolean",
 			"initialValue": "true",
 			"comment": "",
@@ -38,10 +38,10 @@
 				{
 					"id": "start-timer",
 					"objectClass": "titleScreen",
-					"sid": 858172597252598,
+					"sid": 760864039855682,
 					"behaviorType": "Timer",
 					"parameters": {
-						"duration": "0.8",
+						"duration": "0.4",
 						"type": "once",
 						"tag": "\"title\""
 					}
@@ -147,7 +147,7 @@
 							"objectClass": "System",
 							"sid": 178600953920459,
 							"parameters": {
-								"variable": "title"
+								"variable": "just_main_menu"
 							},
 							"isInverted": true
 						}
@@ -182,7 +182,7 @@
 					"objectClass": "System",
 					"sid": 988688071095975,
 					"parameters": {
-						"variable": "title",
+						"variable": "just_main_menu",
 						"value": "false"
 					}
 				}

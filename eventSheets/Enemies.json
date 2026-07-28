@@ -735,19 +735,20 @@
 									],
 									"actions": [
 										{
-											"callFunction": "drop_blood_floor",
-											"sid": 956670926751193,
-											"parameters": [
-												"Hitboxes.damage",
-												"Enemies.UID"
-											]
-										},
-										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Enemies",
 											"sid": 768059225777977,
 											"parameters": {
 												"instance-variable": "blood",
+												"value": "Hitboxes.damage"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 470308254354094,
+											"parameters": {
+												"variable": "blood_glob",
 												"value": "Hitboxes.damage"
 											}
 										},
@@ -3426,6 +3427,14 @@
 							],
 							"actions": [
 								{
+									"id": "set-animation-speed",
+									"objectClass": "Rammers",
+									"sid": 320107020210667,
+									"parameters": {
+										"speed": "5"
+									}
+								},
+								{
 									"id": "set-instvar-value",
 									"objectClass": "Rammers",
 									"sid": 625282931891794,
@@ -3486,6 +3495,14 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "set-animation-speed",
+											"objectClass": "Rammers",
+											"sid": 142953892085200,
+											"parameters": {
+												"speed": "10"
+											}
+										},
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Rammers",

@@ -145,6 +145,15 @@
 						"instance-variable": "state",
 						"value": "count_state_idle"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Count",
+					"sid": 552909134857962,
+					"parameters": {
+						"instance-variable": "invulnerability_time",
+						"value": "float(Functions.count_get_stat(\"invulnerability_time\",1))"
+					}
 				}
 			],
 			"sid": 905561240787183
@@ -1739,9 +1748,31 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 610848316439962,
+							"parameters": {
+								"variable": "blood_glob",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "game_over",
+							"sid": 546536080135106
+						}
+					],
+					"sid": 530671755949559
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
 							"objectClass": "Count",
-							"sid": 516183654963054,
+							"sid": 555375498624400,
 							"parameters": {
 								"object": "Enemies"
 							}
@@ -1749,7 +1780,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Count",
-							"sid": 659897649188340,
+							"sid": 454650067566737,
 							"parameters": {
 								"instance-variable": "invulnerable"
 							},
@@ -1760,7 +1791,7 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Count",
-							"sid": 239776474055634,
+							"sid": 376181368529648,
 							"parameters": {
 								"instance-variable": "invulnerable",
 								"value": "true"
@@ -1769,7 +1800,7 @@
 						{
 							"id": "set-effect-enabled",
 							"objectClass": "Count",
-							"sid": 974258294569355,
+							"sid": 913550445928161,
 							"parameters": {
 								"mode": "enable",
 								"effect": "\"Brightness\""
@@ -1778,7 +1809,7 @@
 						{
 							"id": "start-timer",
 							"objectClass": "Count",
-							"sid": 262929691583403,
+							"sid": 300953961134783,
 							"behaviorType": "Timer",
 							"parameters": {
 								"duration": "0.2",
@@ -1789,16 +1820,25 @@
 						{
 							"id": "start-timer",
 							"objectClass": "Count",
-							"sid": 511551287275693,
+							"sid": 528451780281067,
 							"behaviorType": "Timer",
 							"parameters": {
-								"duration": "float(Functions.count_get_stat(\"invulnerability_time\",1))",
+								"duration": "Count.invulnerability_time",
 								"type": "once",
 								"tag": "\"invulnerable\""
 							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 409262001981822,
+							"parameters": {
+								"variable": "DEBUG",
+								"value": "\"Count is inv: \"&Count.invulnerable"
+							}
 						}
 					],
-					"sid": 343080834247782,
+					"sid": 802003747378964,
 					"children": [
 						{
 							"eventType": "block",
@@ -1807,7 +1847,7 @@
 								{
 									"id": "set-ignoring-input",
 									"objectClass": "Count",
-									"sid": 816958489883912,
+									"sid": 277075140161887,
 									"behaviorType": "8Direction",
 									"parameters": {
 										"input": "start-ignoring"
@@ -1816,7 +1856,7 @@
 								{
 									"id": "set-deceleration",
 									"objectClass": "Count",
-									"sid": 560572945639941,
+									"sid": 413321524024839,
 									"behaviorType": "8Direction",
 									"parameters": {
 										"deceleration": "Functions.count_get_stat(\"knockback_decay\",0)"
@@ -1825,7 +1865,7 @@
 								{
 									"id": "set-max-speed",
 									"objectClass": "Count",
-									"sid": 301705483369194,
+									"sid": 700106741814298,
 									"behaviorType": "8Direction",
 									"parameters": {
 										"max-speed": "Functions.count_get_stat(\"knockback\",0)"
@@ -1834,7 +1874,7 @@
 								{
 									"id": "set-vector-x",
 									"objectClass": "Count",
-									"sid": 622904935770123,
+									"sid": 595361718640491,
 									"behaviorType": "8Direction",
 									"parameters": {
 										"vector-x": "cos(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
@@ -1843,7 +1883,7 @@
 								{
 									"id": "set-vector-y",
 									"objectClass": "Count",
-									"sid": 836663567235961,
+									"sid": 843361843829888,
 									"behaviorType": "8Direction",
 									"parameters": {
 										"vector-y": "sin(angle(Enemies.X, Enemies.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
@@ -1852,7 +1892,7 @@
 								{
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
-									"sid": 121599409736880,
+									"sid": 534396395827422,
 									"parameters": {
 										"variable": "blood_glob",
 										"value": "Enemies.damage"
@@ -1860,14 +1900,14 @@
 								},
 								{
 									"callFunction": "pubsub_publish",
-									"sid": 866229338375233,
+									"sid": 622715914784902,
 									"parameters": [
 										"\"blood_down\"",
 										"\"\""
 									]
 								}
 							],
-							"sid": 510941842535835
+							"sid": 150769656899879
 						},
 						{
 							"eventType": "block",
@@ -1875,14 +1915,14 @@
 								{
 									"id": "is-tag-playing",
 									"objectClass": "Audio",
-									"sid": 862650418915739,
+									"sid": 798625433387531,
 									"parameters": {
 										"tag": "\"hurt\""
 									}
 								}
 							],
 							"actions": [],
-							"sid": 154494922817900
+							"sid": 617401906850395
 						},
 						{
 							"eventType": "block",
@@ -1890,14 +1930,14 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 518056016375697
+									"sid": 367899458933739
 								}
 							],
 							"actions": [
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 892354727923413,
+									"sid": 229784233664248,
 									"parameters": {
 										"audio-file": {
 											"path": "hurt"
@@ -1909,59 +1949,7 @@
 									}
 								}
 							],
-							"sid": 130879702066769
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 696785619535606,
-									"parameters": {
-										"variable": "blood_glob",
-										"comparison": 3,
-										"value": "Enemies.damage"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "game_over",
-									"sid": 835057164923729
-								}
-							],
-							"sid": 536685024202620
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 683724964090814
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 218721734427939,
-									"parameters": {
-										"variable": "blood_glob",
-										"value": "Enemies.damage"
-									}
-								},
-								{
-									"callFunction": "pubsub_publish",
-									"sid": 224383062413085,
-									"parameters": [
-										"\"blood_down\"",
-										"\"\""
-									]
-								}
-							],
-							"sid": 545993748544511
+							"sid": 341066461263914
 						}
 					]
 				},
@@ -1988,6 +1976,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Count",
+							"sid": 180274719583649,
+							"parameters": {
+								"instance-variable": "invulnerable",
+								"value": "true"
+							}
+						},
+						{
 							"id": "set-effect-enabled",
 							"objectClass": "Count",
 							"sid": 276510943349737,
@@ -2010,10 +2007,10 @@
 						{
 							"id": "start-timer",
 							"objectClass": "Count",
-							"sid": 593997847360658,
+							"sid": 112582895763678,
 							"behaviorType": "Timer",
 							"parameters": {
-								"duration": "0.4",
+								"duration": "float(Functions.count_get_stat(\"invulnerability_time\",1))",
 								"type": "once",
 								"tag": "\"invulnerable\""
 							}
@@ -2041,15 +2038,6 @@
 									"behaviorType": "8Direction",
 									"parameters": {
 										"deceleration": "Functions.count_get_stat(\"knockback_decay\",0)"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Count",
-									"sid": 529011578510298,
-									"parameters": {
-										"instance-variable": "invulnerable",
-										"value": "true"
 									}
 								},
 								{
@@ -2140,58 +2128,6 @@
 								}
 							],
 							"sid": 389193048873360
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 370360956024709,
-									"parameters": {
-										"variable": "blood_glob",
-										"comparison": 3,
-										"value": "spit.damage"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "game_over",
-									"sid": 443083781723539
-								}
-							],
-							"sid": 920766463557616
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 250378904678532
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 543052924357712,
-									"parameters": {
-										"variable": "blood_glob",
-										"value": "spit.damage"
-									}
-								},
-								{
-									"callFunction": "pubsub_publish",
-									"sid": 227491163970485,
-									"parameters": [
-										"\"blood_down\"",
-										"\"\""
-									]
-								}
-							],
-							"sid": 370986557175776
 						}
 					]
 				},
@@ -2278,6 +2214,15 @@
 							"parameters": {
 								"mode": "disable",
 								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 635639507414104,
+							"parameters": {
+								"variable": "DEBUG",
+								"value": "\"Count not inv: \"&Count.invulnerable"
 							}
 						}
 					],

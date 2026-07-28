@@ -210,7 +210,8 @@
 							"goesDown",
 							"Numbers",
 							"fontDefault",
-							"boxMsg"
+							"boxMsg",
+							"floorNumber"
 						],
 						"subfolders": [],
 						"name": "UI"

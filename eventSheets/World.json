@@ -141,6 +141,14 @@
 						"variable": "current_floor",
 						"value": "current_floor +1"
 					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "floorNumber",
+					"sid": 721241145687015,
+					"parameters": {
+						"text": "\"FLOOR: \"&current_floor"
+					}
 				}
 			],
 			"sid": 145989937733072,

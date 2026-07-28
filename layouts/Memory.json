@@ -80,7 +80,7 @@
 						"y": 63,
 						"width": 27,
 						"height": 26,
-						"originX": 0.48148148148148145,
+						"originX": 0.4814814814814814,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -182,7 +182,7 @@
 					"type": "Guts",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false

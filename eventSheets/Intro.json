@@ -81,15 +81,6 @@
 					"parameters": {
 						"reset-static": true
 					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 717100864226404,
-					"parameters": {
-						"variable": "current_floor",
-						"value": "0"
-					}
 				}
 			],
 			"sid": 406499870951388
@@ -100,9 +91,9 @@
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
-					"sid": 435598424491582,
+					"sid": 827695743956543,
 					"parameters": {
-						"interval-seconds": "0.5"
+						"interval-seconds": "0.3"
 					}
 				}
 			],

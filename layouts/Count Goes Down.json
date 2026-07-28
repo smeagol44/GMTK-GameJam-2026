@@ -74,10 +74,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 40,
+						"x": 10,
 						"y": 10,
-						"width": 400,
-						"height": 50,
+						"width": 460,
+						"height": 60,
 						"originX": 0,
 						"originY": 0,
 						"color": [

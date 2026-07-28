@@ -451,7 +451,8 @@
 						"dash_speed": 0,
 						"dash_angle": 0,
 						"invulnerable": false,
-						"state": 0
+						"state": 0,
+						"invulnerability_time": 0
 					},
 					"behaviors": {
 						"8Direction": {
@@ -570,7 +571,7 @@
 						"text": "Room Clear!",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 12,
+						"size": 8,
 						"line-height": 0,
 						"bold": true,
 						"italic": false,
@@ -581,7 +582,7 @@
 							1
 						],
 						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"vertical-alignment": "bottom",
 						"wrapping": "word",
 						"text-direction": "ltr",
 						"icon-set": -1,
@@ -597,10 +598,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 353,
-						"y": 0,
-						"width": 98,
-						"height": 19,
+						"x": 380,
+						"y": 340,
+						"width": 67,
+						"height": 20,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -626,7 +627,7 @@
 						"character-spacing": -1,
 						"line-height": 0,
 						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
+						"vertical-alignment": "top",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left",
@@ -648,9 +649,60 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 25,
-						"y": 3,
-						"width": 198,
+						"x": 20,
+						"y": 10,
+						"width": 249,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "floorNumber",
+					"properties": {
+						"text": "FLOOR: 0",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": -1,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "bottom",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 20,
+					"sid": 125641931227675,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"effects": {
+						"Brightness": {
+							"isEnabled": true,
+							"parameters": {
+								"brightness": 1
+							}
+						}
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 20,
+						"y": 340,
+						"width": 260,
 						"height": 20,
 						"originX": 0,
 						"originY": 0,

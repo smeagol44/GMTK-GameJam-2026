@@ -97,6 +97,20 @@
 						"type": "once",
 						"tag": "\"eyes\""
 					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 421118980896573,
+					"parameters": {
+						"audio-file": {
+							"path": "thunder"
+						},
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
 				}
 			],
 			"sid": 887144909824792
@@ -364,6 +378,20 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 617639481560957,
+							"parameters": {
+								"audio-file": {
+									"path": "thunder"
+								},
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
 						{
 							"id": "start-timer",
 							"objectClass": "titleScreen",

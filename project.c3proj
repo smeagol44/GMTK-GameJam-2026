@@ -174,7 +174,8 @@
 					{
 						"items": [
 							"Collider",
-							"SpawnArea"
+							"SpawnArea",
+							"NotSpawn"
 						],
 						"subfolders": [],
 						"name": "Design"

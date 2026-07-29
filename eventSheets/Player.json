@@ -112,15 +112,6 @@
 					}
 				},
 				{
-					"id": "set-effect-enabled",
-					"objectClass": "Count",
-					"sid": 437698601091181,
-					"parameters": {
-						"mode": "disable",
-						"effect": "\"Brightness\""
-					}
-				},
-				{
 					"id": "set-default-color",
 					"objectClass": "Count",
 					"sid": 702295155337437,
@@ -153,6 +144,35 @@
 					"parameters": {
 						"instance-variable": "invulnerability_time",
 						"value": "float(Functions.count_get_stat(\"invulnerability_time\",1))"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Count",
+					"sid": 894888170714423,
+					"parameters": {
+						"instance-variable": "invulnerable",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Count",
+					"sid": 735684409508624,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Brightness\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "Count",
+					"sid": 989532250470400,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "Count.invulnerability_time",
+						"type": "once",
+						"tag": "\"invulnerable\""
 					}
 				}
 			],
@@ -793,7 +813,13 @@
 					]
 				}
 			],
-			"sid": 534690006846982
+			"sid": 534690006846982,
+			"background-color": [
+				0,
+				0.1568627450980392,
+				0.7803921568627451,
+				1
+			]
 		},
 		{
 			"eventType": "group",
@@ -1298,7 +1324,19 @@
 					]
 				}
 			],
-			"sid": 541051619522878
+			"sid": 541051619522878,
+			"text-color": [
+				0.050980392156862744,
+				0.050980392156862744,
+				0.050980392156862744,
+				1
+			],
+			"background-color": [
+				0.8196078431372549,
+				0.3686274509803922,
+				0,
+				1
+			]
 		},
 		{
 			"eventType": "group",
@@ -1442,7 +1480,19 @@
 					"sid": 940728264846447
 				}
 			],
-			"sid": 695861576898530
+			"sid": 695861576898530,
+			"text-color": [
+				0,
+				0,
+				0,
+				0
+			],
+			"background-color": [
+				0,
+				0.5725490196078431,
+				0.8196078431372549,
+				1
+			]
 		},
 		{
 			"eventType": "group",
@@ -1655,7 +1705,19 @@
 					"sid": 785164487578265
 				}
 			],
-			"sid": 578286256586327
+			"sid": 578286256586327,
+			"text-color": [
+				0,
+				0,
+				0,
+				0
+			],
+			"background-color": [
+				0.011764705882352941,
+				0.6588235294117647,
+				0,
+				1
+			]
 		},
 		{
 			"eventType": "group",
@@ -1735,7 +1797,19 @@
 					"isOrBlock": true
 				}
 			],
-			"sid": 670278027664587
+			"sid": 670278027664587,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				1,
+				0,
+				0,
+				1
+			]
 		},
 		{
 			"eventType": "group",
@@ -2211,7 +2285,13 @@
 					"sid": 476334048898992
 				}
 			],
-			"sid": 152336435764971
+			"sid": 152336435764971,
+			"background-color": [
+				0.5490196078431373,
+				0.10196078431372549,
+				1,
+				1
+			]
 		},
 		{
 			"eventType": "group",
@@ -2220,6 +2300,149 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 789574687249144
+						}
+					],
+					"actions": [],
+					"sid": 897815231838540,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Count",
+									"sid": 942781056701358,
+									"parameters": {
+										"instance-variable": "invulnerable"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "Count",
+									"sid": 695881203153504,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "100 + Self.Hurtsine.Value"
+									}
+								}
+							],
+							"sid": 436632654180483
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 708254484888251
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "Count",
+									"sid": 495661962879630,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "110 + Self.Sine.Value"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "bloodNumber",
+									"sid": 616199657526632,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "110 + Count.Sine.Value"
+									}
+								}
+							],
+							"sid": 899765091853426
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Count",
+							"sid": 659213476058382,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"timer_dash\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Count",
+							"sid": 240803213965083,
+							"parameters": {
+								"instance-variable": "invulnerable",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Count",
+							"sid": 133310551293757,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Brightness\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Count",
+							"sid": 840562231583947,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 239323220253240,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Count",
+									"sid": 496928480346238,
+									"parameters": {
+										"animation": "\"idle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Count",
+									"sid": 999729025547548,
+									"parameters": {
+										"instance-variable": "state",
+										"value": "count_state_idle"
+									}
+								}
+							],
+							"sid": 836478258644969
+						}
+					]
+				},
 				{
 					"functionName": "check_blood",
 					"functionDescription": "",
@@ -2273,149 +2496,6 @@
 				}
 			],
 			"sid": 234749647796408
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 437757687611321
-				}
-			],
-			"actions": [],
-			"sid": 403059342046075,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Count",
-							"sid": 349909161264072,
-							"parameters": {
-								"instance-variable": "invulnerable"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-effect-parameter",
-							"objectClass": "Count",
-							"sid": 683852970189581,
-							"parameters": {
-								"effect": "\"Brightness\"",
-								"parameter-index": "0",
-								"value": "100 + Self.Hurtsine.Value"
-							}
-						}
-					],
-					"sid": 975102617189179
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 298817123240763
-						}
-					],
-					"actions": [
-						{
-							"id": "set-effect-parameter",
-							"objectClass": "Count",
-							"sid": 996731769934846,
-							"parameters": {
-								"effect": "\"Brightness\"",
-								"parameter-index": "0",
-								"value": "110 + Self.Sine.Value"
-							}
-						},
-						{
-							"id": "set-effect-parameter",
-							"objectClass": "bloodNumber",
-							"sid": 955260890275084,
-							"parameters": {
-								"effect": "\"Brightness\"",
-								"parameter-index": "0",
-								"value": "110 + Count.Sine.Value"
-							}
-						}
-					],
-					"sid": 348107844310024
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-timer",
-					"objectClass": "Count",
-					"sid": 720516790994243,
-					"behaviorType": "Timer",
-					"parameters": {
-						"tag": "\"timer_dash\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Count",
-					"sid": 484826326889808,
-					"parameters": {
-						"instance-variable": "invulnerable",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-effect-enabled",
-					"objectClass": "Count",
-					"sid": 941699479464787,
-					"parameters": {
-						"mode": "disable",
-						"effect": "\"Brightness\""
-					}
-				},
-				{
-					"id": "set-default-color",
-					"objectClass": "Count",
-					"sid": 342234114693121,
-					"parameters": {
-						"color": "rgbEx(100, 100, 100)"
-					}
-				}
-			],
-			"sid": 746912195410115,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-animation-playing",
-							"objectClass": "Count",
-							"sid": 601384387758135,
-							"parameters": {
-								"animation": "\"idle\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Count",
-							"sid": 134649235977001,
-							"parameters": {
-								"instance-variable": "state",
-								"value": "count_state_idle"
-							}
-						}
-					],
-					"sid": 568238194759280
-				}
-			]
 		}
 	],
 	"sid": 746909589108384

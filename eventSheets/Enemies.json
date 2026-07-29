@@ -1020,21 +1020,112 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 212806168663736,
-									"parameters": {
-										"variable": "spawn_x",
-										"value": "random(SpawnArea.X,SpawnArea.X+SpawnArea.Width)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 338627942687458,
+									"sid": 265151092504201,
 									"parameters": {
 										"variable": "spawn_y",
 										"value": "random(SpawnArea.Y,SpawnArea.Y+SpawnArea.Height)"
 									}
 								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 914844968771513,
+									"parameters": {
+										"variable": "spawn_x",
+										"value": "random(SpawnArea.X,SpawnArea.X+SpawnArea.Width)"
+									}
+								}
+							],
+							"sid": 714537753825026
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 381824953963828
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 136352918052480,
+									"parameters": {
+										"first-value": "spawn_y",
+										"comparison": 5,
+										"second-value": "NotSpawn.Y"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 145536523552170,
+									"parameters": {
+										"first-value": "spawn_y",
+										"comparison": 3,
+										"second-value": "NotSpawn.Y+NotSpawn.Height"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 640930371815046,
+									"parameters": {
+										"variable": "spawn_y",
+										"value": "random(SpawnArea.Y,SpawnArea.Y+SpawnArea.Height)"
+									}
+								}
+							],
+							"sid": 191367592682424
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 527135485147262
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 954955990259529,
+									"parameters": {
+										"first-value": "spawn_x",
+										"comparison": 5,
+										"second-value": "NotSpawn.X"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 182665572240784,
+									"parameters": {
+										"first-value": "spawn_x",
+										"comparison": 3,
+										"second-value": "NotSpawn.x+NotSpawn.Width"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 688402774526598,
+									"parameters": {
+										"variable": "spawn_x",
+										"value": "random(SpawnArea.x,SpawnArea.x+SpawnArea.Width)"
+									}
+								}
+							],
+							"sid": 358262356046321
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
 								{
 									"id": "create-object-by-name",
 									"objectClass": "System",

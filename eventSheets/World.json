@@ -919,6 +919,36 @@
 					"children": [
 						{
 							"eventType": "variable",
+							"name": "powerAcost",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 743649276377805
+						},
+						{
+							"eventType": "variable",
+							"name": "powerBcost",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 154933409792093
+						},
+						{
+							"eventType": "variable",
+							"name": "powerCcost",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 164315688578816
+						},
+						{
+							"eventType": "variable",
 							"name": "powerup1",
 							"type": "number",
 							"initialValue": "-1",
@@ -946,6 +976,12 @@
 							"isStatic": false,
 							"isConstant": false,
 							"sid": 229209909153431
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 505090124467967
 						},
 						{
 							"eventType": "block",
@@ -1003,6 +1039,45 @@
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 876713059818101,
+									"parameters": {
+										"object-to-create": "powerCosts",
+										"layer": "\"decals\"",
+										"x": "123",
+										"y": "ViewportHeight(\"characters\")/2 + 20",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 328592603027718,
+									"parameters": {
+										"variable": "powerAcost",
+										"value": "Dictionary.Get(\"power\"&powerup1&\"upgrades\")*Dictionary.Get(\"power\"&powerup1&\"upgrades\")*10"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "powerCosts",
+									"sid": 504572604594135,
+									"parameters": {
+										"text": "powerAcost"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "powerCosts",
+									"sid": 636711704708558,
+									"parameters": {
+										"action": "add",
+										"tags": "\"powerA\""
+									}
 								}
 							],
 							"sid": 167178566425574
@@ -1059,7 +1134,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 591661452962605,
+									"sid": 194001787872129,
 									"parameters": {
 										"object-to-create": "poof",
 										"layer": "\"characters\"",
@@ -1067,6 +1142,45 @@
 										"y": "ViewportHeight(\"characters\")/2",
 										"create-hierarchy": false,
 										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 648940083712378,
+									"parameters": {
+										"object-to-create": "powerCosts",
+										"layer": "\"decals\"",
+										"x": "203",
+										"y": "ViewportHeight(\"characters\")/2 + 20",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 939310923133169,
+									"parameters": {
+										"variable": "powerBcost",
+										"value": "Dictionary.Get(\"power\"&powerup2&\"upgrades\")*Dictionary.Get(\"power\"&powerup2&\"upgrades\")*10"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "powerCosts",
+									"sid": 215506739853210,
+									"parameters": {
+										"text": "powerBcost"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "powerCosts",
+									"sid": 601060852130055,
+									"parameters": {
+										"action": "add",
+										"tags": "\"powerB\""
 									}
 								}
 							],
@@ -1132,6 +1246,45 @@
 										"y": "ViewportHeight(\"characters\")/2",
 										"create-hierarchy": false,
 										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 446836310536795,
+									"parameters": {
+										"object-to-create": "powerCosts",
+										"layer": "\"decals\"",
+										"x": "283",
+										"y": "ViewportHeight(\"characters\")/2 + 20",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 523154244913168,
+									"parameters": {
+										"variable": "powerCcost",
+										"value": "Dictionary.Get(\"power\"&powerup3&\"upgrades\")*Dictionary.Get(\"power\"&powerup3&\"upgrades\")*10"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "powerCosts",
+									"sid": 695783796398251,
+									"parameters": {
+										"text": "powerCcost"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "powerCosts",
+									"sid": 115773975517509,
+									"parameters": {
+										"action": "add",
+										"tags": "\"powerC\""
 									}
 								},
 								{
@@ -1325,6 +1478,10 @@
 								}
 							],
 							"sid": 171983583203107
+						},
+						{
+							"eventType": "comment",
+							"text": "Me falta crear el \"No gracias, no quiero nada\""
 						},
 						{
 							"eventType": "block",
@@ -1916,6 +2073,39 @@
 										}
 									],
 									"sid": 168439693375558
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 671719762492171,
+											"parameters": {
+												"variable": "blood_glob",
+												"value": "Dictionary.Get(Powerups.ObjectTypeName&\"upgrades\")*Dictionary.Get(Powerups.ObjectTypeName&\"upgrades\")*10"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Dictionary",
+											"sid": 383823321105509,
+											"parameters": {
+												"key": "Powerups.ObjectTypeName&\"upgrades\"",
+												"value": "Self.Get(Powerups.ObjectTypeName&\"upgrades\")+1"
+											}
+										},
+										{
+											"callFunction": "pubsub_publish",
+											"sid": 544121693124601,
+											"parameters": [
+												"\"blood_down\"",
+												"\"\""
+											]
+										}
+									],
+									"sid": 837219120606555
 								}
 							]
 						},
@@ -1962,6 +2152,27 @@
 								}
 							],
 							"sid": 191189703723981
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 905507797271249,
+									"parameters": {
+										"object": "powerCosts"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "powerCosts",
+									"sid": 207231992432265
+								}
+							],
+							"sid": 900739354817541
 						}
 					]
 				},

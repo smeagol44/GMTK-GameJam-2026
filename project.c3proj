@@ -29,6 +29,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
@@ -214,7 +221,8 @@
 							"bloodNumber",
 							"boxMsg",
 							"floorNumber",
-							"powerDesc"
+							"powerDesc",
+							"powerCosts"
 						],
 						"subfolders": [],
 						"name": "UI"
@@ -269,7 +277,8 @@
 					"Gamepad",
 					"JSON",
 					"Keyboard",
-					"Audio"
+					"Audio",
+					"Dictionary"
 				],
 				"subfolders": [
 					{
@@ -304,7 +313,8 @@
 			"Followers",
 			"Rammers",
 			"Shooters",
-			"Powerups"
+			"Powerups",
+			"Projectiles"
 		],
 		"subfolders": []
 	},

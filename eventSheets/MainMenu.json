@@ -540,6 +540,71 @@
 				0,
 				1
 			]
+		},
+		{
+			"eventType": "comment",
+			"text": "key/values for power upgrade costs"
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "add-key",
+					"objectClass": "Dictionary",
+					"sid": 837433108045397,
+					"parameters": {
+						"key": "\"power0upgrades\"",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "Dictionary",
+					"sid": 185575204265751,
+					"parameters": {
+						"key": "\"power1upgrades\"",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "Dictionary",
+					"sid": 712610165191741,
+					"parameters": {
+						"key": "\"power2upgrades\"",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "Dictionary",
+					"sid": 761850328516225,
+					"parameters": {
+						"key": "\"power3upgrades\"",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "Dictionary",
+					"sid": 375848531796358,
+					"parameters": {
+						"key": "\"power4upgrades\"",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "Dictionary",
+					"sid": 344126063746482,
+					"parameters": {
+						"key": "\"power5upgrades\"",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 427433705729244
 		}
 	],
 	"sid": 277491227326272

@@ -110,10 +110,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 829270888864607,
+									"sid": 571640312891362,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor"
+										"value": "Self.damage + current_floor*2"
 									}
 								}
 							],
@@ -137,10 +137,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 310869551693263,
+									"sid": 600598946048549,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor"
+										"value": "Self.damage + current_floor*2"
 									}
 								}
 							],
@@ -164,10 +164,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 911008542170902,
+									"sid": 663716377042958,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor"
+										"value": "Self.damage + current_floor*2"
 									}
 								}
 							],
@@ -191,14 +191,55 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 814610028297826,
+									"sid": 871427386202686,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor"
+										"value": "Self.damage + current_floor*2"
 									}
 								}
 							],
 							"sid": 196790798171911
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Projectiles",
+							"sid": 407566677501308
+						}
+					],
+					"actions": [],
+					"sid": 651512736083430,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 603154874184381,
+									"parameters": {
+										"first-value": "Projectiles.ObjectTypeName",
+										"comparison": 0,
+										"second-value": "\"Spit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Projectiles",
+									"sid": 669508041106002,
+									"parameters": {
+										"instance-variable": "damage",
+										"value": "Self.damage + current_floor*1.5"
+									}
+								}
+							],
+							"sid": 522041912754510
 						}
 					]
 				},

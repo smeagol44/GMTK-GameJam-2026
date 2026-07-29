@@ -13,6 +13,11 @@
 			"behaviorId": "Timer",
 			"name": "Timer",
 			"sid": 764780071258868
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Float",
+			"sid": 422746167320676
 		}
 	],
 	"effectTypes": [

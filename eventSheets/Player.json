@@ -2024,9 +2024,9 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Count",
-							"sid": 699905379801892,
+							"sid": 206271813397680,
 							"parameters": {
-								"object": "spit"
+								"object": "Projectiles"
 							}
 						},
 						{
@@ -2117,28 +2117,19 @@
 								{
 									"id": "set-vector-x",
 									"objectClass": "Count",
-									"sid": 182799701873030,
+									"sid": 815839940657033,
 									"behaviorType": "8Direction",
 									"parameters": {
-										"vector-x": "cos(angle(spit.X, spit.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
+										"vector-x": "cos(angle(Projectiles.X, Projectiles.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
 									}
 								},
 								{
 									"id": "set-vector-y",
 									"objectClass": "Count",
-									"sid": 896933459141688,
+									"sid": 815212143878375,
 									"behaviorType": "8Direction",
 									"parameters": {
-										"vector-y": "sin(angle(spit.X, spit.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
-									}
-								},
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 691589515833605,
-									"parameters": {
-										"variable": "blood_glob",
-										"value": "spit.damage"
+										"vector-y": "sin(angle(Projectiles.X, Projectiles.Y, Count.X, Count.Y))*Functions.count_get_stat(\"knockback\",0)"
 									}
 								},
 								{
@@ -2148,6 +2139,15 @@
 										"\"blood_down\"",
 										"\"\""
 									]
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 532704838558972,
+									"parameters": {
+										"variable": "blood_glob",
+										"value": "Projectiles.damage"
+									}
 								}
 							],
 							"sid": 355298167726278

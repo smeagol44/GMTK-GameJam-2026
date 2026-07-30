@@ -73,55 +73,6 @@
 					}
 				},
 				{
-					"type": "placeholder",
-					"properties": {
-						"text": "(The Count: Vampire Master)\n(Mort DeCay: Miner Zombie Lord)\n\n## INTRO ##\n\n[Mort arrives at castle]\n\n[The Count is unamused]\nCount: You again?\n\n[Mort smirks]\nMort DeCay: This time is different, Count... \n\n[Mort casts a terrible curse]\n\n[The Count is surprised/angry/worried]\nCount: What have you done?!\n\n[Mort laughs]\nMort DeCay: All your monsters will be turned into zombies now!\nMort DeCay: Your entire army will be mine in a matter of seconds!\n\n[The Count smirks]\nCount: Not if I eat it first...\n\n## GO TO TITLE SCREEN ##",
-						"enable-bbcode": false,
-						"font": "Arial",
-						"size": 6,
-						"line-height": -3,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 11,
-					"sid": 687858354781183,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 534,
-						"y": -31,
-						"width": 342.8326881214857,
-						"height": 335.5932371864262,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
 					"type": "message",
 					"properties": {
 						"text": "MORT DE'CAY: THIS TIME WILL BE DIFFERENT, COUNT*",

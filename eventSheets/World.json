@@ -287,14 +287,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-visible",
-							"objectClass": "display_room_clear",
-							"sid": 544042359973325,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 663046507096005,
@@ -1305,6 +1297,16 @@
 							"sid": 777470593332886
 						},
 						{
+							"eventType": "comment",
+							"text": "Me falta crear el \"No gracias, no quiero nada\""
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 717953512908045
+						},
+						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
@@ -1478,16 +1480,6 @@
 								}
 							],
 							"sid": 171983583203107
-						},
-						{
-							"eventType": "comment",
-							"text": "Me falta crear el \"No gracias, no quiero nada\""
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 493137435418852
 						}
 					]
 				},
@@ -2075,6 +2067,10 @@
 									"sid": 168439693375558
 								},
 								{
+									"eventType": "comment",
+									"text": "Sustraccion de costos del upgrade a la sangre"
+								},
+								{
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
@@ -2102,6 +2098,14 @@
 											"parameters": [
 												"\"blood_down\"",
 												"\"\""
+											]
+										},
+										{
+											"callFunction": "pubsub_publish",
+											"sid": 896158393861977,
+											"parameters": [
+												"\"powerGet\"",
+												"Powerups.ObjectTypeName"
 											]
 										}
 									],
@@ -2270,6 +2274,16 @@
 				0,
 				1
 			]
+		},
+		{
+			"eventType": "variable",
+			"name": "total_power_upgrades",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 829315498052166
 		},
 		{
 			"eventType": "group",
@@ -2512,6 +2526,86 @@
 				0.8196078431372549,
 				1
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PowerUIdisplay",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 354652957062168,
+							"parameters": {
+								"tag": "\"powerGet\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 838712410744719,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "powerQty",
+									"sid": 196763493963835,
+									"parameters": {
+										"tags": "Functions.pubsub_getData(\"powerGet\")"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "powerQty",
+									"sid": 313389551038507,
+									"parameters": {
+										"text": "Dictionary.Get(Functions.pubsub_getData(\"powerGet\")&\"upgrades\")"
+									}
+								}
+							],
+							"sid": 839747265446989,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 166237765554378
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "powerQty",
+							"sid": 569997001235297
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "pubsub_publish",
+							"sid": 942918783111525,
+							"parameters": [
+								"\"powerGet\"",
+								"Powerups.ObjectTypeName"
+							]
+						}
+					],
+					"sid": 606645346197453
+				}
+			],
+			"sid": 860640965541545
 		}
 	],
 	"sid": 804304100084860

@@ -134,13 +134,6 @@
 		},
 		{
 			"type": "effect",
-			"id": "alphaclamp2",
-			"name": "Alpha clamp",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "effect",
 			"id": "brightness",
 			"name": "Brightness",
 			"author": "Scirra",
@@ -149,11 +142,7 @@
 	],
 	"uniqueId": "ki4lsh4iw59",
 	"objectTypes": {
-		"items": [
-			"display_sangre",
-			"display_room_clear",
-			"placeholder"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [],
@@ -222,15 +211,30 @@
 							"boxMsg",
 							"floorNumber",
 							"powerDesc",
-							"powerCosts"
+							"powerCosts",
+							"powerQty"
 						],
-						"subfolders": [],
+						"subfolders": [
+							{
+								"items": [
+									"power5ui",
+									"power4ui",
+									"power3ui",
+									"power2ui",
+									"power1ui",
+									"power0ui"
+								],
+								"subfolders": [],
+								"name": "powerups"
+							}
+						],
 						"name": "UI"
 					},
 					{
 						"items": [
 							"Mort",
-							"message"
+							"message",
+							"Mort2"
 						],
 						"subfolders": [
 							{

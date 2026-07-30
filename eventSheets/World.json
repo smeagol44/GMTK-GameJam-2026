@@ -164,6 +164,32 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 207934991403016,
+									"parameters": {
+										"first-value": "current_floor",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "pubsub_publish",
+									"sid": 461913511467126,
+									"parameters": [
+										"\"powerGet\"",
+										"\"reset\""
+									]
+								}
+							],
+							"sid": 291329092302387
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "repeat",
 									"objectClass": "System",
 									"sid": 238496046184534,
@@ -2553,56 +2579,92 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "has-tags",
-									"objectClass": "powerQty",
-									"sid": 196763493963835,
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 862141596894340,
 									"parameters": {
-										"tags": "Functions.pubsub_getData(\"powerGet\")"
+										"first-value": "Functions.pubsub_getData(\"powerGet\")",
+										"comparison": 0,
+										"second-value": "\"reset\""
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "set-text",
-									"objectClass": "powerQty",
-									"sid": 313389551038507,
-									"parameters": {
-										"text": "Dictionary.Get(Functions.pubsub_getData(\"powerGet\")&\"upgrades\")"
-									}
-								}
-							],
-							"sid": 839747265446989,
+							"actions": [],
+							"sid": 936187808828286,
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 166237765554378
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 345357591062897,
+											"parameters": {
+												"object": "powerQty"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerQty",
+											"sid": 486665593692456,
+											"parameters": {
+												"text": "0"
+											}
+										}
+									],
+									"sid": 379633753303086
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 106490298745796
+								}
+							],
+							"actions": [],
+							"sid": 656419251670718,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-tags",
+											"objectClass": "powerQty",
+											"sid": 504991965715285,
+											"parameters": {
+												"tags": "Functions.pubsub_getData(\"powerGet\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "powerQty",
+											"sid": 509840908889880,
+											"parameters": {
+												"text": "Dictionary.Get(Functions.pubsub_getData(\"powerGet\")&\"upgrades\")"
+											}
+										}
+									],
+									"sid": 403105475831960,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 875810043069287
+										}
+									]
 								}
 							]
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-created",
-							"objectClass": "powerQty",
-							"sid": 569997001235297
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "pubsub_publish",
-							"sid": 942918783111525,
-							"parameters": [
-								"\"powerGet\"",
-								"Powerups.ObjectTypeName"
-							]
-						}
-					],
-					"sid": 606645346197453
 				}
 			],
 			"sid": 860640965541545

@@ -105,6 +105,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 687466279663256,
+							"parameters": {
+								"variable": "killbonus",
+								"value": "floor(killbonus/2) + floor(current_floor/2)"
+							}
+						},
+						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 638528245090121,

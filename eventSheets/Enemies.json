@@ -60,10 +60,6 @@
 							"sid": 363491562943243
 						},
 						{
-							"eventType": "comment",
-							"text": "ARREGLAR RANDOM DE BLOOD"
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -232,10 +228,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Projectiles",
-									"sid": 669508041106002,
+									"sid": 973672313495089,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor*1.5"
+										"value": "Self.damage * current_floor / 2"
 									}
 								}
 							],
@@ -1723,15 +1719,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 687466279663256,
-													"parameters": {
-														"variable": "killbonus",
-														"value": "floor(killbonus/2) + floor(current_floor/2)"
-													}
-												},
 												{
 													"callFunction": "drop_blood_floor",
 													"sid": 820723361119731,

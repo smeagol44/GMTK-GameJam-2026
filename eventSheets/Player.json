@@ -2133,14 +2133,6 @@
 									}
 								},
 								{
-									"callFunction": "pubsub_publish",
-									"sid": 978863818150467,
-									"parameters": [
-										"\"blood_down\"",
-										"\"\""
-									]
-								},
-								{
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
 									"sid": 532704838558972,
@@ -2148,6 +2140,14 @@
 										"variable": "blood_glob",
 										"value": "Projectiles.damage"
 									}
+								},
+								{
+									"callFunction": "pubsub_publish",
+									"sid": 778591829382316,
+									"parameters": [
+										"\"blood_down\"",
+										"\"\""
+									]
 								}
 							],
 							"sid": 355298167726278

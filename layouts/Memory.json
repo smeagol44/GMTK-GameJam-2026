@@ -22,7 +22,7 @@
 						"blood": 0,
 						"max_speed": 60,
 						"knockback": 150,
-						"damage": 10
+						"damage": 6
 					},
 					"behaviors": {
 						"damaged": {
@@ -108,7 +108,7 @@
 						"blood": 0,
 						"max_speed": 40,
 						"knockback": 200,
-						"damage": 10
+						"damage": 6
 					},
 					"behaviors": {
 						"damaged": {
@@ -194,7 +194,7 @@
 						"blood": 0,
 						"max_speed": 50,
 						"knockback": 150,
-						"damage": 15,
+						"damage": 10,
 						"state": 0,
 						"positioningDirection": 0
 					},
@@ -500,7 +500,7 @@
 					"sid": 774739946123358,
 					"tags": "",
 					"instanceVariables": {
-						"damage": 0,
+						"damage": 4,
 						"targetX": 0,
 						"targetY": 0,
 						"max_speed": 200

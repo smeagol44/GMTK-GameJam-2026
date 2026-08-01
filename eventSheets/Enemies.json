@@ -76,10 +76,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 671308790238137,
+									"sid": 255491264430575,
 									"parameters": {
 										"instance-variable": "blood",
-										"value": "floor(random(8+current_floor,16+current_floor*2))"
+										"value": "floor(random(8+current_floor*2,16+current_floor*3))"
 									}
 								},
 								{
@@ -110,10 +110,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 571640312891362,
+									"sid": 148881467287792,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor*2"
+										"value": "Self.damage * current_floor / 2"
 									}
 								}
 							],
@@ -137,10 +137,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 600598946048549,
+									"sid": 811795452919227,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor*2"
+										"value": "Self.damage * current_floor / 2"
 									}
 								}
 							],
@@ -164,10 +164,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 663716377042958,
+									"sid": 817872328941544,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor*2"
+										"value": "Self.damage * current_floor / 2"
 									}
 								}
 							],
@@ -191,10 +191,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 871427386202686,
+									"sid": 796256394485774,
 									"parameters": {
 										"instance-variable": "damage",
-										"value": "Self.damage + current_floor*2"
+										"value": "Self.damage * current_floor / 2"
 									}
 								}
 							],

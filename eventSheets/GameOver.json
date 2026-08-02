@@ -35,6 +35,15 @@
 						"type": "once",
 						"tag": "\"game_over\""
 					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 976256876165313,
+					"parameters": {
+						"variable": "just_game_over",
+						"value": "true"
+					}
 				}
 			],
 			"sid": 910423750196120
@@ -126,16 +135,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 606278392234418,
-					"parameters": {
-						"layout": "MainMenu"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 826297696391182,
 			"children": [
 				{
@@ -153,8 +153,12 @@
 					],
 					"actions": [
 						{
-							"callFunction": "new_game",
-							"sid": 284528801516304
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 386181116138305,
+							"parameters": {
+								"layout": "MainMenu"
+							}
 						}
 					],
 					"sid": 868423214075184
@@ -167,7 +171,7 @@
 			"conditions": [
 				{
 					"id": "on-timer",
-					"objectClass": "titleScreen",
+					"objectClass": "gameOver",
 					"sid": 507405040286933,
 					"behaviorType": "Timer",
 					"parameters": {
@@ -187,6 +191,45 @@
 				}
 			],
 			"sid": 957576034122285
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 719765945982035
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 136709517233143,
+					"parameters": {
+						"variable": "just_game_over"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 739233162727366,
+					"parameters": {
+						"variable": "touch_controls",
+						"value": "true"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 133206147178336,
+					"parameters": {
+						"layout": "MainMenu"
+					}
+				}
+			],
+			"sid": 932094821202936
 		}
 	],
 	"sid": 636452755253610

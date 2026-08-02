@@ -2311,16 +2311,6 @@
 			]
 		},
 		{
-			"eventType": "variable",
-			"name": "total_power_upgrades",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 829315498052166
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Powerups Tooltips",

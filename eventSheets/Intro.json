@@ -707,6 +707,74 @@
 				}
 			],
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 416815785732310
+				}
+			],
+			"actions": [],
+			"sid": 721142083867156,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 682218433189420,
+							"parameters": {
+								"variable": "outro"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 833973818176771,
+							"parameters": {
+								"variable": "intro"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 375097229196935,
+							"parameters": {
+								"variable": "skip",
+								"value": "true"
+							}
+						},
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 699129067195264,
+							"parameters": {
+								"mode": "stretch-letterbox-scale",
+								"navigation-ui": "auto"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 827782191904356,
+							"parameters": {
+								"variable": "touch_controls",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 303806587925005,
+					"isOrBlock": true
+				}
+			]
 		}
 	],
 	"sid": 873807298050679

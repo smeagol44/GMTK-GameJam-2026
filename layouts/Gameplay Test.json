@@ -1315,6 +1315,207 @@
 			"blendMode": "normal",
 			"zElevation": 0,
 			"global": false
+		},
+		{
+			"name": "touch",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "analog1",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 66,
+					"sid": 477444643488872,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 95,
+						"y": 270,
+						"width": 75,
+						"height": 75,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "analog2",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 67,
+					"sid": 975030757945745,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 95,
+						"y": 270,
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "button1",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 68,
+					"sid": 885459127687697,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 325,
+						"y": 300,
+						"width": 61,
+						"height": 61,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "button2",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 69,
+					"sid": 272678365146390,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 360,
+						"y": 245,
+						"width": 61,
+						"height": 61,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "button3",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 70,
+					"sid": 793310740040363,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 420,
+						"y": 220,
+						"width": 61,
+						"height": 61,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"z": 0,
+						"angle": 0
+					}
+				}
+			],
+			"sid": 606268072908793,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
 		}
 	],
 	"sid": 290615341000924,

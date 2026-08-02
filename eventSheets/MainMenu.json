@@ -230,6 +230,50 @@
 			"isOrBlock": true
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 811304457465291
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 879959730452221,
+					"parameters": {
+						"variable": "just_main_menu"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 115720861314685,
+					"parameters": {
+						"variable": "touch_controls",
+						"value": "true"
+					}
+				},
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 399514759984198,
+					"parameters": {
+						"mode": "stretch-letterbox-scale",
+						"navigation-ui": "auto"
+					}
+				},
+				{
+					"callFunction": "new_game",
+					"sid": 246405997123911
+				}
+			],
+			"sid": 568438618415821
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Timers",

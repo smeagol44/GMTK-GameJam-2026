@@ -146,6 +146,30 @@
 								"comparison": 2,
 								"value": "-analog_deadzone"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 328616571127169,
+							"parameters": {
+								"variable": "touch_left"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 795657393471664,
+							"parameters": {
+								"variable": "touch_left_down"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 679802149854839,
+							"parameters": {
+								"variable": "touch_left_up"
+							}
 						}
 					],
 					"actions": [],
@@ -303,6 +327,30 @@
 								"axis": "left-analog-x-axis",
 								"comparison": 4,
 								"value": "analog_deadzone"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 136528837179818,
+							"parameters": {
+								"variable": "touch_right"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 799756909646640,
+							"parameters": {
+								"variable": "touch_right_down"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 741240754362727,
+							"parameters": {
+								"variable": "touch_right_up"
 							}
 						}
 					],
@@ -462,6 +510,30 @@
 								"comparison": 2,
 								"value": "-analog_deadzone"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 815870275130202,
+							"parameters": {
+								"variable": "touch_up"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 133113043443569,
+							"parameters": {
+								"variable": "touch_left_up"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 209460824459832,
+							"parameters": {
+								"variable": "touch_right_up"
+							}
 						}
 					],
 					"actions": [],
@@ -620,6 +692,30 @@
 								"comparison": 4,
 								"value": "analog_deadzone"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 976546944189639,
+							"parameters": {
+								"variable": "touch_down"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 557532616980838,
+							"parameters": {
+								"variable": "touch_left_down"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 385783633040902,
+							"parameters": {
+								"variable": "touch_right_down"
+							}
 						}
 					],
 					"actions": [],
@@ -753,6 +849,14 @@
 				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 892923552191249,
+							"parameters": {
+								"object": "button1"
+							}
+						},
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
@@ -909,6 +1013,14 @@
 				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 487701321875207,
+							"parameters": {
+								"object": "button2"
+							}
+						},
 						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
@@ -1084,6 +1196,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 243885763023769,
+							"parameters": {
+								"object": "button3"
+							}
+						},
+						{
 							"id": "key-is-down",
 							"objectClass": "Keyboard",
 							"sid": 129656001549535,
@@ -1127,9 +1247,9 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 655466958125847,
+									"sid": 798072929447844,
 									"parameters": {
-										"instance-variable": "input_dash",
+										"instance-variable": "input_bite",
 										"comparison": 5,
 										"value": "HELD"
 									}
@@ -1191,9 +1311,9 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Count",
-									"sid": 743190337391061,
+									"sid": 862957592251227,
 									"parameters": {
-										"instance-variable": "input_dash",
+										"instance-variable": "input_bite",
 										"comparison": 3,
 										"value": "UNHELD"
 									}
@@ -1238,6 +1358,1104 @@
 				}
 			],
 			"sid": 416370447679335
+		},
+		{
+			"eventType": "variable",
+			"name": "touchX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 805190315304205
+		},
+		{
+			"eventType": "variable",
+			"name": "touchY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 618729396308134
+		},
+		{
+			"eventType": "variable",
+			"name": "touchAngle",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 806246308692401
+		},
+		{
+			"eventType": "variable",
+			"name": "touchMod",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 130259619089016
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_controls",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 540082156753899
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_right",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 590327906647095
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_left",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 755859432603329
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_up",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 190360142688533
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_down",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 495314244040997
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_right_up",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 522004389466655
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_right_down",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 664080264380610
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_left_down",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 161999911508934
+		},
+		{
+			"eventType": "variable",
+			"name": "touch_left_up",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 256745239810811
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Touch controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 750376281643236,
+							"parameters": {
+								"gamepad": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 135870125160919,
+							"parameters": {
+								"variable": "touch_controls",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 999903389857658
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 283308808565568
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 486354541843276,
+							"parameters": {
+								"variable": "touch_controls",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 975975950613446
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 764758004823592
+						}
+					],
+					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 318636133359755,
+							"parameters": {
+								"mode": "stretch-letterbox-scale",
+								"navigation-ui": "auto"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 180127993547043,
+							"parameters": {
+								"variable": "touch_controls",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 713438939535261
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 194236145788079,
+							"parameters": {
+								"variable": "touch_controls"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "button1",
+							"sid": 464088939213919,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "button2",
+							"sid": 333028613262866,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "button3",
+							"sid": 520799246203250,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 803924203333954
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 610068497811331
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "button1",
+							"sid": 841248275652127,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "button2",
+							"sid": 242163317458143,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "button3",
+							"sid": 165117056144993,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 233959273770535
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 608442903151150
+						}
+					],
+					"actions": [],
+					"sid": 332260667192766,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 369023329238893,
+									"parameters": {
+										"object": "button1"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 570380670387781,
+									"parameters": {
+										"object": "button2"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 266473754905821,
+									"parameters": {
+										"object": "button3"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 459678542967442,
+									"parameters": {
+										"variable": "touchMod",
+										"value": "abs(distance(analog1.X,analog1.Y,analog2.X,analog2.Y))"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 568753870254722,
+									"parameters": {
+										"variable": "touchAngle",
+										"value": "angle(analog1.X,analog1.Y,analog2.X,analog2.Y)"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "analog1",
+									"sid": 668868858505424,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "analog2",
+									"sid": 141267636590505,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "analog1",
+									"sid": 214581316865181,
+									"parameters": {
+										"x": "touchX",
+										"y": "touchY"
+									}
+								}
+							],
+							"sid": 581185910035388,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 318349377355244
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "analog2",
+											"sid": 658164268254722,
+											"parameters": {
+												"x": "analog1.X + cos(angle(analog1.X, analog1.Y, Touch.X, Touch.Y)) * min(distance(analog1.X, analog1.Y, Touch.X, Touch.Y), 25)",
+												"y": "analog1.Y + sin(angle(analog1.X, analog1.Y, Touch.X, Touch.Y)) * min(distance(analog1.X, analog1.Y, Touch.X, Touch.Y), 25)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 140199811536633,
+											"parameters": {
+												"variable": "touchAngle",
+												"value": "angle(analog1.X,analog1.Y,analog2.X,analog2.Y)"
+											}
+										}
+									],
+									"sid": 621695845223843,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 256188973523206,
+													"parameters": {
+														"first-value": "touchMod",
+														"comparison": 4,
+														"second-value": "20"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 420030308692019,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 258797102612666,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "-22.5",
+																"upper-bound": "22"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 198828750505566,
+															"parameters": {
+																"variable": "touch_right",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 196555956543939
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 449574200989453
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 451159198481778,
+															"parameters": {
+																"variable": "touch_right",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 616458602747506
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 850967666357972,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "67.5",
+																"upper-bound": "112"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 228162170290283,
+															"parameters": {
+																"variable": "touch_down",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 181731775708348
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 323353249883366
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 827704532045919,
+															"parameters": {
+																"variable": "touch_down",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 332182943456591
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 226011336067225,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "157.5",
+																"upper-bound": "180"
+															}
+														},
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 637023948659280,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "-180",
+																"upper-bound": "-157"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 645236695217601,
+															"parameters": {
+																"variable": "touch_left",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 567524979976680,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 253929710528904
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 857218212020017,
+															"parameters": {
+																"variable": "touch_left",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 440928619811592
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 585880791735733,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "-112.5",
+																"upper-bound": "-67"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 326386920710626,
+															"parameters": {
+																"variable": "touch_up",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 254823906569668
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 158049879431367
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 887531838409584,
+															"parameters": {
+																"variable": "touch_up",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 944755755502147
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 340830272730804,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "22.5",
+																"upper-bound": "67"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 899360838697772,
+															"parameters": {
+																"variable": "touch_right_down",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 460046346840991
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 773552770367956
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 967778220367717,
+															"parameters": {
+																"variable": "touch_right_down",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 173459217152112
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 884605968667227,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "112.5",
+																"upper-bound": "157"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 427036285752314,
+															"parameters": {
+																"variable": "touch_left_down",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 335477338083429
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 631077786207495
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 281986177002400,
+															"parameters": {
+																"variable": "touch_left_down",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 776368621746246
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 873529722352281,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "-157.5",
+																"upper-bound": "-112"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 580962353988852,
+															"parameters": {
+																"variable": "touch_left_up",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 578032838357004,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 778295021447417
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 225556618545064,
+															"parameters": {
+																"variable": "touch_left_up",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 877108552027416
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-between-values",
+															"objectClass": "System",
+															"sid": 923639497461167,
+															"parameters": {
+																"value": "touchAngle",
+																"lower-bound": "-67.5",
+																"upper-bound": "-22"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 256868237293877,
+															"parameters": {
+																"variable": "touch_right_up",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 813242420709332
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 795271610926270
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 827108683484189,
+															"parameters": {
+																"variable": "touch_right_up",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 912870324808592
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 670546897436021
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 554584661863966,
+													"parameters": {
+														"variable": "touch_left",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 156800156324913,
+													"parameters": {
+														"variable": "touch_right",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 900266026289449,
+													"parameters": {
+														"variable": "touch_up",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 833049468296462,
+													"parameters": {
+														"variable": "touch_down",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 946084658665231,
+													"parameters": {
+														"variable": "touch_left_down",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 297183767412706,
+													"parameters": {
+														"variable": "touch_left_up",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 128816321363072,
+													"parameters": {
+														"variable": "touch_right_down",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 660072846618465,
+													"parameters": {
+														"variable": "touch_right_up",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 728247890709148
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 229070642833709
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 599237264154087,
+							"parameters": {
+								"variable": "touch_left_down",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 327426302095146,
+							"parameters": {
+								"variable": "touch_left_up",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 770739725726866,
+							"parameters": {
+								"variable": "touch_right_down",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 608565800635589,
+							"parameters": {
+								"variable": "touch_right_up",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 799211986579084,
+							"parameters": {
+								"variable": "touchMod",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 442272051082043,
+							"parameters": {
+								"variable": "touch_left",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 102153724197511,
+							"parameters": {
+								"variable": "touch_right",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 570419781076166,
+							"parameters": {
+								"variable": "touch_up",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 209586323163446,
+							"parameters": {
+								"variable": "touch_down",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "analog1",
+							"sid": 228307879760861,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "analog2",
+							"sid": 965807032117885,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 101034616455187
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 133724189417204
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 957853271153394,
+							"parameters": {
+								"object": "button3"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 791440944632963,
+							"parameters": {
+								"object": "button2"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 972843937417794,
+							"parameters": {
+								"object": "button1"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 544905945372768,
+							"parameters": {
+								"variable": "touchX",
+								"value": "Touch.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 804654916818434,
+							"parameters": {
+								"variable": "touchY",
+								"value": "Touch.Y"
+							}
+						}
+					],
+					"sid": 164352153173461
+				}
+			],
+			"sid": 344506245671727
 		}
 	],
 	"sid": 490951336203300

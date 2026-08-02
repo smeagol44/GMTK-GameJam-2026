@@ -22,6 +22,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
@@ -66,6 +73,13 @@
 			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -226,6 +240,17 @@
 								],
 								"subfolders": [],
 								"name": "powerups"
+							},
+							{
+								"items": [
+									"analog1",
+									"analog2",
+									"button1",
+									"button2",
+									"button3"
+								],
+								"subfolders": [],
+								"name": "touch"
 							}
 						],
 						"name": "UI"
@@ -282,7 +307,9 @@
 					"JSON",
 					"Keyboard",
 					"Audio",
-					"Dictionary"
+					"Dictionary",
+					"Touch",
+					"Browser"
 				],
 				"subfolders": [
 					{
@@ -594,8 +621,8 @@
 		"zAxisScale": "regular",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-integer-scale",
-		"fullscreenQuality": "low",
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
 			0,
